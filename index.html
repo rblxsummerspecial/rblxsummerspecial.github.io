@@ -4,14 +4,349 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roblox Summer Special</title>
-    <link rel="stylesheet" href="./src/styles.css" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
     <!-- Particles.js for background effects -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script type="module" src="/src/main.ts"></script>
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Rubik', sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .banner {
+        background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+        color: white;
+        text-align: center;
+        padding: 12px 0;
+        font-weight: 700;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+
+      .banner-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .separator {
+        width: 2px;
+        height: 20px;
+        background: rgba(255,255,255,0.5);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .main-heading {
+        text-align: center;
+        font-size: 3.5rem;
+        font-weight: 900;
+        color: white;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        margin-bottom: 40px;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+
+      .countdown-container {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .countdown-container p {
+        color: white;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+
+      .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .countdown-item {
+        background: rgba(255,255,255,0.1);
+        border-radius: 15px;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+        min-width: 100px;
+      }
+
+      .countdown-item span:first-child {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: #ff6b6b;
+      }
+
+      .countdown-label {
+        display: block;
+        color: white;
+        font-weight: 500;
+        margin-top: 5px;
+      }
+
+      .video-container {
+        margin: 40px 0;
+        text-align: center;
+      }
+
+      .video-container iframe {
+        width: 100%;
+        max-width: 800px;
+        height: 450px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      }
+
+      .cta-button {
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        margin: 40px auto;
+        padding: 20px;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin: 60px 0;
+      }
+
+      .feature {
+        background: rgba(255,255,255,0.1);
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .feature:hover {
+        transform: translateY(-10px);
+        background: rgba(255,255,255,0.2);
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .feature h3 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .feature p {
+        color: rgba(255,255,255,0.8);
+        margin-bottom: 15px;
+      }
+
+      .feature-robux {
+        color: #ff6b6b;
+        font-weight: 900;
+        font-size: 1.2rem;
+      }
+
+      /* FAQ Section Styles */
+      .faq-section {
+        background: rgba(255,255,255,0.1);
+        border-radius: 20px;
+        padding: 40px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+        margin: 60px 0;
+      }
+
+      .faq-title {
+        text-align: center;
+        color: white;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .faq-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+
+      .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .faq-question:hover {
+        color: #4ecdc4;
+      }
+
+      .faq-question span:first-child {
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        flex: 1;
+        margin-right: 20px;
+      }
+
+      .faq-toggle {
+        color: #ff6b6b;
+        font-size: 1.5rem;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        min-width: 30px;
+        text-align: center;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding: 0 20px;
+      }
+
+      .faq-item.active .faq-answer {
+        padding: 0 20px 20px 20px;
+      }
+
+      .faq-answer p {
+        color: rgba(255,255,255,0.8);
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      .faq-answer ul {
+        color: rgba(255,255,255,0.8);
+        margin-left: 20px;
+        margin-bottom: 15px;
+      }
+
+      .faq-answer li {
+        margin-bottom: 8px;
+        line-height: 1.6;
+      }
+
+      .faq-answer strong {
+        color: white;
+      }
+
+      footer {
+        background: rgba(0,0,0,0.3);
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 60px;
+      }
+
+      #confetti-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1000;
+      }
+
+      @media (max-width: 768px) {
+        .main-heading {
+          font-size: 2.5rem;
+        }
+
+        .countdown {
+          gap: 15px;
+        }
+
+        .countdown-item {
+          padding: 15px;
+          min-width: 80px;
+        }
+
+        .countdown-item span:first-child {
+          font-size: 2rem;
+        }
+
+        .video-container iframe {
+          height: 250px;
+        }
+
+        .features {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .faq-section {
+          padding: 20px;
+        }
+
+        .faq-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Particles background container -->
@@ -271,8 +606,9 @@ function showTapRainOffers() {
 }
 
 window.showTapRainOffers = showTapRainOffers;
-    </script>
-    document.addEventListener('DOMContentLoaded', function() {
+
+// FAQ Functionality
+document.addEventListener('DOMContentLoaded', function() {
     // Get all FAQ items
     const faqItems = document.querySelectorAll('.faq-item');
     
@@ -301,35 +637,75 @@ window.showTapRainOffers = showTapRainOffers;
             }
         });
     });
-});
 
-// Alternative version if you prefer to allow multiple FAQs open at once:
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-        const toggle = item.querySelector('.faq-toggle');
-        
-        question.addEventListener('click', function() {
-            const isActive = item.classList.contains('active');
-            
-            if (isActive) {
-                // Close this item
-                item.classList.remove('active');
-                answer.style.maxHeight = '0';
-                toggle.textContent = '+';
-            } else {
-                // Open this item
-                item.classList.add('active');
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-                toggle.textContent = '−';
-            }
+    // Initialize particles if the library is loaded
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffffff' },
+                shape: {
+                    type: 'circle',
+                    stroke: { width: 0, color: '#000000' },
+                    polygon: { nb_sides: 5 }
+                },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 400, line_linked: { opacity: 1 } },
+                    bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 },
+                    remove: { particles_nb: 2 }
+                }
+            },
+            retina_detect: true
         });
-    });
+    }
+
+    // Countdown timer functionality
+    function updateCountdown() {
+        const now = new Date();
+        const tomorrow = new Date(now);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(0, 0, 0, 0);
+        
+        const timeLeft = tomorrow - now;
+        
+        const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+    
+    // Update countdown every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 });
-*/
-  </body>
-</html>
