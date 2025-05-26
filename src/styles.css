@@ -39,6 +39,34 @@ body {
   left: 0;
   z-index: 0;
   pointer-events: none;
+  background: transparent;
+}
+
+#particles-js canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+/* CSS Fallback particles animation */
+.css-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 160px 30px, #ffffff, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: css-particles-move 20s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes css-particles-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-200px, -100px); }
 }
 
 /* Banner Styles */
@@ -383,41 +411,22 @@ body {
 
 .faq-question {
   padding: 20px 25px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
   font-weight: 600;
   font-size: 1.1rem;
   color: var(--roblox-black);
   background-color: rgba(255, 255, 255, 0.9);
-  transition: background-color 0.3s ease;
 }
 
-.faq-question:hover {
-  background-color: rgba(255, 200, 0, 0.1);
-}
 
-.faq-toggle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--roblox-gold);
-  transition: all 0.3s ease;
-  min-width: 30px;
-  text-align: center;
-}
+
+
 
 .faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  padding: 0 25px;
-  background-color: rgba(255, 255, 255, 0.95);
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px;
+  max-height: none;
+  overflow: visible;
   padding: 20px 25px;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .faq-answer p {
@@ -595,5 +604,91 @@ footer {
 
   .faq-item.active .faq-answer {
     padding: 12px 15px;
+  }
+}
+
+/* Additional animations for JavaScript functionality */
+.animate-bounce {
+  animation: bounce 0.6s ease infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes confettiDrop {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: absolute;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* CSS-only floating particles */
+.floating-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: float-up linear infinite;
+  pointer-events: none;
+}
+
+.floating-particle:nth-child(2n) {
+  background: rgba(255, 200, 0, 0.6);
+  width: 3px;
+  height: 3px;
+}
+
+.floating-particle:nth-child(3n) {
+  background: rgba(0, 162, 255, 0.6);
+  width: 5px;
+  height: 5px;
+}
+
+.floating-particle:nth-child(4n) {
+  background: rgba(255, 107, 107, 0.6);
+  width: 2px;
+  height: 2px;
+}
+
+.floating-particle:nth-child(5n) {
+  background: rgba(46, 213, 115, 0.6);
+  width: 6px;
+  height: 6px;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px) rotate(360deg);
+    opacity: 0;
   }
 }

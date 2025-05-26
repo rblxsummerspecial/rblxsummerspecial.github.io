@@ -9,9 +9,207 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <!-- Particles.js for background effects -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script type="module" src="/src/main.ts"></script>
+    <!-- CSS-only particles background -->
+    <!-- FAQ and Interactive Scripts -->
+    <script>
+      // FAQ Functionality
+      function initializeFAQ() {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+          const question = item.querySelector('.faq-question');
+          const answer = item.querySelector('.faq-answer');
+          const toggle = item.querySelector('.faq-toggle');
+
+          if (question && answer && toggle) {
+            // Add click event to each question
+            question.addEventListener('click', function() {
+              // Check if this item is currently active
+              const isActive = item.classList.contains('active');
+
+              // Close all other FAQ items
+              faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                  otherItem.classList.remove('active');
+                  const otherToggle = otherItem.querySelector('.faq-toggle');
+                  if (otherToggle) {
+                    otherToggle.textContent = '+';
+                  }
+                }
+              });
+
+              // Toggle this item
+              if (!isActive) {
+                item.classList.add('active');
+                toggle.textContent = '−';
+              } else {
+                item.classList.remove('active');
+                toggle.textContent = '+';
+              }
+            });
+          }
+        });
+      }
+
+      // Countdown timer functionality
+      function updateCountdown() {
+        const now = new Date();
+        const tomorrow = new Date(now);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(0, 0, 0, 0);
+
+        const timeLeft = tomorrow - now;
+
+        const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+
+        if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+        if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+        if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+      }
+
+
+
+      // Create confetti animation
+      function createConfetti() {
+        const confettiContainer = document.getElementById('confetti-container');
+        if (!confettiContainer) return;
+
+        const colors = ['#FF0000', '#00A2FF', '#FFC800', '#02b84f', '#FFFFFF'];
+        const shapes = ['circle', 'square', 'triangle'];
+
+        // Create 150 pieces of confetti
+        for (let i = 0; i < 150; i++) {
+          setTimeout(function() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+
+            // Random properties
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const shape = shapes[Math.floor(Math.random() * shapes.length)];
+            const size = Math.random() * 10 + 5; // 5-15px
+            const left = Math.random() * 100; // 0-100%
+
+            // Set styles
+            confetti.style.position = 'absolute';
+            confetti.style.backgroundColor = color;
+            confetti.style.width = size + 'px';
+            confetti.style.height = size + 'px';
+            confetti.style.left = left + '%';
+            confetti.style.top = '0';
+
+            // Set shape
+            if (shape === 'circle') {
+              confetti.style.borderRadius = '50%';
+            } else if (shape === 'triangle') {
+              confetti.style.width = '0';
+              confetti.style.height = '0';
+              confetti.style.backgroundColor = 'transparent';
+              confetti.style.borderLeft = (size / 2) + 'px solid transparent';
+              confetti.style.borderRight = (size / 2) + 'px solid transparent';
+              confetti.style.borderBottom = size + 'px solid ' + color;
+            }
+
+            // Add animation
+            const duration = Math.random() * 3 + 2; // 2-5s
+            const rotationStart = Math.random() * 360;
+
+            confetti.style.animation = 'confettiDrop ' + duration + 's ease-in forwards';
+            confetti.style.transform = 'rotate(' + rotationStart + 'deg)';
+
+            // Add to container
+            confettiContainer.appendChild(confetti);
+
+            // Remove after animation
+            setTimeout(function() {
+              if (confettiContainer.contains(confetti)) {
+                confettiContainer.removeChild(confetti);
+              }
+            }, duration * 1000);
+          }, i * 10); // Stagger creation
+        }
+      }
+
+      // DOM Ready initialization
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM loaded, initializing components...");
+
+        // Initialize FAQ
+        // FAQ items are permanently visible - no toggle needed
+
+        // Set all FAQ toggles to show '−' since answers are displayed by default
+        document.querySelectorAll('.faq-toggle').forEach(function(toggle) {
+          toggle.textContent = '−';
+        });
+
+        // Add active class to all FAQ items by default
+        document.querySelectorAll('.faq-item').forEach(function(item) {
+          item.classList.add('active');
+        });
+
+        // Initialize countdown timer
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Initialize CSS-only particles background
+        console.log("Initializing CSS particles background...");
+        var particlesContainer = document.getElementById('particles-js');
+        if (particlesContainer) {
+          // Create floating particles using CSS
+          for (var i = 0; i < 50; i++) {
+            var particle = document.createElement('div');
+            particle.className = 'floating-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+          }
+          console.log("CSS particles created successfully");
+        }
+
+        // Add click handler to main CTA button
+        const ctaButton = document.querySelector('.cta-button');
+        if (ctaButton) {
+          console.log("Adding click handler to button...");
+          ctaButton.addEventListener('click', function() {
+            // Add animation class
+            ctaButton.classList.add('clicked');
+
+            // Create confetti effect
+            console.log("Creating confetti...");
+            createConfetti();
+
+            // Remove clicked class after animation
+            setTimeout(function() {
+              ctaButton.classList.remove('clicked');
+            }, 300);
+          });
+        }
+
+        // Add hover effects to features
+        const features = document.querySelectorAll('.feature');
+        features.forEach(function(feature) {
+          feature.addEventListener('mouseenter', function() {
+            const icon = feature.querySelector('.feature-icon');
+            if (icon) {
+              icon.classList.add('animate-bounce');
+            }
+          });
+
+          feature.addEventListener('mouseleave', function() {
+            const icon = feature.querySelector('.feature-icon');
+            if (icon) {
+              icon.classList.remove('animate-bounce');
+            }
+          });
+        });
+      });
+    </script>
   </head>
   <body>
     <!-- Particles background container -->
@@ -83,20 +281,18 @@
       <div class="faq-section">
         <h2 class="faq-title">Frequently Asked Questions</h2>
 
-        <div class="faq-item">
+        <div class="faq-item active">
           <div class="faq-question">
             <span>How does the free Robux system work?</span>
-            <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>Our system partners with advertisers and game developers to reward you for completing simple tasks. When you download apps, complete surveys, or make purchases, we receive compensation from our partners, which we share with you in the form of free Robux!</p>
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item active">
           <div class="faq-question">
             <span>How long does it take to receive my Robux?</span>
-            <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>Robux delivery times vary by offer type:</p>
@@ -109,40 +305,36 @@
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item active">
           <div class="faq-question">
             <span>Is this really free? Are there any hidden costs?</span>
-            <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>Yes, earning Robux through our platform is completely free! There are no hidden fees, subscriptions, or costs. The only "purchase" offers are optional and give you bonus Robux on top of what you normally buy on Roblox.</p>
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item active">
           <div class="faq-question">
             <span>How do I connect my Roblox account?</span>
-            <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>It's super simple! After clicking "Get Free Robux Now" and completing the verification process, all you need to do is join our official Roblox group. Once you're in the group, our system will automatically detect your account and start crediting your earned Robux directly to your profile.</p>
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item active">
           <div class="faq-question">
             <span>What if I don't receive my Robux?</span>
-            <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>If you don't receive your Robux within the expected timeframe, contact our 24/7 support team with your offer completion details. We guarantee all legitimate completions will be rewarded within 48 hours or we'll manually credit your account.</p>
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item active">
           <div class="faq-question">
             <span>Are there daily limits on how much Robux I can earn?</span>
-            <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>During our Summer Special, there are no daily limits! You can complete as many offers as available and earn unlimited Robux. After the promotion ends, standard limits of 2,500 Robux per day will apply.</p>
