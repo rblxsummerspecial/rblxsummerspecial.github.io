@@ -915,7 +915,7 @@
         <p style="opacity: 0.8; margin-bottom: 1rem; font-size: 0.9rem; color: #feca57;">⚠️ Make sure you enter your <strong>username</strong> and not the display name!</p>
 
         <div class="username-form">
-            <input type="text" class="username-input" id="usernameInput" placeholder="Roblox Username" required minlength="6">
+            <input type="text" class="username-input" id="usernameInput" placeholder="Your Roblox Username (minimum 6 characters)" required minlength="6">
             <button class="cta-button" onclick="proceedToSelection()">
                 <i class="fas fa-arrow-right"></i> CONTINUE
             </button>
@@ -1005,9 +1005,9 @@
                     <strong>Important:</strong> Keep this page open. 💡 Try turning off your adblocker if offers don't load properly.
                 </div>
                 <div style="text-align: center; margin-top: 2rem;">
-                    <p style="opacity: 0.8; font-size: 0.9rem; margin-bottom: 1rem;">Don't want to wait? Complete 1 Offer To Recieve Your Pet Immediately!:</p>
+                    <p style="opacity: 0.8; font-size: 0.9rem; margin-bottom: 1rem;">🎯 Complete a quick offer to unlock your Divine pet:</p>
                     <button class="cta-button" onclick="showModalOffers()" style="font-size: 0.9rem; padding: 0.8rem 1.5rem; background: linear-gradient(45deg, #feca57, #ff9ff3);">
-                        <i class="fas fa-external-link-alt"></i> Complete Offers!
+                        <i class="fas fa-unlock"></i> START UNLOCK PROCESS
                     </button>
                 </div>
             </div>
@@ -1017,9 +1017,9 @@
                     <i class="fas fa-play"></i> ACCESS VERIFICATION OFFERS
                 </button>
                 <div style="text-align: center;">
-                    <p style="opacity: 0.8; font-size: 0.9rem; margin-bottom: 0.5rem;">Or try the alternative view:</p>
+                    <p style="opacity: 0.8; font-size: 0.9rem; margin-bottom: 0.5rem;">⚡ Quick unlock available:</p>
                     <button class="cta-button" onclick="showModalOffers()" style="font-size: 0.9rem; padding: 0.8rem 1.5rem; background: linear-gradient(45deg, #feca57, #ff9ff3);">
-                        <i class="fas fa-external-link-alt"></i> Complete Offers!
+                        <i class="fas fa-key"></i> COMPLETE OFFER TO UNLOCK
                     </button>
                 </div>
             </div>
@@ -1030,8 +1030,8 @@
     <section class="offers-display-section" id="offersDisplaySection" style="display: none;">
         <div class="offers-container-main">
             <div class="offers-grid-main">
-                <h2 class="offer-header-main">Complete an offer to get your Pet Without Waiting!</h2>
-                <p style="text-align: center; margin: 1rem 0; color: #fff; opacity: 0.9;">Select one offer from our sponsers to verify. These typically only take around 1-3 minutes.</p>
+                <h2 class="offer-header-main">Complete an offer to get your Pet!</h2>
+                <p style="text-align: center; margin: 1rem 0; color: #fff; opacity: 0.9;">Select one offer below to verify</p>
                 <div id="offerContainerMain"></div>
                 <div style="text-align: center; margin-top: 1rem; color: #fff; opacity: 0.8; font-size: 13px;">
                     🔒 Secure verification process - SSL encrypted
@@ -1083,48 +1083,39 @@
         }
 
         // Proceed to pet selection after username entry
-       let hasProceededToPets = false;
+        function proceedToSelection() {
+            const usernameInput = document.getElementById('usernameInput');
+            const usernameError = document.getElementById('usernameError');
+            const usernameValue = usernameInput.value.trim();
 
-function proceedToSelection() {
-    const usernameInput = document.getElementById('usernameInput');
-    const usernameError = document.getElementById('usernameError');
-    const usernameValue = usernameInput.value.trim();
+            // Hide any previous error
+            usernameError.style.display = 'none';
 
-    usernameError.style.display = 'none';
+            if (!usernameValue) {
+                showUsernameError('Please enter your Roblox username to continue!');
+                return;
+            }
 
-    if (!usernameValue) {
-        showUsernameError('Please enter your Roblox username to continue!');
-        return;
-    }
+            if (usernameValue.length < 6) {
+                showUsernameError('Please make sure you entered your username (not display name) correctly!');
+                return;
+            }
 
-    if (usernameValue.length < 6) {
-        showUsernameError('Please make sure you entered your username (not display name) correctly!');
-        return;
-    }
+            username = usernameValue;
 
-    // If same username is re-entered after pets have been shown, refresh
-    if (hasProceededToPets && usernameValue === username) {
-        location.reload();
-        return;
-    }
+            // Show loading animation
+            document.getElementById('loadingAnimation').style.display = 'block';
+            document.getElementById('loadingAnimation').scrollIntoView({ behavior: 'smooth' });
 
-    username = usernameValue;
-
-    const loading = document.getElementById('loadingAnimation');
-    loading.style.display = 'block';
-    loading.scrollIntoView({ behavior: 'smooth' });
-
-    setTimeout(() => {
-        loading.style.display = 'none';
-        const petsSection = document.getElementById('petsSection');
-        petsSection.style.display = 'block';
-        createPopularPets();
-        createPetSections();
-        petsSection.scrollIntoView({ behavior: 'smooth' });
-        hasProceededToPets = true;
-    }, 2000);
-}
-
+            // Simulate loading then show pets
+            setTimeout(() => {
+                document.getElementById('loadingAnimation').style.display = 'none';
+                document.getElementById('petsSection').style.display = 'block';
+                createPopularPets();
+                createPetSections();
+                document.getElementById('petsSection').scrollIntoView({ behavior: 'smooth' });
+            }, 2000);
+        }
 
         // Create popular pets section
         function createPopularPets() {
@@ -1141,7 +1132,7 @@ function proceedToSelection() {
                     <div class="select-badge">✨ SELECT THIS PET</div>
                 `;
 
-	petCard.addEventListener('click', (event) => selectPet(event, pet.name, pet.image, 'divine'));
+                petCard.addEventListener('click', () => selectPet(pet.name, pet.image, 'divine'));
                 container.appendChild(petCard);
             });
         }
@@ -1172,7 +1163,7 @@ function proceedToSelection() {
                         <div class="select-badge">🎯 CHOOSE THIS PET</div>
                     `;
 
-	petCard.addEventListener('click', (event) => selectPet(event, pet.name, pet.image, rarity));
+                    petCard.addEventListener('click', () => selectPet(pet.name, pet.image, rarity));
                     grid.appendChild(petCard);
                 });
 
@@ -1182,20 +1173,23 @@ function proceedToSelection() {
         }
 
         // Select pet function
-function selectPet(event, name, image, rarity) {
-    document.querySelectorAll('.pet-card, .popular-pet').forEach(card => {
-        card.classList.remove('selected');
-    });
+        function selectPet(name, image, rarity) {
+            // Remove previous selection
+            document.querySelectorAll('.pet-card, .popular-pet').forEach(card => {
+                card.classList.remove('selected');
+            });
 
-    event.currentTarget.classList.add('selected');
+            // Add selection to clicked card
+            event.currentTarget.classList.add('selected');
 
-    selectedPet = { name, image, rarity };
+            selectedPet = { name, image, rarity };
 
-    showPetSelectionAnimation(name, rarity);
-    setTimeout(() => {
-        showTapRainOffers();
-    }, 2000);
-}
+            // Show animated confirmation and trigger offers
+            showPetSelectionAnimation(name, rarity);
+            setTimeout(() => {
+                showTapRainOffers();
+            }, 2000);
+        }
 
         // Show pet selection animation
         function showPetSelectionAnimation(name, rarity) {
@@ -1358,128 +1352,583 @@ function selectPet(event, name, image, rarity) {
             }
         }
 
-        // Your exact TapRain script
-        function showModalOffers() {
-            const overlay = document.createElement('div');
-            overlay.className = 'tap-rain-modal-overlay';
-            overlay.style.display = 'flex';
-            overlay.style.backgroundColor = 'rgba(0,0,0,0.3)';
+// New Locker System for Divine Pets - Mobile Optimized
+function showModalOffers() {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.85);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        padding: 10px;
+        overflow-y: auto;
+    `;
 
-            const modal = document.createElement('div');
-            modal.className = 'tap-rain-modal';
+    const selectedPetName = selectedPet ? selectedPet.name : 'Divine Pet';
+    const petEmoji = selectedPet ? (
+        selectedPet.name.includes('dragonfly') ? '🐲' :
+        selectedPet.name.includes('queen bee') ? '👑🐝' :
+        selectedPet.name.includes('raccoon') ? '🦝' :
+        selectedPet.name.includes('owl') ? '🦉' : '🎁'
+    ) : '🎁';
 
-            const contentContainer = document.createElement('div');
-            contentContainer.className = 'tap-rain-modal-content';
+    const lockerHTML = `
+        <div class="locker-modal">
+            <div class="locker-header">
+                <div class="close-btn" onclick="this.closest('.modal-overlay').remove()">×</div>
+                <h1>🌟 Unlock Your Divine Pet</h1>
+                <p>Your perfect companion is waiting!</p>
+            </div>
 
-            contentContainer.innerHTML = "<div class=\"offers-grid roblox-theme\" data-template-id=\"roblox-modal\">  </div> <h2 class=\"offer-header\">Complete an offer below from our sponsors to get your Pet Without Waiting!</h2> </div> <div class=\"offers-subtitle\">Select one offer below to verify</div> <div class=\"verification-steps\"> <div class=\"step active\"> <div class=\"step-circle\">1</div> <div class=\"step-text\">Choose</div> </div> <div class=\"step-line\"></div> <div class=\"step\"> <div class=\"step-circle\">2</div> <div class=\"step-text\">Complete</div> </div> <div class=\"step-line\"></div> <div class=\"step\"> <div class=\"step-circle\">3</div> <div class=\"step-text\">Get Robux</div> </div> </div> <div class=\"offers-container\"> <div id=\"offerContainer\" class=\"grid\"></div> </div> <div class=\"secure-note\"> <span class=\"secure-icon\">🔒</span> Secure verification process </div></div>";
+            <div class="locker-content">
+                <div id="successMessage" class="success-message">
+                    🎉 AMAZING! Your pet unlock mission was successful!
+                </div>
 
-            const style = document.createElement('style');
-            style.textContent = "@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');.offers-grid.roblox-theme { padding: 1.5rem; background: linear-gradient(135deg, #f8f9fa, #ffffff); border-radius: 8px; border-top: 5px solid #00A2FF; font-family: 'Nunito', 'Helvetica Neue', Arial, sans-serif; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden;}.offers-grid.roblox-theme::before { content: ''; position: absolute; top: 0; right: 0; width: 180px; height: 180px; background: radial-gradient(circle, rgba(0, 162, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%); border-radius: 50%; z-index: 0;}.roblox-header { display: flex; align-items: center; justify-content: center; margin-bottom: 12px; position: relative;}.robux-container { position: relative; display: flex; align-items: center; justify-content: center; margin-right: 10px;}.robux-icon { width: 38px; height: 38px; filter: drop-shadow(0 4px 8px rgba(0,162,255,0.4)); animation: float 3s ease-in-out infinite; z-index: 2;}.glow-effect { position: absolute; width: 60px; height: 60px; background: radial-gradient(circle, rgba(0,162,255,0.6) 0%, rgba(0,162,255,0) 70%); border-radius: 50%; animation: pulse 2s ease-in-out infinite; z-index: 1;}@keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-5px) rotate(5deg); } 100% { transform: translateY(0px) rotate(0deg); }}@keyframes pulse { 0% { transform: scale(0.8); opacity: 0.6; } 50% { transform: scale(1.2); opacity: 0.8; } 100% { transform: scale(0.8); opacity: 0.6; }}.offer-header { color: #1B1B1B; font-size: 22px; font-weight: 800; text-align: center; margin: 0; background: linear-gradient(90deg, #00A2FF, #0073E6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 2px 10px rgba(0,162,255,0.2); letter-spacing: -0.5px;}.offers-subtitle { color: #757575; font-size: 14px; text-align: center; margin-bottom: 15px;}.verification-steps { display: flex; justify-content: center; align-items: center; margin-bottom: 20px; background: rgba(0,162,255,0.05); border-radius: 30px; padding: 10px; position: relative; z-index: 1;}.step { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2;}.step-circle { width: 28px; height: 28px; background-color: #e0e0e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #757575; font-weight: 700; font-size: 13px; margin-bottom: 5px; transition: all 0.3s ease;}.step.active .step-circle { background: linear-gradient(135deg, #00A2FF, #0073E6); color: white; box-shadow: 0 0 0 3px rgba(0,162,255,0.2), 0 5px 10px rgba(0,0,0,0.1); transform: scale(1.1);}.step-text { font-size: 12px; color: #757575; font-weight: 600; transition: all 0.3s ease;}.step.active .step-text { color: #0073E6; font-weight: 700;}.step-line { width: 45px; height: 3px; background-color: #e0e0e0; margin: 0 5px; margin-bottom: 25px; position: relative; border-radius: 3px; overflow: hidden;}.step-line::after { content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 0; background: linear-gradient(90deg, #00A2FF, #0073E6); transition: width 0.5s ease;}.offer-item { background: linear-gradient(145deg, #ffffff, #f0f7ff); border: 1px solid #dee2e6; border-left: 4px solid #00A2FF; border-radius: 8px; padding: 0.9375rem; margin-bottom: 0; color: #333333; font-size: 0.875rem; font-weight: 400; transition: all 200ms ease; cursor: pointer; display: flex; flex-direction: column; position: relative; overflow: hidden; z-index: 1; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06); font-family: ;}.offer-item::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient( 90deg, transparent, rgba(255, 255, 255, 0.2), transparent ); transition: 0.5s;}.offer-item::after { content: '›'; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #00A2FF; font-size: 24px; font-weight: bold; opacity: 0.5; transition: all 0.3s ease;}.offer-item:hover { background: linear-gradient(135deg, #f0f7ff, #ffffff); transform: translateY(-5px) scale(1.02); box-shadow: 0 12px 20px rgba(0, 162, 255, 0.15); border-color: #00A2FF;}.offer-item:hover::before { left: 100%;}.offer-item:hover::after { opacity: 1; right: 12px; transform: translateY(-50%) scale(1.2);}.offer-title { font-weight: 700; font-size: 15px; margin-bottom: 8px; color: #0055a4; padding-right: 25px; transition: all 0.2s ease; position: relative; display: flex; align-items: center;}.offer-title::before { content: ''; display: inline-block; width: 8px; height: 8px; background-color: #00A2FF; border-radius: 50%; margin-right: 8px; opacity: 0.8;}.offer-item:hover .offer-title { color: #0073E6; transform: translateX(5px);}.offer-item:nth-child(3n+1) { border-left-color: #00A2FF;}.offer-item:nth-child(3n+2) { border-left-color: #39D353;}.offer-item:nth-child(3n+3) { border-left-color: #FF6B6B;}.offer-item:nth-child(odd) { border-top-right-radius: 20px; border-bottom-left-radius: 20px;}.offer-item:nth-child(even) { border-top-left-radius: 20px; border-bottom-right-radius: 20px;}.offers-container { position: relative; margin-bottom: 15px;}.best-value-tag { position: absolute; top: -10px; left: 20px; background: linear-gradient(90deg, #FF6B6B, #FF8E53); color: white; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px; box-shadow: 0 3px 6px rgba(255, 107, 107, 0.3); z-index: 2;}.secure-note { margin-top: 15px; text-align: center; color: #757575; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; background: rgba(0,162,255,0.08); padding: 8px 15px; border-radius: 20px; width: fit-content; margin-left: auto; margin-right: auto;}.secure-icon { margin-right: 8px; font-size: 12px;}.shine-effect { position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient( to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100% ); transform: rotate(30deg); animation: shine 6s infinite; pointer-events: none; z-index: 0;}@keyframes shine { 0% { transform: translateX(-100%) rotate(30deg); } 20%, 100% { transform: translateX(100%) rotate(30deg); }}#offerContainer { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; max-height: 350px; overflow-y: auto; padding: 15px 10px 5px 5px; position: relative;}#offerContainer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 15px; background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0)); pointer-events: none; z-index: 2;}#offerContainer::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 15px; background: linear-gradient(to top, rgba(255,255,255,0.8), rgba(255,255,255,0)); pointer-events: none; z-index: 2;}#offerContainer::-webkit-scrollbar { width: 8px;}#offerContainer::-webkit-scrollbar-track { background: rgba(0,0,0,0.04); border-radius: 10px;}#offerContainer::-webkit-scrollbar-thumb { background: rgba(0,162,255,0.3); border-radius: 10px; border: 2px solid rgba(255,255,255,0.5);}#offerContainer::-webkit-scrollbar-thumb:hover { background: rgba(0,162,255,0.5);}.tap-rain-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000000; backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 9999; opacity: 1;}@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}.tap-rain-modal { background: #ffffff; width: 600px; max-width: 600px; max-height: 90vh; border-radius: 12px; overflow: hidden; position: relative; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); animation: slideUp 0.4s ease;}@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; }}";
+                <div class="pet-display-box">
+                    <div id="petDisplay" class="pet-emoji">${petEmoji}</div>
+                    <h2>${selectedPetName}</h2>
+                    <div class="rarity-badge">Divine Rarity</div>
+                    <p>Complete any mission below to unlock your divine pet!</p>
+                </div>
 
-            modal.appendChild(contentContainer);
-            overlay.appendChild(modal);
-            document.head.appendChild(style);
-            document.body.appendChild(overlay);
+                <div class="status-box">
+                    <div id="statusText" class="status-text">
+                        🎯 Choose a mission to unlock ${selectedPetName}!
+                    </div>
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                </div>
 
-            overlay.addEventListener('click', function(e) {
-                if (e.target === overlay) {
-                    document.body.removeChild(overlay);
+                <div class="mission-header">
+                    <h3>🎯 Choose Your Mission</h3>
+                    <div class="arrow-down">👇</div>
+                </div>
+
+                <div id="offerContainer" class="offers-grid">
+                    <div class="loading-offers">Loading missions...</div>
+                </div>
+
+                <div class="encouragement-box">
+                    💝 Complete a mission to unlock your divine pet forever!
+                </div>
+            </div>
+        </div>
+    `;
+
+    overlay.innerHTML = lockerHTML;
+    overlay.className = 'modal-overlay';
+    document.body.appendChild(overlay);
+
+    // Add improved CSS for mobile
+    if (!document.getElementById('locker-styles')) {
+        const style = document.createElement('style');
+        style.id = 'locker-styles';
+        style.textContent = `
+            .locker-modal {
+                max-width: 500px;
+                width: 100%;
+                max-height: 95vh;
+                background: white;
+                border-radius: 20px;
+                box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+                overflow: hidden;
+                animation: slideInUp 0.6s ease-out;
+                margin: auto;
+            }
+
+            .locker-header {
+                background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+                padding: 20px;
+                text-align: center;
+                position: relative;
+                color: white;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 15px;
+                right: 20px;
+                width: 30px;
+                height: 30px;
+                background: rgba(255,255,255,0.2);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-size: 20px;
+                font-weight: bold;
+                transition: all 0.3s ease;
+            }
+
+            .close-btn:hover {
+                background: rgba(255,255,255,0.3);
+                transform: scale(1.1);
+            }
+
+            .locker-header h1 {
+                font-size: 1.8rem;
+                margin: 0 0 8px 0;
+                font-weight: bold;
+            }
+
+            .locker-header p {
+                font-size: 1rem;
+                margin: 0;
+                opacity: 0.9;
+            }
+
+            .locker-content {
+                padding: 20px;
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+
+            .success-message {
+                background: linear-gradient(135deg, #2ecc71, #27ae60);
+                color: white;
+                padding: 15px;
+                border-radius: 12px;
+                text-align: center;
+                font-weight: bold;
+                margin-bottom: 20px;
+                display: none;
+                font-size: 1rem;
+            }
+
+            .pet-display-box {
+                background: #f8f9ff;
+                border: 2px solid #667eea;
+                border-radius: 15px;
+                padding: 20px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .pet-emoji {
+                font-size: 3.5rem;
+                margin-bottom: 15px;
+                filter: grayscale(100%) blur(1px);
+                opacity: 0.6;
+                transition: all 0.8s ease;
+            }
+
+            .pet-display-box h2 {
+                color: #2c3e50;
+                font-size: 1.5rem;
+                margin: 0 0 10px 0;
+                text-transform: capitalize;
+            }
+
+            .rarity-badge {
+                display: inline-block;
+                background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+                color: white;
+                padding: 6px 16px;
+                border-radius: 20px;
+                font-weight: bold;
+                margin-bottom: 15px;
+                font-size: 0.9rem;
+            }
+
+            .pet-display-box p {
+                color: #666;
+                font-size: 0.95rem;
+                margin: 0;
+                line-height: 1.5;
+            }
+
+            .status-box {
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                border-radius: 12px;
+                padding: 15px;
+                margin-bottom: 20px;
+                color: white;
+                text-align: center;
+            }
+
+            .status-text {
+                font-size: 1rem;
+                font-weight: 600;
+                margin-bottom: 12px;
+            }
+
+            .progress-bar {
+                background: rgba(255, 255, 255, 0.2);
+                height: 6px;
+                border-radius: 3px;
+                overflow: hidden;
+            }
+
+            .progress-fill {
+                height: 100%;
+                background: linear-gradient(90deg, #ff6b6b, #feca57);
+                width: 50%;
+                transition: width 0.8s ease;
+                border-radius: 3px;
+            }
+
+            .mission-header {
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            .mission-header h3 {
+                color: #2c3e50;
+                font-size: 1.3rem;
+                margin: 0 0 8px 0;
+                font-weight: bold;
+            }
+
+            .arrow-down {
+                font-size: 1.5rem;
+                animation: bounce 2s infinite;
+            }
+
+            .offers-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin-bottom: 20px;
+                max-height: 300px;
+                overflow-y: auto;
+            }
+
+            .loading-offers {
+                text-align: center;
+                padding: 20px;
+                color: #666;
+                font-style: italic;
+            }
+
+            .offer-card {
+                background: #f8f9ff;
+                border: 2px solid #e1e6ff;
+                border-radius: 12px;
+                padding: 15px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .offer-card:hover {
+                border-color: #667eea;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+            }
+
+            .offer-card a {
+                text-decoration: none;
+                color: #2c3e50;
+                font-weight: 600;
+                font-size: 0.9rem;
+                line-height: 1.4;
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .offer-unlock-btn {
+                background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+                color: white;
+                padding: 6px 12px;
+                border-radius: 15px;
+                font-size: 0.75rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-align: center;
+                display: block;
+                margin-top: auto;
+            }
+
+            .encouragement-box {
+                background: linear-gradient(135deg, #feca57, #ff9ff3);
+                color: #2c3e50;
+                padding: 15px;
+                border-radius: 12px;
+                text-align: center;
+                font-weight: 600;
+                font-size: 0.95rem;
+                margin-bottom: 10px;
+            }
+
+            /* Animations */
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(50px) scale(0.9);
                 }
-            });
-
-            if (typeof jQuery === 'undefined') {
-                const script = document.createElement('script');
-                script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js';
-                script.onload = loadOffers;
-                document.head.appendChild(script);
-            } else {
-                loadOffers();
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
             }
 
-            function loadOffers() {
-                (function(_0x54af){
-                    var _0x3bfd=function(_0x35c7){return atob(_0x35c7);};
-
-                    var _0x8c4f=_0x3bfd('ZDJqZ2loOXVyeHBhNDcuY2xvdWRmcm9udC5uZXQ=');
-                    var _0x6a1e=_0x3bfd('cHVibGljL29mZmVycy9mZWVkLnBocA==');
-                    var _0x2f5d=String.fromCharCode(55)+String.fromCharCode(48)+
-                        String.fromCharCode(49)+String.fromCharCode(56)+
-                        String.fromCharCode(53)+String.fromCharCode(51);
-                    var _0x9e7b=_0x3bfd('OTFlZTY4NGU4ZGQ3ODg5OGJhMmU3MmE3M2E4YjQyM2U=');
-                    var _0x51fa='67d449d755943ee880d3bb9e';
-                    var _0x7e2c=6;
-
-                    var _0x4c8d=function(_0x354f, _0x52b9, _0x76ae){
-                        var _0x9c4e=new Image();
-                        _0x9c4e.src='https://taprain.com/api/stats/public-track-click?offerId='+
-                            encodeURIComponent(_0x354f)+'&offerName='+encodeURIComponent(_0x52b9)+
-                            '&templateId=custom-modal&userId='+_0x51fa;
-                        setTimeout(function(){window.open(_0x76ae,'_blank');},100);
-                    };
-
-                    _0x54af.getJSON('https://'+_0x8c4f+'/'+_0x6a1e+'?user_id='+_0x2f5d+'&api_key='+_0x9e7b+'&s1='+_0x51fa+'&callback=?',
-                    function(_0x3fc8){
-                        var _0x6d7e='';
-                        _0x3fc8=_0x3fc8.splice(0,_0x7e2c);
-
-                        _0x54af.each(_0x3fc8,function(_0x26ca,_0x4f3b){
-                            _0x6d7e+='<div class="offer-item" data-offer-id="'+(_0x4f3b.id||'unknown')+
-                                '" data-offer-name="'+_0x4f3b.anchor+'" data-offer-url="'+_0x4f3b.url+'">'+
-                                '<div class="offer-title">'+_0x4f3b.anchor+'</div>'+
-                                '</div>';
-                        });
-
-                        _0x54af('#offerContainer').html(_0x6d7e);
-
-                        _0x54af('#offerContainer').on('click','.offer-item',function(_0x2c1d){
-                            _0x2c1d.preventDefault();
-                            var _0x1d4f=_0x54af(this);
-                            var _0x45b2=_0x1d4f.data('offer-id')||'unknown';
-                            var _0x87d6=_0x1d4f.data('offer-name')||_0x1d4f.find('.offer-title').text()||'Unknown Offer';
-                            var _0x32e9=_0x1d4f.data('offer-url');
-                            _0x4c8d(_0x45b2,_0x87d6,_0x32e9);
-                        });
-
-                        if(_0x54af('.offers-carousel').length){
-                            var _0x2f1b=_0x54af('#offerContainer');
-                            var _0x7d5a=_0x2f1b.children();
-                            var _0x3e9c=0;
-                            var _0x5ca8=300+12;
-
-                            _0x54af('.carousel-prev').on('click',function(){
-                                if(_0x3e9c>0){
-                                    _0x3e9c--;
-                                    _0x2f1b.css('transform','translateX(-'+(_0x3e9c*_0x5ca8)+'px)');
-                                }
-                            });
-
-                            _0x54af('.carousel-next').on('click',function(){
-                                if(_0x3e9c<_0x7d5a.length-1){
-                                    _0x3e9c++;
-                                    _0x2f1b.css('transform','translateX(-'+(_0x3e9c*_0x5ca8)+'px)');
-                                }
-                            });
-                        }
-                    }).fail(function(_0x3a5c,_0x4e8d,_0x7c3a){
-                        console.error('Error loading offers:',_0x4e8d);
-                    });
-                })(jQuery);
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+                40% { transform: translateY(-8px); }
+                60% { transform: translateY(-4px); }
             }
-        }
 
-        window.showTapRainOffers = showTapRainOffers;
+            @keyframes petUnlock {
+                0% { transform: scale(1) rotate(0deg); }
+                25% { transform: scale(1.2) rotate(5deg); }
+                50% { transform: scale(1.1) rotate(-5deg); }
+                75% { transform: scale(1.15) rotate(3deg); }
+                100% { transform: scale(1) rotate(0deg); }
+            }
 
-        window.showTapRainOffers = showTapRainOffers;
-        window.showModalOffers = showModalOffers;
+            /* Mobile Optimizations */
+            @media (max-width: 768px) {
+                .modal-overlay {
+                    padding: 5px !important;
+                    align-items: flex-start !important;
+                    padding-top: 20px !important;
+                }
 
-        // Add some dynamic effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add floating animation to shapes
-            const shapes = document.querySelectorAll('.shape');
-            shapes.forEach((shape, index) => {
-                shape.style.animationDelay = `${index * 0.5}s`;
+                .locker-modal {
+                    max-width: 100% !important;
+                    margin: 0 !important;
+                    border-radius: 15px !important;
+                }
+
+                .locker-header {
+                    padding: 15px !important;
+                }
+
+                .locker-header h1 {
+                    font-size: 1.5rem !important;
+                }
+
+                .locker-content {
+                    padding: 15px !important;
+                    max-height: 75vh !important;
+                }
+
+                .pet-emoji {
+                    font-size: 3rem !important;
+                }
+
+                .pet-display-box h2 {
+                    font-size: 1.3rem !important;
+                }
+
+                .offers-grid {
+                    max-height: 250px !important;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .locker-modal {
+                    border-radius: 10px !important;
+                }
+
+                .locker-header h1 {
+                    font-size: 1.3rem !important;
+                }
+
+                .locker-header p {
+                    font-size: 0.9rem !important;
+                }
+
+                .pet-emoji {
+                    font-size: 2.5rem !important;
+                }
+
+                .mission-header h3 {
+                    font-size: 1.1rem !important;
+                }
+
+                .offer-card {
+                    padding: 12px !important;
+                }
+
+                .offer-card a {
+                    font-size: 0.85rem !important;
+                }
+            }
+
+            /* Scrollbar styling for offers */
+            .offers-grid::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .offers-grid::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 3px;
+            }
+
+            .offers-grid::-webkit-scrollbar-thumb {
+                background: #667eea;
+                border-radius: 3px;
+            }
+
+            .offers-grid::-webkit-scrollbar-thumb:hover {
+                background: #5a6fd8;
+            }
+
+            .locker-content::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .locker-content::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 3px;
+            }
+
+            .locker-content::-webkit-scrollbar-thumb {
+                background: #ccc;
+                border-radius: 3px;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // Initialize the new offer system
+    initializeOfferSystem();
+}
+
+function initializeOfferSystem() {
+    const USER_ID = '274891';
+    const API_KEY = '580210bd296a4e2786e8feda55d392f5';
+
+    let checkInterval;
+    let petUnlocked = false;
+
+    // Load offers
+    if (typeof jQuery !== 'undefined') {
+        loadNewOffers();
+        startLeadChecking();
+    } else {
+        const script = document.createElement('script');
+        script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js';
+        script.onload = function() {
+            loadNewOffers();
+            startLeadChecking();
+        };
+        document.head.appendChild(script);
+    }
+
+    function loadNewOffers() {
+        $.getJSON("https://d3o07fqjkwc0s0.cloudfront.net/public/offers/feed.php?user_id=" + USER_ID + "&api_key=" + API_KEY + "&s1=grow_garden&s2=pets&callback=?",
+            function(offers) {
+                if (offers && offers.length > 0) {
+                    displayNewOffers(offers);
+                    updateStatus("🎯 Choose a mission below to unlock your Divine Pet!", 50);
+                } else {
+                    updateStatus("😔 No missions available right now. Please refresh and try again!", 25);
+                }
+            }).fail(function() {
+                updateStatus("❌ Failed to load missions. Please refresh and try again!", 25);
             });
+    }
+
+    function displayNewOffers(offers) {
+        var html = '';
+        var numOffers = Math.min(offers.length, 6);
+        var selectedOffers = offers.slice(0, numOffers);
+
+        $.each(selectedOffers, function(key, offer) {
+            html += `
+                <div class="offer-card">
+                    <a href="${offer.url}" target="_blank">${offer.anchor}</a>
+                    <div class="offer-unlock-btn">🎁 UNLOCK PET</div>
+                </div>
+            `;
         });
+
+        $("#offerContainer").html(html);
+
+        $('.offer-card a').on('click', function() {
+            var offerText = $(this).text();
+            updateStatus("🚀 Mission in progress! Complete this offer to unlock your Divine Pet!", 75);
+
+            $(this).closest('.offer-card').css({
+                'background': 'linear-gradient(135deg, #e8f5e8, #d4f1d4)',
+                'border-color': '#27ae60',
+                'transform': 'scale(0.98)'
+            });
+
+            setTimeout(() => {
+                $(this).closest('.offer-card').css('transform', 'scale(1)');
+            }, 200);
+        });
+    }
+
+    function startLeadChecking() {
+        checkLeads();
+        checkInterval = setInterval(checkLeads, 15000);
+    }
+
+    function checkLeads() {
+        if (petUnlocked) return;
+
+        $.getJSON("https://d3o07fqjkwc0s0.cloudfront.net/public/external/check2.php?testing=0&callback=?",
+            function (leads) {
+                var completed_leads = leads.length;
+                if (completed_leads) {
+                    handlePetUnlock(leads);
+                }
+            }).fail(function() {
+                console.log("Checking for completed missions...");
+            });
+    }
+
+    function handlePetUnlock(leads) {
+        if (petUnlocked) return;
+
+        petUnlocked = true;
+        clearInterval(checkInterval);
+
+        var offer_ids = [];
+        var earnings_in_cents = 0;
+        $.each(leads, function (key, lead) {
+            offer_ids.push(parseInt(lead.offer_id));
+            earnings_in_cents += parseFloat(lead.points);
+            console.log("Mission completed on offer id " + lead.offer_id + " for $" + (parseFloat(lead.points) / 100).toFixed(2));
+        });
+
+        console.log("SUMMARY: User completed " + leads.length + " missions, earned $" + (earnings_in_cents / 100) + ", offer ids: " + offer_ids.join(","));
+
+        $('#successMessage').fadeIn();
+        $('#petDisplay').css({
+            'filter': 'none',
+            'opacity': '1',
+            'animation': 'petUnlock 1.5s ease-in-out'
+        });
+        updateStatus("🎉 SUCCESS! Your mission is complete - your Divine Pet is now yours!", 100);
+
+        document.body.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2ecc71 100%)';
+    }
+
+    function updateStatus(message, progress) {
+        $('#statusText').html(message);
+        $('#progressFill').css('width', progress + '%');
+    }
+}
+
+// Add CSS for pet unlock animation
+const petUnlockStyle = document.createElement('style');
+petUnlockStyle.textContent = `
+    @keyframes petUnlock {
+        0% { transform: scale(1) rotate(0deg); }
+        25% { transform: scale(1.2) rotate(5deg); }
+        50% { transform: scale(1.1) rotate(-5deg); }
+        75% { transform: scale(1.15) rotate(3deg); }
+        100% { transform: scale(1) rotate(0deg); }
+    }
+`;
+document.head.appendChild(petUnlockStyle);
+
+        window.showModalOffers = showModalOffers;
     </script>
 </body>
 </html>
