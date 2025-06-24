@@ -1610,43 +1610,134 @@ function showModalOffers() {
             }
 
             .offer-card {
-                background: #f8f9ff;
+                background: linear-gradient(145deg, #ffffff, #f8f9ff);
                 border: 2px solid #e1e6ff;
-                border-radius: 12px;
-                padding: 15px;
+                border-radius: 16px;
+                padding: 20px;
                 transition: all 0.3s ease;
                 cursor: pointer;
                 position: relative;
                 overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                min-height: 140px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             }
 
             .offer-card:hover {
                 border-color: #667eea;
+                transform: translateY(-4px);
+                box-shadow: 0 12px 30px rgba(102, 126, 234, 0.25);
+                background: linear-gradient(145deg, #ffffff, #f0f2ff);
+            }
+
+            .offer-card:active {
                 transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+                box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
             }
 
             .offer-card a {
                 text-decoration: none;
                 color: #2c3e50;
                 font-weight: 600;
-                font-size: 0.9rem;
-                line-height: 1.4;
+                font-size: 0.95rem;
+                line-height: 1.5;
                 display: block;
-                margin-bottom: 10px;
+                margin-bottom: 15px;
+                flex: 1;
+                min-height: 45px;
             }
 
             .offer-unlock-btn {
-                background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+                background: linear-gradient(135deg, #ff6b6b, #ff8e53);
                 color: white;
-                padding: 6px 12px;
-                border-radius: 15px;
-                font-size: 0.75rem;
+                padding: 12px 20px;
+                border-radius: 25px;
+                font-size: 0.9rem;
                 font-weight: bold;
                 text-transform: uppercase;
                 text-align: center;
                 display: block;
                 margin-top: auto;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+                letter-spacing: 0.5px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .offer-unlock-btn:hover {
+                background: linear-gradient(135deg, #ff8e53, #ff6b6b);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            }
+
+            .offer-unlock-btn:active {
+                transform: translateY(0);
+                box-shadow: 0 3px 10px rgba(255, 107, 107, 0.3);
+            }
+
+            .offer-unlock-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: 0.5s;
+            }
+
+            .offer-unlock-btn:hover::before {
+                left: 100%;
+            }
+
+            /* Add pulse animation to buttons */
+            .offer-unlock-btn {
+                animation: subtlePulse 3s ease-in-out infinite;
+            }
+
+            @keyframes subtlePulse {
+                0%, 100% {
+                    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+                    transform: scale(1);
+                }
+                50% {
+                    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+                    transform: scale(1.02);
+                }
+            }
+
+            /* Enhanced visual feedback */
+            .offer-card:hover .offer-unlock-btn {
+                animation: none;
+                background: linear-gradient(135deg, #ff8e53, #ff6b6b);
+                box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+                transform: scale(1.05);
+            }
+
+            /* Add shimmer effect on hover */
+            .offer-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+                transition: 0.8s;
+                z-index: 1;
+            }
+
+            .offer-card:hover::before {
+                left: 100%;
+            }
+
+            .offer-card > * {
+                position: relative;
+                z-index: 2;
             }
 
             .encouragement-box {
@@ -1724,6 +1815,25 @@ function showModalOffers() {
                 .offers-grid {
                     max-height: 250px !important;
                 }
+
+                .offer-card {
+                    min-height: 150px !important;
+                    padding: 18px !important;
+                }
+
+                .offer-unlock-btn {
+                    padding: 15px 25px !important;
+                    font-size: 1rem !important;
+                    min-height: 48px !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                }
+
+                .offer-card a {
+                    font-size: 1rem !important;
+                    min-height: 50px !important;
+                }
             }
 
             @media (max-width: 480px) {
@@ -1748,11 +1858,20 @@ function showModalOffers() {
                 }
 
                 .offer-card {
-                    padding: 12px !important;
+                    padding: 16px !important;
+                    min-height: 160px !important;
                 }
 
                 .offer-card a {
-                    font-size: 0.85rem !important;
+                    font-size: 0.95rem !important;
+                    min-height: 55px !important;
+                }
+
+                .offer-unlock-btn {
+                    padding: 16px 28px !important;
+                    font-size: 1rem !important;
+                    min-height: 50px !important;
+                    border-radius: 30px !important;
                 }
             }
 
