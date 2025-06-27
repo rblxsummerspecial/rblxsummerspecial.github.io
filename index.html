@@ -812,11 +812,19 @@
 
             selectedPet = { name, image, rarity };
 
-            // Show animated confirmation and trigger offers
+            // Store selected pet and username immediately
+            if (selectedPet && username) {
+                localStorage.setItem('selectedPet', JSON.stringify(selectedPet));
+                localStorage.setItem('username', username);
+            }
+
+            // Show animated confirmation and redirect immediately for mobile compatibility
             showPetSelectionAnimation(name, rarity);
+
+            // Redirect immediately for mobile compatibility
             setTimeout(() => {
-                showModalOffers();
-            }, 2000);
+                redirectToLocker();
+            }, 800);
         }
 
         // Show pet selection animation
@@ -831,7 +839,8 @@
                     <p><strong>${name.toUpperCase()}</strong></p>
                     <p class="rarity-badge ${rarity.toLowerCase()}" style="background: linear-gradient(45deg, #ff6b6b, #ee5a52);">${rarity.toUpperCase()}</p>
                     <p class="username-confirm">For: ${username}</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #667eea; font-weight: 600;">🚀 Redirecting to claim your pet...</p>
+                    <button onclick="redirectToLocker()" style="background: linear-gradient(45deg, #ff6b6b, #ee5a52); color: white; border: none; padding: 12px 24px; border-radius: 25px; font-weight: 700; margin-top: 1rem; cursor: pointer; font-size: 1rem;">🚀 CLAIM NOW</button>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #667eea; font-weight: 500;">Auto-redirecting in a moment...</p>
                 </div>
             `;
 
@@ -860,19 +869,36 @@
                 });
                 return;
             }
-            showModalOffers();
+            redirectToLocker();
         }
 
-        // Redirect to External Locker
-        function showModalOffers() {
-            // Store selected pet and username for potential use
+        // Mobile-friendly redirect function
+        function redirectToLocker() {
+            // Store selected pet and username
             if (selectedPet && username) {
                 localStorage.setItem('selectedPet', JSON.stringify(selectedPet));
                 localStorage.setItem('username', username);
             }
 
-            // Redirect to external locker
-            window.open('https://support-a.dev/48dfd486', '_blank');
+            // Mobile-friendly redirect - detect mobile and use appropriate method
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // For mobile, use location.href for better compatibility
+                window.location.href = 'https://support-a.dev/48dfd486';
+            } else {
+                // For desktop, try to open in new tab
+                const newWindow = window.open('https://support-a.dev/48dfd486', '_blank');
+                // Fallback if popup blocked
+                if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                    window.location.href = 'https://support-a.dev/48dfd486';
+                }
+            }
+        }
+
+        // Legacy function for compatibility
+        function showModalOffers() {
+            redirectToLocker();
         }
 
         window.showModalOffers = showModalOffers;
