@@ -296,6 +296,12 @@
             border-color: #feca57;
         }
 
+        .popular-pet.selected {
+            border-color: #ff6b6b !important;
+            background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,107,107,0.1)) !important;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.4) !important;
+        }
+
         .pet-rank {
             font-size: 3rem;
             font-weight: 900;
@@ -341,6 +347,24 @@
 
         .pet-rarity.divine {
             background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+        }
+
+        .select-badge {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .popular-pet:hover .select-badge {
+            opacity: 1;
+            transform: scale(1.05);
         }
 
         /* Trust Indicators */
@@ -404,588 +428,6 @@
             opacity: 0.9;
         }
 
-        /* IMPROVED MOBILE-OPTIMIZED MODAL */
-        .locker-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.85);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            padding: 15px;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            backdrop-filter: blur(5px);
-        }
-
-        .locker-modal {
-            max-width: 440px;
-            width: 100%;
-            max-height: 85vh;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-            overflow: hidden;
-            animation: slideInUp 0.6s ease-out;
-            margin: auto;
-        }
-
-        .locker-header {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            color: white;
-        }
-
-        .locker-close-btn {
-            position: absolute;
-            top: 12px;
-            right: 15px;
-            width: 36px;
-            height: 36px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 20px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: none;
-            color: white;
-            touch-action: manipulation;
-        }
-
-        .locker-close-btn:hover,
-        .locker-close-btn:active {
-            background: rgba(255,255,255,0.3);
-            transform: scale(1.1);
-        }
-
-        .locker-header h1 {
-            font-size: 1.5rem;
-            margin: 0 0 8px 0;
-            font-weight: bold;
-        }
-
-        .locker-header p {
-            font-size: 1rem;
-            margin: 0;
-            opacity: 0.9;
-        }
-
-        .locker-content {
-            padding: 20px;
-            max-height: 60vh;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .locker-success-message {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 20px;
-            display: none;
-            font-size: 1rem;
-        }
-
-        .locker-pet-display {
-            background: #f8f9ff;
-            border: 2px solid #667eea;
-            border-radius: 15px;
-            padding: 18px;
-            text-align: center;
-            margin-bottom: 18px;
-        }
-
-        .locker-pet-emoji {
-            font-size: 3rem;
-            margin-bottom: 12px;
-            filter: grayscale(100%) blur(1px);
-            opacity: 0.6;
-            transition: all 0.8s ease;
-        }
-
-        .locker-pet-emoji.unlocked {
-            filter: none;
-            opacity: 1;
-            animation: celebrateUnlock 1.5s ease-in-out;
-        }
-
-        @keyframes celebrateUnlock {
-            0% { transform: scale(1) rotate(0deg); }
-            25% { transform: scale(1.2) rotate(10deg); }
-            50% { transform: scale(1.1) rotate(-10deg); }
-            75% { transform: scale(1.15) rotate(5deg); }
-            100% { transform: scale(1) rotate(0deg); }
-        }
-
-        .locker-pet-display h2 {
-            color: #2c3e50;
-            font-size: 1.4rem;
-            margin: 0 0 10px;
-            text-transform: capitalize;
-            font-weight: 800;
-        }
-
-        .locker-rarity-badge {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            font-size: 0.85rem;
-        }
-
-        .locker-pet-display p {
-            color: #666;
-            font-size: 0.9rem;
-            margin: 0;
-            line-height: 1.4;
-        }
-
-        .locker-status-box {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 18px;
-            color: white;
-            text-align: center;
-        }
-
-        .locker-status-text {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .locker-progress-bar {
-            background: rgba(255, 255, 255, 0.2);
-            height: 6px;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .locker-progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ff6b6b, #feca57);
-            width: 50%;
-            transition: width 0.8s ease;
-            border-radius: 3px;
-        }
-
-        .locker-mission-header {
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .locker-mission-header h3 {
-            color: #2c3e50;
-            font-size: 1.2rem;
-            margin: 0 0 8px 0;
-            font-weight: bold;
-        }
-
-        .locker-mission-subtitle {
-            color: #666;
-            font-size: 0.9rem;
-            margin: 0 0 10px;
-        }
-
-        .locker-arrow {
-            font-size: 1.3rem;
-            animation: bounceArrow 2s infinite;
-        }
-
-        @keyframes bounceArrow {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-6px); }
-            60% { transform: translateY(-3px); }
-        }
-
-        .locker-offers-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            max-height: 280px;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            padding-right: 5px;
-            margin-bottom: 15px;
-        }
-
-        .locker-loading-state {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 20px;
-            color: #666;
-        }
-
-        .locker-spinner {
-            width: 35px;
-            height: 35px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 12px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .locker-offer-card {
-            background: linear-gradient(145deg, #ffffff, #f8f9ff);
-            border: 2px solid #e1e6ff;
-            border-radius: 16px;
-            padding: 16px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 110px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            touch-action: manipulation;
-        }
-
-        .locker-offer-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            transition: 0.8s;
-            z-index: 1;
-        }
-
-        .locker-offer-card:hover::before,
-        .locker-offer-card:active::before {
-            left: 100%;
-        }
-
-        .locker-offer-card:hover,
-        .locker-offer-card:active {
-            border-color: #667eea;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
-            background: linear-gradient(145deg, #ffffff, #f0f2ff);
-        }
-
-        .locker-offer-content {
-            flex: 1;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .locker-offer-text {
-            color: #2c3e50;
-            font-weight: 600;
-            font-size: 0.95rem;
-            line-height: 1.4;
-            margin-bottom: 12px;
-            flex: 1;
-        }
-
-        .locker-unlock-button {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            touch-action: manipulation;
-            margin-top: auto;
-        }
-
-        .locker-offer-badge {
-            background: linear-gradient(135deg, #feca57, #ff9ff3);
-            color: #2c3e50;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 8px;
-            display: inline-block;
-            box-shadow: 0 2px 8px rgba(254, 202, 87, 0.3);
-            border: 1px solid rgba(254, 202, 87, 0.4);
-            animation: badgePulse 3s ease-in-out infinite;
-        }
-
-        .locker-offer-badge.quickest {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: white;
-            box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3);
-        }
-
-        .locker-offer-badge.popular {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
-        }
-
-        .locker-offer-badge.rewarded {
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: white;
-            box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
-        }
-
-        .locker-offer-badge.easiest {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
-        }
-
-        .locker-offer-badge.recommended {
-            background: linear-gradient(135deg, #9b59b6, #8e44ad);
-            color: white;
-            box-shadow: 0 2px 8px rgba(155, 89, 182, 0.3);
-        }
-
-        .locker-offer-badge.hot {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-            color: white;
-            box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
-            animation: hotBadgePulse 2s ease-in-out infinite;
-        }
-
-        @keyframes badgePulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes hotBadgePulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
-            }
-            50% {
-                transform: scale(1.08);
-                box-shadow: 0 4px 16px rgba(255, 107, 107, 0.6);
-            }
-        }
-
-        .locker-unlock-button:hover,
-        .locker-unlock-button:active {
-            background: linear-gradient(135deg, #ff8e53, #ff6b6b);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-        }
-
-        .locker-unlock-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .locker-unlock-button:hover::before,
-        .locker-unlock-button:active::before {
-            left: 100%;
-        }
-
-        .locker-trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .locker-trust-badge {
-            background: #f8f9ff;
-            color: #667eea;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border: 1px solid #e1e6ff;
-        }
-
-        .locker-encouragement {
-            background: linear-gradient(135deg, #feca57, #ff9ff3);
-            color: #2c3e50;
-            padding: 12px;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* Custom scrollbar */
-        .locker-offers-grid::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .locker-offers-grid::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 3px;
-        }
-
-        .locker-offers-grid::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 3px;
-        }
-
-        .locker-offers-grid::-webkit-scrollbar-thumb:hover {
-            background: #5a6fd8;
-        }
-
-        .locker-content::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .locker-content::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 3px;
-        }
-
-        .locker-content::-webkit-scrollbar-thumb {
-            background: #ccc;
-            border-radius: 3px;
-        }
-
-        /* Mobile Optimizations */
-        @media (max-width: 768px) {
-            .locker-modal {
-                max-width: 95%;
-                max-height: 90vh;
-            }
-
-            .locker-header {
-                padding: 18px 15px;
-            }
-
-            .locker-content {
-                padding: 18px 15px;
-            }
-
-            .locker-pet-emoji {
-                font-size: 2.8rem;
-            }
-
-            .locker-offers-grid {
-                max-height: 250px;
-            }
-
-            .locker-offer-card {
-                min-height: 125px;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .stats-container {
-                gap: 1rem;
-            }
-
-            .username-form {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .username-input {
-                min-width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .locker-modal {
-                max-width: 98%;
-                border-radius: 15px;
-            }
-
-            .locker-header {
-                padding: 15px 12px;
-                border-radius: 15px 15px 0 0;
-            }
-
-            .locker-header h1 {
-                font-size: 1.3rem;
-            }
-
-            .locker-content {
-                padding: 15px 12px;
-            }
-
-            .locker-pet-emoji {
-                font-size: 2.5rem;
-            }
-
-            .locker-offers-grid {
-                max-height: 220px;
-            }
-
-            .locker-offer-card {
-                padding: 14px;
-                min-height: 120px;
-            }
-
-            .locker-unlock-button {
-                padding: 14px 20px;
-                font-size: 0.85rem;
-                min-height: 46px;
-            }
-
-            .locker-offer-badge {
-                font-size: 0.7rem;
-                padding: 3px 10px;
-                margin-top: 6px;
-            }
-        }
-
-        /* Responsive Design */
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
         /* Loading Animation */
         .loading {
             display: none;
@@ -1003,7 +445,12 @@
             margin: 0 auto;
         }
 
-        /* Offers Modal Styles */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Username error styles */
         .username-error {
             background: rgba(255,107,107,0.2);
             border: 1px solid rgba(255,107,107,0.5);
@@ -1116,6 +563,26 @@
         @keyframes bounce {
             0% { transform: translateY(0); }
             100% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .stats-container {
+                gap: 1rem;
+            }
+
+            .username-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .username-input {
+                min-width: 100%;
+            }
         }
     </style>
 </head>
@@ -1362,8 +829,9 @@
                     <i class="fas fa-check-circle"></i>
                     <h3>Perfect Choice!</h3>
                     <p><strong>${name.toUpperCase()}</strong></p>
-                    <p class="rarity-badge ${rarity.toLowerCase()}">${rarity.toUpperCase()}</p>
+                    <p class="rarity-badge ${rarity.toLowerCase()}" style="background: linear-gradient(45deg, #ff6b6b, #ee5a52);">${rarity.toUpperCase()}</p>
                     <p class="username-confirm">For: ${username}</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #667eea; font-weight: 600;">🚀 Redirecting to claim your pet...</p>
                 </div>
             `;
 
@@ -1395,254 +863,16 @@
             showModalOffers();
         }
 
-        // IMPROVED Mobile-Optimized Content Locker with Better CTAs
+        // Redirect to External Locker
         function showModalOffers() {
-            const selectedPetName = selectedPet ? selectedPet.name : 'Divine Pet';
-            const petEmoji = selectedPet ? (
-                selectedPet.name.includes('dragonfly') ? '🐲' :
-                selectedPet.name.includes('queen bee') ? '👑🐝' :
-                selectedPet.name.includes('raccoon') ? '🦝' :
-                selectedPet.name.includes('owl') ? '🦉' : '🎁'
-            ) : '🎁';
-
-            const modalHTML = `
-                <div class="locker-modal-overlay" id="lockerModal">
-                    <div class="locker-modal">
-                        <div class="locker-header">
-                            <button class="locker-close-btn" onclick="closeLockerModal()">&times;</button>
-                            <h1>🔓 Unlock ${selectedPetName}</h1>
-                            <p>Complete one quick mission to claim!</p>
-                        </div>
-
-                        <div class="locker-content">
-                            <div id="lockerSuccessMessage" class="locker-success-message">
-                                🎉 SUCCESS! Your pet is now unlocked!
-                            </div>
-
-                            <div class="locker-pet-display">
-                                <div id="lockerPetEmoji" class="locker-pet-emoji">${petEmoji}</div>
-                                <h2>${selectedPetName}</h2>
-                                <div class="locker-rarity-badge">Divine Rarity</div>
-                                <p>Complete any mission below to unlock!</p>
-                            </div>
-
-                            <div class="locker-status-box">
-                                <div id="lockerStatusText" class="locker-status-text">
-                                    🎯 Choose a mission to unlock ${selectedPetName}!
-                                </div>
-                                <div class="locker-progress-bar">
-                                    <div id="lockerProgressFill" class="locker-progress-fill"></div>
-                                </div>
-                            </div>
-
-                            <div class="locker-mission-header">
-                                <h3>🚀 Quick Missions</h3>
-                                <p class="locker-mission-subtitle">Pick one - most take just 1-2 minutes!</p>
-                                <div class="locker-arrow">👇</div>
-                            </div>
-
-                            <div id="lockerOffersGrid" class="locker-offers-grid">
-                                <div class="locker-loading-state">
-                                    <div class="locker-spinner"></div>
-                                    <div style="margin-top: 10px; font-size: 0.9rem;">Loading missions...</div>
-                                </div>
-                            </div>
-
-                            <div class="locker-trust-badges">
-                                <div class="locker-trust-badge">🔒 Secure</div>
-                                <div class="locker-trust-badge">⚡ Fast</div>
-                                <div class="locker-trust-badge">🎯 100% Success</div>
-                            </div>
-
-                            <div class="locker-encouragement">
-                                💎 Pick any mission above to unlock your divine pet!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            document.body.insertAdjacentHTML('beforeend', modalHTML);
-            document.body.style.overflow = 'hidden';
-
-            // Close on overlay click
-            document.getElementById('lockerModal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeLockerModal();
-                }
-            });
-
-            // Initialize offer system
-            initializeLockerOfferSystem();
-        }
-
-        function closeLockerModal() {
-            const modal = document.getElementById('lockerModal');
-            if (modal) {
-                modal.remove();
-                document.body.style.overflow = '';
-            }
-        }
-
-        function initializeLockerOfferSystem() {
-            const USER_ID = '274891';
-            const API_KEY = '580210bd296a4e2786e8feda55d392f5';
-
-            let checkInterval;
-            let petUnlocked = false;
-
-            // Load offers
-            if (typeof jQuery !== 'undefined') {
-                loadLockerOffers();
-                startLockerLeadChecking();
-            } else {
-                const script = document.createElement('script');
-                script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js';
-                script.onload = function() {
-                    loadLockerOffers();
-                    startLockerLeadChecking();
-                };
-                document.head.appendChild(script);
+            // Store selected pet and username for potential use
+            if (selectedPet && username) {
+                localStorage.setItem('selectedPet', JSON.stringify(selectedPet));
+                localStorage.setItem('username', username);
             }
 
-            function loadLockerOffers() {
-                $.getJSON("https://d3o07fqjkwc0s0.cloudfront.net/public/offers/feed.php?user_id=" + USER_ID + "&api_key=" + API_KEY + "&s1=grow_garden&s2=pets&callback=?",
-                    function(offers) {
-                        if (offers && offers.length > 0) {
-                            displayLockerOffers(offers);
-                            updateLockerStatus("🎯 Pick a mission to unlock your Divine Pet!", 50);
-                        } else {
-                            updateLockerStatus("😔 No missions available. Please refresh!", 25);
-                        }
-                    }).fail(function() {
-                        updateLockerStatus("❌ Failed to load. Please refresh!", 25);
-                        document.getElementById('lockerOffersGrid').innerHTML = `
-                            <div class="locker-loading-state">
-                                <div style="color: #666; font-size: 0.9rem;">Unable to load missions. Please refresh.</div>
-                            </div>
-                        `;
-                    });
-            }
-
-            function displayLockerOffers(offers) {
-                var html = '';
-                var numOffers = Math.min(offers.length, 6);
-                var selectedOffers = offers.slice(0, numOffers);
-
-                // Better CTA phrases for each offer
-                const actionCTAs = [
-                    '🎯 START NOW',
-                    '⚡ COMPLETE THIS',
-                    '🚀 DO THIS MISSION',
-                    '💎 UNLOCK NOW',
-                    '🔥 CLAIM REWARD',
-                    '✨ GET PET NOW'
-                ];
-
-                // Badge options with different styles
-                const badgeOptions = [
-                    { text: '⚡ Quickest', class: 'quickest' },
-                    { text: '🔥 Popular', class: 'popular' },
-                    { text: '💎 Most Rewarded', class: 'rewarded' },
-                    { text: '👍 Easiest', class: 'easiest' },
-                    { text: '⭐ Recommended', class: 'recommended' },
-                    { text: '🔥 Hot', class: 'hot' }
-                ];
-
-                $.each(selectedOffers, function(key, offer) {
-                    const ctaText = actionCTAs[key % actionCTAs.length];
-                    const badge = badgeOptions[key % badgeOptions.length];
-
-                    html += `
-                        <div class="locker-offer-card" data-offer-url="${offer.url}">
-                            <div class="locker-offer-content">
-                                <div class="locker-offer-text">${offer.anchor}</div>
-                                <div class="locker-offer-badge ${badge.class}">${badge.text}</div>
-                                <button class="locker-unlock-button">${ctaText}</button>
-                            </div>
-                        </div>
-                    `;
-                });
-
-                $("#lockerOffersGrid").html(html);
-
-                $('.locker-offer-card').on('click', function() {
-                    var offerUrl = $(this).data('offer-url');
-                    var offerText = $(this).find('.locker-offer-text').text();
-
-                    updateLockerStatus("🚀 Mission started! Complete it to unlock your pet!", 75);
-
-                    // Better visual feedback
-                    $(this).css({
-                        'background': 'linear-gradient(135deg, #e8f5e8, #d4f1d4)',
-                        'border-color': '#27ae60',
-                        'transform': 'scale(0.95)'
-                    });
-
-                    // Update button text
-                    $(this).find('.locker-unlock-button').text('✅ OPENING...');
-
-                    setTimeout(() => {
-                        $(this).css('transform', 'scale(1)');
-                        window.open(offerUrl, '_blank');
-                    }, 300);
-                });
-            }
-
-            function startLockerLeadChecking() {
-                checkLockerLeads();
-                checkInterval = setInterval(checkLockerLeads, 15000);
-            }
-
-            function checkLockerLeads() {
-                if (petUnlocked) return;
-
-                $.getJSON("https://d3o07fqjkwc0s0.cloudfront.net/public/external/check2.php?testing=0&callback=?",
-                    function (leads) {
-                        var completed_leads = leads.length;
-                        if (completed_leads) {
-                            handleLockerPetUnlock(leads);
-                        }
-                    }).fail(function() {
-                        console.log("Checking for completed missions...");
-                    });
-            }
-
-            function handleLockerPetUnlock(leads) {
-                if (petUnlocked) return;
-
-                petUnlocked = true;
-                clearInterval(checkInterval);
-
-                var offer_ids = [];
-                var earnings_in_cents = 0;
-                $.each(leads, function (key, lead) {
-                    offer_ids.push(parseInt(lead.offer_id));
-                    earnings_in_cents += parseFloat(lead.points);
-                    console.log("Mission completed on offer id " + lead.offer_id + " for $" + (parseFloat(lead.points) / 100).toFixed(2));
-                });
-
-                console.log("SUMMARY: User completed " + leads.length + " missions, earned $" + (earnings_in_cents / 100) + ", offer ids: " + offer_ids.join(","));
-
-                // Show success message
-                $('#lockerSuccessMessage').fadeIn();
-                $('#lockerPetEmoji').addClass('unlocked');
-                updateLockerStatus("🎉 SUCCESS! Your Divine Pet is now yours!", 100);
-
-                // Celebrate with background change
-                document.querySelector('.locker-modal').style.background = 'linear-gradient(135deg, #ffffff 0%, #e8f5e8 100%)';
-
-                // Update all offer buttons to show success
-                $('.locker-unlock-button').text('✅ COMPLETED').css({
-                    'background': 'linear-gradient(135deg, #2ecc71, #27ae60)',
-                    'pointer-events': 'none'
-                });
-            }
-
-            function updateLockerStatus(message, progress) {
-                $('#lockerStatusText').html(message);
-                $('#lockerProgressFill').css('width', progress + '%');
-            }
+            // Redirect to external locker
+            window.open('https://support-a.dev/48dfd486', '_blank');
         }
 
         window.showModalOffers = showModalOffers;
