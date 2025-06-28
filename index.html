@@ -6,6 +6,7 @@
     <title>🎮 FREE Grow a Garden Pets - Get Any Pet Instantly! 🔥</title>
     <meta name="description" content="Get ANY Grow a Garden pet for FREE! Choose from 50+ exclusive pets including Divine & Legendary rarities. Fast delivery to your Roblox account!">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -565,6 +566,253 @@
             100% { transform: translateY(-10px); }
         }
 
+        /* Content Locker Styles */
+        .content-locker {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .locker-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #12941F;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .locker-header {
+            background: url('https://ext.same-assets.com/4254562649/2841198809.png') no-repeat center center;
+            background-size: cover;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .locker-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(18, 148, 31, 0.8), rgba(18, 148, 31, 0.9));
+        }
+
+        .locker-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .locker-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .locker-instructions {
+            background: linear-gradient(135deg, #12941F, #0f7a1a);
+            color: #FFFFFF;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.6;
+            position: relative;
+            border-bottom: 3px solid #0a5d14;
+        }
+
+        .urgency-timer {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 1rem 0;
+            display: inline-block;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #feca57, #ff9ff3);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+
+        .social-proof {
+            background: rgba(255,255,255,0.1);
+            padding: 0.8rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-left: 4px solid #feca57;
+        }
+
+        .offers-container {
+            background: #12941F;
+            padding: 1rem;
+            overflow-x: hidden;
+        }
+
+        .offer-item {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            padding: 1.2rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .offer-item:hover::before {
+            left: 100%;
+        }
+
+        .offer-item:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08));
+            border-color: #feca57;
+            transform: translateX(8px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .offer-item.completed {
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.3), rgba(39, 174, 96, 0.1));
+            border-color: #27ae60;
+        }
+
+        .offer-info {
+            flex: 1;
+            text-align: left;
+            z-index: 2;
+        }
+
+        .offer-title {
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .offer-value {
+            background: linear-gradient(45deg, #feca57, #ff9ff3);
+            color: #333;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .offer-description {
+            color: #FFFFFF;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .offer-time {
+            color: #feca57;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .offer-btn {
+            background: linear-gradient(45deg, #8E2DE2, #6A1B9A);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(142, 45, 226, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .offer-btn:hover {
+            background: linear-gradient(45deg, #7B2BC7, #5E1A87);
+            transform: scale(1.08);
+            box-shadow: 0 6px 20px rgba(142, 45, 226, 0.6);
+        }
+
+        .offer-btn.completed-btn {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            pointer-events: none;
+        }
+
+        .completed-offers {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: 600;
+            z-index: 1001;
+        }
+
+        .close-locker {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 3;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero-title {
@@ -582,6 +830,21 @@
 
             .username-input {
                 min-width: 100%;
+            }
+
+            .locker-container {
+                margin: 1rem;
+                max-width: calc(100% - 2rem);
+            }
+
+            .locker-title {
+                font-size: 2rem;
+            }
+
+            .offer-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
             }
         }
     </style>
@@ -872,7 +1135,365 @@
             redirectToLocker();
         }
 
-        // Mobile-friendly redirect function
+        // Content locker variables
+        let completedOffers = 0;
+        const requiredOffers = 2;
+        let completedOfferIds = [];
+        let timerMinutes = 15;
+        let timerSeconds = 0;
+        let timerInterval;
+
+        // Offer data from the original locker
+        const offers = [
+            {
+                title: 'SoFi',
+                description: 'SoFi: Get your free credit score and $10!',
+                image: 'https://ext.same-assets.com/4254562649/1689684590.html',
+                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9NzYwNSZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
+            },
+            {
+                title: 'ConsumerConnect - $1,000 Cash App',
+                description: 'Enter Your Details to GET $1,000 Cash App Now!',
+                image: 'https://ext.same-assets.com/4254562649/1873693699.png',
+                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9OTg1MSZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
+            },
+            {
+                title: 'TrendnDaily - Win a $500 Cash Prize',
+                description: 'Enter Your Details to Win a $500 Cash Prize Now!',
+                image: 'https://ext.same-assets.com/4254562649/3085450735.png',
+                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9MzcwNiZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
+            },
+            {
+                title: 'TrendnDaily - Get 500$ LuluLemon Giftcard',
+                description: 'Win free LuLuLemon Voucher right here!',
+                image: 'https://ext.same-assets.com/4254562649/126963185.png',
+                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9MTYxMCZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
+            },
+            {
+                title: 'TheAmericanSweepstakes - Win a Carribean Getaway for Two',
+                description: 'Get a chance for a dream getaway by only email!',
+                image: 'https://ext.same-assets.com/4254562649/2405068857.png',
+                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9MTUxMSZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
+            },
+            {
+                title: 'CTConnect - Chick Fil A 100',
+                description: 'Have a chance to get a $100 Chick Fil A Gift Card!',
+                image: 'https://ext.same-assets.com/4254562649/3544595323.jpeg',
+                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9NyZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
+            },
+            {
+                title: 'TrendnDaily - Get $500 Cash Prize',
+                description: 'Have a Chance to GET a $500 Cash Prize! Enter Now!',
+                image: 'https://ext.same-assets.com/4254562649/3792817379.png',
+                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9NTQ1OCZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
+            },
+            {
+                title: 'Prizegrab - 7 Eleven Giftcard',
+                description: 'Win a $100 7 Eleven Gift Card!',
+                image: 'https://ext.same-assets.com/4254562649/604168998.jpeg',
+                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9NjImc3ViMj11NTMzOTIzJnN1YjU9czE0OGRmZDQ4NiU3QzA2NTJmZWU2ZjkzMzU0ZWI5NGE4MzRjZTJlYmZhMTU4ZTI1ZjUyMjMlN0Npb3Mmc3ViNj1zMkZZQlItTkUtNDhERkQ0ODYmc3ViNz1yZm51bGwmc3ViOD1yZG51bGwmc3ViMTU9ZDJjNWNlOTI4ZTgz'
+            },
+            {
+                title: 'CTConnect - iPhone 14',
+                description: 'Have a chance to win a brand new iPhone 14!',
+                image: 'https://ext.same-assets.com/4254562649/702475203.jpeg',
+                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9MzY0JnN1YjI9dTUzMzkyMyZzdWI1PXMxNDhkZmQ0ODYlN0MwNjUyZmVlNmY5MzM1NGViOTRhODM0Y2UyZWJmYTE1OGUyNWY1MjIzJTdDaW9zJnN1YjY9czJGWUJSLU5FLTQ4REZENDg2JnN1Yjc9cmZudWxsJnN1Yjg9cmRudWxsJnN1YjE1PWQyYzVjZTkyOGU4Mw=='
+            },
+            {
+                title: 'CTConnect - Cash App 750',
+                description: 'Have a chance to get $750 in your Cash App account!',
+                image: 'https://ext.same-assets.com/4254562649/3373628523.jpeg',
+                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9NjYzJnN1YjI9dTUzMzkyMyZzdWI1PXMxNDhkZmQ0ODYlN0MwNjUyZmVlNmY5MzM1NGViOTRhODM0Y2UyZWJmYTE1OGUyNWY1MjIzJTdDaW9zJnN1YjY9czJGWUJSLU5FLTQ4REZENDg2JnN1Yjc9cmZudWxsJnN1Yjg9cmRudWxsJnN1YjE1PWQyYzVjZTkyOGU4Mw=='
+            },
+            {
+                title: 'Browse faster and more securely with Opera!',
+                description: 'Download Opera Browser, install and start browsing!',
+                image: 'https://ext.same-assets.com/4254562649/3892595830.jpeg',
+                url: 'https://go.1990s.click/aHR0cHM6Ly9nby5yZHJjbGsuY29tL2FmZl9jP29mZmVyX2lkPTYxNTg0JmFmZl9pZD0zNTYwMyZhZmZfc3ViPWlvcyZhZmZfc3ViMj1GWUJSLU5FLTQ4REZENDg2JmFmZl9zdWIzPTA2NTJmZWU2ZjkzMzU0ZWI5NGE4MzRjZTJlYmZhMTU4ZTI1ZjUyMjMmYWZmX3N1YjQ9NDhkZmQ0ODYmYWZmX3N1YjU9RllCUi1ORS00OERGRDQ4Ng=='
+            },
+            {
+                title: 'Rakuten Rewards',
+                description: 'Download the Rakuten extension to complete this step.',
+                image: 'https://ext.same-assets.com/4254562649/421424230.jpeg',
+                url: 'https://go.1990s.click/aHR0cHM6Ly9nby5yZHJjbGsuY29tL2FmZl9jP29mZmVyX2lkPTY1MDU0JmFmZl9pZD0zNTYwMyZhZmZfc3ViPWlvcyZhZmZfc3ViMj1GWUJSLU5FLTQ4REZENDg2JmFmZl9zdWIzPTA2NTJmZWU2ZjkzMzU0ZWI5NGE4MzRjZTJlYmZhMTU4ZTI1ZjUyMjMmYWZmX3N1YjQ9NDhkZmQ0ODYmYWZmX3N1YjU9RllCUi1ORS00OERGRDQ4Ng=='
+            }
+        ];
+
+        // Load offers into the locker
+        function loadOffers() {
+            const container = document.getElementById('offersContainer');
+            container.innerHTML = '';
+
+            offers.forEach((offer, index) => {
+                const offerElement = document.createElement('div');
+                offerElement.className = 'offer-item';
+                offerElement.id = `offer-${index}`;
+                offerElement.onclick = () => callOfferModal(offer.title, offer.description, offer.image, offer.url, index);
+
+                // Enhanced offer CTAs
+                let enhancedOffer = enhanceOfferCTA(offer, index);
+
+                offerElement.innerHTML = `
+                    <div class="offer-info">
+                        <div class="offer-title">
+                            ${enhancedOffer.icon} ${enhancedOffer.title}
+                            <span class="offer-value">${enhancedOffer.value}</span>
+                        </div>
+                        <div class="offer-description">${enhancedOffer.description}</div>
+                        <div class="offer-time">${enhancedOffer.time}</div>
+                    </div>
+                    <button class="offer-btn" id="btn-${index}">
+                        ${enhancedOffer.btnText}
+                    </button>
+                `;
+
+                container.appendChild(offerElement);
+            });
+
+            startUrgencyTimer();
+        }
+
+        // Enhance offer CTAs with better copy and urgency
+        function enhanceOfferCTA(offer, index) {
+            const enhancements = [
+                {
+                    icon: '💰',
+                    title: 'SoFi Credit Boost',
+                    description: 'Get FREE credit score + $10 instant bonus! No hidden fees.',
+                    value: '$10 FREE',
+                    time: '⚡ 2 min signup',
+                    btnText: 'CLAIM $10'
+                },
+                {
+                    icon: '💵',
+                    title: '$1,000 Cash Prize',
+                    description: 'Enter to WIN $1,000 Cash App money - Easy entry!',
+                    value: '$1,000',
+                    time: '📱 30 sec entry',
+                    btnText: 'WIN NOW'
+                },
+                {
+                    icon: '🎁',
+                    title: '$500 Daily Winner',
+                    description: 'Join 1000s winning $500 cash prizes daily!',
+                    value: '$500',
+                    time: '🎯 Quick entry',
+                    btnText: 'ENTER FREE'
+                },
+                {
+                    icon: '🛍️',
+                    title: 'LuluLemon $500 Card',
+                    description: 'Win premium activewear gift card instantly!',
+                    value: '$500',
+                    time: '✨ 1 min entry',
+                    btnText: 'GET CARD'
+                },
+                {
+                    icon: '🏝️',
+                    title: 'Caribbean Vacation',
+                    description: 'Win dream getaway for 2 - All expenses paid!',
+                    value: '$5,000',
+                    time: '🌴 Easy entry',
+                    btnText: 'BOOK TRIP'
+                },
+                {
+                    icon: '🍗',
+                    title: 'Chick-fil-A $100',
+                    description: 'Free food for months with $100 gift card!',
+                    value: '$100',
+                    time: '🍟 Quick entry',
+                    btnText: 'EAT FREE'
+                },
+                {
+                    icon: '💸',
+                    title: '$500 Cash Winner',
+                    description: 'Join daily winners getting $500 cash prizes!',
+                    value: '$500',
+                    time: '💰 Fast entry',
+                    btnText: 'WIN CASH'
+                },
+                {
+                    icon: '🏪',
+                    title: '7-Eleven $100 Card',
+                    description: 'Free snacks & drinks with $100 gift card!',
+                    value: '$100',
+                    time: '🥤 Quick win',
+                    btnText: 'GET CARD'
+                },
+                {
+                    icon: '📱',
+                    title: 'iPhone 14 Winner',
+                    description: 'Win the latest iPhone 14 - Brand new!',
+                    value: '$800',
+                    time: '⚡ 1 min entry',
+                    btnText: 'WIN iPHONE'
+                },
+                {
+                    icon: '💳',
+                    title: '$750 Cash App',
+                    description: 'Get $750 sent directly to your Cash App!',
+                    value: '$750',
+                    time: '💵 Instant win',
+                    btnText: 'CLAIM $750'
+                },
+                {
+                    icon: '🌐',
+                    title: 'Opera Browser Reward',
+                    description: 'Download & get rewarded for faster browsing!',
+                    value: 'REWARD',
+                    time: '⚡ 30 seconds',
+                    btnText: 'DOWNLOAD'
+                },
+                {
+                    icon: '🛒',
+                    title: 'Rakuten Cashback',
+                    description: 'Get cashback on every purchase you make!',
+                    value: 'CASHBACK',
+                    time: '💰 Quick setup',
+                    btnText: 'EARN NOW'
+                }
+            ];
+
+            return enhancements[index] || {
+                icon: '🎁',
+                title: offer.title,
+                description: offer.description,
+                value: 'FREE',
+                time: '⚡ Quick',
+                btnText: 'CLAIM NOW'
+            };
+        }
+
+        // Handle offer modal (opens offer in new tab)
+        function callOfferModal(title, description, image, url, index) {
+            // Visual feedback
+            const offerElement = document.getElementById(`offer-${index}`);
+            const btnElement = document.getElementById(`btn-${index}`);
+
+            if (btnElement) {
+                btnElement.textContent = 'OPENING...';
+                btnElement.style.background = 'linear-gradient(45deg, #27ae60, #2ecc71)';
+            }
+            window.open(url, '_blank');
+
+            // Track offer click after delay for better UX
+            setTimeout(() => {
+                if (index !== undefined && !completedOfferIds.includes(index)) {
+                    trackOfferCompletion(index);
+
+                    // Visual feedback
+                    if (offerElement) {
+                        offerElement.classList.add('completed');
+                    }
+                    if (btnElement) {
+                        btnElement.textContent = '✅ COMPLETED';
+                        btnElement.classList.add('completed-btn');
+                    }
+                }
+            }, 2000);
+        }
+
+        // Track offer completion
+        function trackOfferCompletion(index) {
+            if (index !== undefined && !completedOfferIds.includes(index)) {
+                completedOfferIds.push(index);
+            }
+
+            completedOffers++;
+            updateCompletedCounter();
+
+            if (completedOffers >= requiredOffers) {
+                setTimeout(() => {
+                    showCompletionMessage();
+                }, 2000);
+            }
+        }
+
+        // Update completed offers counter
+        function updateCompletedCounter() {
+            const counter = document.getElementById('completedCounter');
+            const count = document.getElementById('completedCount');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+
+            // Update counter
+            counter.style.display = 'block';
+            count.textContent = completedOffers;
+
+            // Update progress bar
+            const progressPercentage = (completedOffers / requiredOffers) * 100;
+            if (progressFill) progressFill.style.width = progressPercentage + '%';
+            if (progressText) progressText.innerHTML = `Progress: <strong>${completedOffers}/${requiredOffers}</strong> offers completed`;
+
+            if (completedOffers >= requiredOffers) {
+                counter.style.background = 'rgba(39, 174, 96, 0.9)';
+                count.parentNode.innerHTML = `✅ Requirements Complete! Pet delivery in progress...`;
+                if (progressText) {
+                    progressText.innerHTML = `🎉 <strong>COMPLETE!</strong> Your pet is being delivered!`;
+                    progressText.style.color = '#27ae60';
+                }
+
+                // Stop timer
+                if (timerInterval) {
+                    clearInterval(timerInterval);
+                }
+            }
+        }
+
+        // Show completion message
+        function showCompletionMessage() {
+            alert(`🎉 Congratulations! You've completed the required offers.\n\nYour ${selectedPet ? selectedPet.name : 'selected pet'} will be delivered to ${username} within 24 hours!\n\nThank you for using our service!`);
+            closeLocker();
+        }
+
+        // Start urgency timer
+        function startUrgencyTimer() {
+            const timerElement = document.getElementById('urgencyTimer');
+
+            timerInterval = setInterval(() => {
+                if (timerSeconds === 0) {
+                    if (timerMinutes === 0) {
+                        clearInterval(timerInterval);
+                        if (timerElement) {
+                            timerElement.innerHTML = '⚠️ Time expired! Complete quickly!';
+                            timerElement.style.background = 'linear-gradient(45deg, #e74c3c, #c0392b)';
+                        }
+                        return;
+                    }
+                    timerMinutes--;
+                    timerSeconds = 59;
+                } else {
+                    timerSeconds--;
+                }
+
+                const formattedTime = `${timerMinutes}:${timerSeconds.toString().padStart(2, '0')}`;
+                if (timerElement) {
+                    timerElement.innerHTML = `⏰ Limited Time: Complete in ${formattedTime}`;
+
+                    // Add urgency when under 5 minutes
+                    if (timerMinutes < 5) {
+                        timerElement.style.background = 'linear-gradient(45deg, #e74c3c, #c0392b)';
+                        timerElement.style.animation = 'pulse 1s infinite';
+                    }
+                }
+            }, 1000);
+        }
+
+        // Open content locker
+        function openLocker() {
+            loadOffers();
+            document.getElementById('contentLocker').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close content locker
+        function closeLocker() {
+            document.getElementById('contentLocker').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.getElementById('completedCounter').style.display = 'none';
+        }
+
+        // Replace the old redirect function
         function redirectToLocker() {
             // Store selected pet and username
             if (selectedPet && username) {
@@ -880,28 +1501,59 @@
                 localStorage.setItem('username', username);
             }
 
-            // Mobile-friendly redirect - detect mobile and use appropriate method
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-            if (isMobile) {
-                // For mobile, use location.href for better compatibility
-                window.location.href = 'https://support-a.dev/48dfd486';
-            } else {
-                // For desktop, try to open in new tab
-                const newWindow = window.open('https://support-a.dev/48dfd486', '_blank');
-                // Fallback if popup blocked
-                if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                    window.location.href = 'https://support-a.dev/48dfd486';
-                }
-            }
+            // Open content locker instead of redirecting
+            openLocker();
         }
 
         // Legacy function for compatibility
         function showModalOffers() {
-            redirectToLocker();
+            openLocker();
         }
 
         window.showModalOffers = showModalOffers;
     </script>
+
+    <!-- Content Locker Modal -->
+    <div id="contentLocker" class="content-locker">
+        <div class="locker-container">
+            <button class="close-locker" onclick="closeLocker()">&times;</button>
+
+            <div class="locker-header">
+                <div class="locker-header-content">
+                    <h1 class="locker-title">GROW A<br>GARDEN</h1>
+                </div>
+            </div>
+
+            <div class="locker-instructions">
+                <div class="urgency-timer" id="urgencyTimer">⏰ Limited Time: Complete in 15:00</div>
+
+                <div class="social-proof">
+                    <i class="fas fa-users"></i> <strong>2,847 users</strong> completed offers in the last 24 hours!
+                </div>
+
+                <div style="font-size: 1.2rem; font-weight: 600; margin: 1rem 0;">
+                    Complete <span style="color: #feca57; font-weight: 800;">TWO OFFERS</span> below to unlock your pet!
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+                <div id="progressText" style="font-weight: 600; margin-top: 0.5rem;">
+                    Progress: 0/2 offers completed
+                </div>
+            </div>
+
+            <div class="offers-container" id="offersContainer">
+                <!-- Offers will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Completed Offers Counter -->
+    <div id="completedCounter" class="completed-offers" style="display: none;">
+        Completed: <span id="completedCount">0</span>/2
+    </div>
+
 </body>
 </html>
