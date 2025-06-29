@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎮 FREE Grow a Garden Pets - Get Any Pet Instantly! 🔥</title>
-    <meta name="description" content="Get ANY Grow a Garden pet for FREE! Choose from 50+ exclusive pets including Divine & Legendary rarities. Fast delivery to your Roblox account!">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -23,7 +22,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
         .background-animation {
             position: fixed;
             top: 0;
@@ -59,7 +57,6 @@
             50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
         }
 
-        /* Header Section */
         .hero-section {
             min-height: 100vh;
             display: flex;
@@ -99,9 +96,7 @@
             background: linear-gradient(45deg, #ffffff, #f1f2f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero-subtitle {
@@ -115,24 +110,24 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin: 2rem 0;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
         }
 
-        .stat-item {
-            text-align: center;
+        .stat-card {
             background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 15px;
+            padding: 1.5rem;
+            border-radius: 20px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.2);
+            min-width: 150px;
         }
 
         .stat-number {
             font-size: 2rem;
             font-weight: 800;
             color: #feca57;
-            display: block;
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
@@ -140,1339 +135,331 @@
             opacity: 0.8;
         }
 
-        /* CTA Button */
         .cta-button {
             background: linear-gradient(45deg, #ff6b6b, #ee5a52);
             color: white;
-            border: none;
-            padding: 1.2rem 3rem;
-            font-size: 1.3rem;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
             font-weight: 700;
+            border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(255,107,107,0.4);
             text-transform: uppercase;
             letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            text-decoration: none;
+            display: inline-block;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255,107,107,0.6);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        /* Username Entry Section */
         .username-section {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            margin: 4rem auto;
-            max-width: 600px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.2);
-            display: none;
-        }
-
-        .username-section.active {
-            display: block;
-            animation: slideUp 0.6s ease;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .username-form {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .username-input {
-            flex: 1;
-            min-width: 250px;
-            padding: 1rem 1.5rem;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 50px;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-        }
-
-        .username-input::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .username-input:focus {
-            outline: none;
-            border-color: #feca57;
-            box-shadow: 0 0 20px rgba(254,202,87,0.3);
-        }
-
-        /* Pet Grid Section */
-        .pets-section {
-            padding: 4rem 1rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #feca57, #ff9ff3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .popular-pets-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .popular-pet {
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            border: 2px solid rgba(254,202,87,0.5);
-            backdrop-filter: blur(20px);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .popular-pet::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(254,202,87,0.1), rgba(255,107,107,0.1));
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .popular-pet:hover::before {
-            opacity: 1;
-        }
-
-        .popular-pet:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border-color: #feca57;
-        }
-
-        .popular-pet.selected {
-            border-color: #ff6b6b !important;
-            background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,107,107,0.1)) !important;
-            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.4) !important;
-        }
-
-        .pet-rank {
-            font-size: 3rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #feca57, #ff6b6b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .pet-image {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 1rem;
-            border-radius: 15px;
-            object-fit: cover;
-            border: 3px solid rgba(255,255,255,0.3);
-            transition: 0.3s;
-        }
-
-        .popular-pet:hover .pet-image {
-            border-color: #feca57;
-            transform: scale(1.1);
-        }
-
-        .pet-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-transform: capitalize;
-        }
-
-        .pet-rarity {
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        .pet-rarity.divine {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-        }
-
-        .select-badge {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 1rem;
-            display: inline-block;
-            opacity: 0.8;
-            transition: 0.3s;
-        }
-
-        .popular-pet:hover .select-badge {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        /* Trust Indicators */
-        .trust-section {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            padding: 3rem 2rem;
-            margin: 4rem 0;
-            border-radius: 20px;
-            text-align: center;
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .trust-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .trust-icon {
-            font-size: 3rem;
-            color: #feca57;
-            margin-bottom: 1rem;
-        }
-
-        .trust-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #feca57;
-        }
-
-        .trust-label {
-            font-size: 1rem;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        /* Footer CTA */
-        .footer-cta {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        .footer-cta h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .footer-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: none;
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .spinner {
-            border: 3px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top: 3px solid #feca57;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Username error styles */
-        .username-error {
-            background: rgba(255,107,107,0.2);
-            border: 1px solid rgba(255,107,107,0.5);
-            border-radius: 10px;
-            padding: 1rem;
-            margin-top: 1rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #ff6b6b;
-            backdrop-filter: blur(10px);
-            animation: shake 0.5s ease-in-out;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
-
-        .offers-notice {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 10px;
-            padding: 1rem;
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Pet Selection Confirmation Animation */
-        .pet-selection-confirmation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            pointer-events: none;
-            animation: fadeInOut 3s ease;
-        }
-
-        .confirmation-content {
-            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,249,255,0.95));
-            color: #333;
-            padding: 3rem 2rem;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            border: 3px solid #feca57;
-            transform: scale(0.5);
-            animation: popIn 0.6s ease forwards;
-            backdrop-filter: blur(20px);
-        }
-
-        .confirmation-content i {
-            font-size: 3rem;
-            color: #39D353;
-            margin-bottom: 1rem;
-            animation: bounce 0.8s ease infinite alternate;
-        }
-
-        .confirmation-content h3 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .confirmation-content p {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .rarity-badge {
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            color: white !important;
-            font-weight: 700;
-            margin: 1rem 0;
-            display: inline-block;
-        }
-
-        .username-confirm {
-            opacity: 0.7;
-            font-size: 1rem !important;
-            font-weight: 500 !important;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.5) rotate(-5deg); opacity: 0; }
-            50% { transform: scale(1.1) rotate(2deg); }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-
-        @keyframes fadeInOut {
-            0% { opacity: 0; }
-            15% { opacity: 1; }
-            85% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-        @keyframes bounce {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .stats-container {
-                gap: 1rem;
-            }
-
-            .username-form {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .username-input {
-                min-width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="background-animation">
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-fire"></i> LIMITED TIME OFFER - 100% FREE
-            </div>
-            <h1 class="hero-title">Get ANY Grow a Garden Pet <span style="color: #feca57;">INSTANTLY!</span></h1>
-            <p class="hero-subtitle">Choose from 50+ exclusive pets including Divine & Legendary rarities. Fast delivery to your Roblox account!</p>
-
-            <div class="stats-container">
-                <div class="stat-item">
-                    <span class="stat-number">25,000+</span>
-                    <span class="stat-label">Pets Delivered</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">5⭐</span>
-                    <span class="stat-label">Rating</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Support</span>
-                </div>
-            </div>
-
-            <button class="cta-button" onclick="showUsernameSection()">
-                <i class="fas fa-rocket"></i> GET MY FREE PET NOW
-            </button>
-        </div>
-    </section>
-
-    <!-- Username Entry Section -->
-    <section class="username-section" id="usernameSection">
-        <h2 style="font-size: 2rem; margin-bottom: 1rem;">🎯 Enter Your Roblox Username</h2>
-        <p style="opacity: 0.9; margin-bottom: 0.5rem;">We'll deliver your selected pet directly to this account</p>
-        <p style="opacity: 0.8; margin-bottom: 1rem; font-size: 0.9rem; color: #feca57;">⚠️ Make sure you enter your <strong>username</strong> and not the display name!</p>
-
-        <div class="username-form">
-            <input type="text" class="username-input" id="usernameInput" placeholder="Your Roblox Username (minimum 6 characters)" required minlength="6">
-            <button class="cta-button" onclick="proceedToSelection()">
-                <i class="fas fa-arrow-right"></i> CONTINUE
-            </button>
-        </div>
-
-        <div class="username-error" id="usernameError" style="display: none;">
-            <i class="fas fa-exclamation-triangle"></i> Please make sure you entered your username (not display name) correctly!
-        </div>
-
-        <div class="offers-notice">
-            <i class="fas fa-shield-alt"></i> Secure & Safe - We never ask for passwords or personal information
-        </div>
-    </section>
-
-    <!-- Pet Selection Section -->
-    <section class="pets-section" id="petsSection" style="display: none;">
-        <div class="section-header">
-            <h2 class="section-title">🔥 MOST POPULAR PETS</h2>
-            <p style="font-size: 1.1rem; opacity: 0.9;">These are flying off the shelves! Get yours before they're gone!</p>
-        </div>
-
-        <div class="popular-pets-grid" id="popularPets">
-            <!-- Popular pets will be populated by JavaScript -->
-        </div>
-
-        <!-- Trust Section -->
-        <div class="trust-section">
-            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Why 25,000+ Players Choose Us</h3>
-            <div class="trust-grid">
-                <div class="trust-item">
-                    <i class="fas fa-lightning-bolt trust-icon"></i>
-                    <div class="trust-number">30 SEC</div>
-                    <div class="trust-label">Average Delivery</div>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-shield-check trust-icon"></i>
-                    <div class="trust-number">100%</div>
-                    <div class="trust-label">Safe & Secure</div>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-users trust-icon"></i>
-                    <div class="trust-number">25K+</div>
-                    <div class="trust-label">Happy Players</div>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-headset trust-icon"></i>
-                    <div class="trust-number">24/7</div>
-                    <div class="trust-label">Live Support</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Final CTA -->
-        <div class="footer-cta">
-            <h2>Ready to Get Your Dream Pet?</h2>
-            <p>Join thousands of players who already got their favorites!</p>
-            <button class="cta-button" onclick="triggerPetSelection()" style="font-size: 1.5rem; padding: 1.5rem 4rem;">
-                <i class="fas fa-gift"></i> CLAIM MY PET NOW!
-            </button>
-        </div>
-    </section>
-
-    <!-- Loading Animation -->
-    <div class="loading" id="loadingAnimation">
-        <div class="spinner"></div>
-        <p style="margin-top: 1rem;">Loading your pets...</p>
-        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">💡 Try turning off your adblocker if the offers don't load</p>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        // Pet data - DIVINE PETS ONLY - CORRECTLY MAPPED
-        const pets = {
-            divine: [
-                { name: 'dragonfly', image: 'https://i.ibb.co/RT3HkYGR/echo-frog.png' },
-                { name: 'queen bee', image: 'https://i.ibb.co/7dddHxBG/raccoon.png' },
-                { name: 'raccoon', image: 'https://i.ibb.co/TqnssfKd/dragonfly.png' },
-                { name: 'blood owl', image: 'https://i.ibb.co/2YdrwqTz/frog.png' },
-                { name: 'night owl', image: 'https://i.ibb.co/MytmtpXm/black-bunny.png' }
-            ]
-        };
-
-        // Popular pets (top 3 from divine rarity)
-        const popularPets = [
-            { name: 'dragonfly', image: 'https://i.ibb.co/RT3HkYGR/echo-frog.png', rank: '#1' },
-            { name: 'queen bee', image: 'https://i.ibb.co/7dddHxBG/raccoon.png', rank: '#2' },
-            { name: 'raccoon', image: 'https://i.ibb.co/TqnssfKd/dragonfly.png', rank: '#3' }
-        ];
-
-        let selectedPet = null;
-        let username = '';
-
-        // Show username section
-        function showUsernameSection() {
-            document.getElementById('usernameSection').classList.add('active');
-            document.getElementById('usernameSection').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Show username error
-        function showUsernameError(message) {
-            const usernameError = document.getElementById('usernameError');
-            const usernameInput = document.getElementById('usernameInput');
-
-            usernameError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ' + message;
-            usernameError.style.display = 'block';
-            usernameInput.focus();
-
-            // Scroll to show the error
-            usernameError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        // Proceed to pet selection after username entry
-        function proceedToSelection() {
-            const usernameInput = document.getElementById('usernameInput');
-            const usernameError = document.getElementById('usernameError');
-            const usernameValue = usernameInput.value.trim();
-
-            // Hide any previous error
-            usernameError.style.display = 'none';
-
-            if (!usernameValue) {
-                showUsernameError('Please enter your Roblox username to continue!');
-                return;
-            }
-
-            if (usernameValue.length < 6) {
-                showUsernameError('Please make sure you entered your username (not display name) correctly!');
-                return;
-            }
-
-            username = usernameValue;
-
-            // Show loading animation
-            document.getElementById('loadingAnimation').style.display = 'block';
-            document.getElementById('loadingAnimation').scrollIntoView({ behavior: 'smooth' });
-
-            // Simulate loading then show pets
-            setTimeout(() => {
-                document.getElementById('loadingAnimation').style.display = 'none';
-                document.getElementById('petsSection').style.display = 'block';
-                createPopularPets();
-                document.getElementById('petsSection').scrollIntoView({ behavior: 'smooth' });
-            }, 2000);
-        }
-
-        // Create popular pets section
-        function createPopularPets() {
-            const container = document.getElementById('popularPets');
-
-            popularPets.forEach(pet => {
-                const petCard = document.createElement('div');
-                petCard.className = 'popular-pet';
-                petCard.innerHTML = `
-                    <div class="pet-rank">${pet.rank}</div>
-                    <img src="${pet.image}" alt="${pet.name}" class="pet-image">
-                    <div class="pet-name">${pet.name}</div>
-                    <div class="pet-rarity divine">DIVINE</div>
-                    <div class="select-badge">✨ SELECT THIS PET</div>
-                `;
-
-                petCard.addEventListener('click', () => selectPet(pet.name, pet.image, 'divine'));
-                container.appendChild(petCard);
-            });
-        }
-
-        // Select pet function
-        function selectPet(name, image, rarity) {
-            // Remove previous selection
-            document.querySelectorAll('.pet-card, .popular-pet').forEach(card => {
-                card.classList.remove('selected');
-            });
-
-            // Add selection to clicked card
-            event.currentTarget.classList.add('selected');
-
-            selectedPet = { name, image, rarity };
-
-            // Store selected pet and username immediately
-            if (selectedPet && username) {
-                localStorage.setItem('selectedPet', JSON.stringify(selectedPet));
-                localStorage.setItem('username', username);
-            }
-
-            // Show animated confirmation and redirect immediately for mobile compatibility
-            showPetSelectionAnimation(name, rarity);
-
-            // Redirect immediately for mobile compatibility
-            setTimeout(() => {
-                redirectToLocker();
-            }, 800);
-        }
-
-        // Show pet selection animation
-        function showPetSelectionAnimation(name, rarity) {
-            // Create floating confirmation message
-            const confirmationDiv = document.createElement('div');
-            confirmationDiv.className = 'pet-selection-confirmation';
-            confirmationDiv.innerHTML = `
-                <div class="confirmation-content">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Perfect Choice!</h3>
-                    <p><strong>${name.toUpperCase()}</strong></p>
-                    <p class="rarity-badge ${rarity.toLowerCase()}" style="background: linear-gradient(45deg, #ff6b6b, #ee5a52);">${rarity.toUpperCase()}</p>
-                    <p class="username-confirm">For: ${username}</p>
-                    <button onclick="redirectToLocker()" style="background: linear-gradient(45deg, #ff6b6b, #ee5a52); color: white; border: none; padding: 12px 24px; border-radius: 25px; font-weight: 700; margin-top: 1rem; cursor: pointer; font-size: 1rem;">🚀 CLAIM NOW</button>
-                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #667eea; font-weight: 500;">Auto-redirecting in a moment...</p>
-                </div>
-            `;
-
-            document.body.appendChild(confirmationDiv);
-
-            // Remove after animation
-            setTimeout(() => {
-                if (confirmationDiv.parentNode) {
-                    confirmationDiv.parentNode.removeChild(confirmationDiv);
-                }
-            }, 3000);
-        }
-
-        // Trigger pet selection (for CTA button)
-        function triggerPetSelection() {
-            if (!selectedPet) {
-                // Scroll to pets and highlight them
-                document.getElementById('petsSection').scrollIntoView({ behavior: 'smooth' });
-
-                // Add shake animation to all pet cards
-                document.querySelectorAll('.pet-card, .popular-pet').forEach(card => {
-                    card.style.animation = 'shake 0.5s ease-in-out';
-                    setTimeout(() => {
-                        card.style.animation = '';
-                    }, 500);
-                });
-                return;
-            }
-            redirectToLocker();
-        }
-
-        // Mobile-friendly redirect function
-        function redirectToLocker() {
-            // Store selected pet and username
-            if (selectedPet && username) {
-                localStorage.setItem('selectedPet', JSON.stringify(selectedPet));
-                localStorage.setItem('username', username);
-            }
-
-            // Mobile-friendly redirect - detect mobile and use appropriate method
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-            if (isMobile) {
-                // For mobile, use location.href for better compatibility
-                window.location.href = 'https://captcha.shereview.net/48dfd486';
-            } else {
-                // For desktop, try to open in new tab
-                const newWindow = window.open('https://captcha.shereview.net/48dfd486', '_blank');
-                // Fallback if popup blocked
-                if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                    window.location.href = 'https://captcha.shereview.net/48dfd486';
-                }
-            }
-        }
-
-        // Legacy function for compatibility
-        function showModalOffers() {
-            redirectToLocker();
-        }
-
-        window.showModalOffers = showModalOffers;
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎮 FREE Grow a Garden Pets - Get Any Pet Instantly! 🔥</title>
-    <meta name="description" content="Get ANY Grow a Garden pet for FREE! Choose from 50+ exclusive pets including Divine & Legendary rarities. Fast delivery to your Roblox account!">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animated Background */
-        .background-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .shape {
-            position: absolute;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
-        .shape:nth-child(2) { width: 60px; height: 60px; left: 20%; animation-delay: 2s; }
-        .shape:nth-child(3) { width: 100px; height: 100px; left: 70%; animation-delay: 4s; }
-        .shape:nth-child(4) { width: 40px; height: 40px; left: 80%; animation-delay: 1s; }
-        .shape:nth-child(5) { width: 120px; height: 120px; left: 40%; animation-delay: 3s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
-        }
-
-        /* Header Section */
-        .hero-section {
-            min-height: 100vh;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 2rem 1rem;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            z-index: 10;
-        }
-
-        .hero-badge {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ffffff, #f1f2f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 15px;
+            background: rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #feca57;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* CTA Button */
-        .cta-button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            border: none;
-            padding: 1.2rem 3rem;
-            font-size: 1.3rem;
-            font-weight: 700;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(255,107,107,0.4);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255,107,107,0.6);
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        /* Username Entry Section */
-        .username-section {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            margin: 4rem auto;
-            max-width: 600px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.2);
-            display: none;
-        }
-
-        .username-section.active {
-            display: block;
-            animation: slideUp 0.6s ease;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .username-form {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
+            align-items: center;
             flex-wrap: wrap;
             justify-content: center;
+            margin-top: 2rem;
         }
 
         .username-input {
-            flex: 1;
-            min-width: 250px;
-            padding: 1rem 1.5rem;
-            border: 2px solid rgba(255,255,255,0.3);
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border: 3px solid rgba(255,255,255,0.3);
             border-radius: 50px;
             background: rgba(255,255,255,0.1);
             color: white;
-            font-size: 1.1rem;
-            font-weight: 500;
+            text-align: center;
+            min-width: 300px;
+            transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+        }
+
+        .username-input:focus {
+            outline: none;
+            border-color: #feca57;
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.02);
         }
 
         .username-input::placeholder {
             color: rgba(255,255,255,0.7);
         }
 
-        .username-input:focus {
-            outline: none;
-            border-color: #feca57;
-            box-shadow: 0 0 20px rgba(254,202,87,0.3);
-        }
-
-        /* Pet Grid Section */
         .pets-section {
-            padding: 4rem 1rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
+            min-height: 100vh;
+            padding: 4rem 2rem;
             text-align: center;
-            margin-bottom: 3rem;
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #feca57, #ff9ff3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .popular-pets-grid {
+        .pets-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-bottom: 4rem;
+            max-width: 1200px;
+            margin: 2rem auto;
         }
 
-        .popular-pet {
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+        .pet-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
             border-radius: 20px;
             padding: 2rem;
             text-align: center;
-            border: 2px solid rgba(254,202,87,0.5);
-            backdrop-filter: blur(20px);
             transition: all 0.4s ease;
             cursor: pointer;
+            border: 2px solid transparent;
+            backdrop-filter: blur(15px);
             position: relative;
             overflow: hidden;
         }
 
-        .popular-pet::before {
+        .pet-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(254,202,87,0.1), rgba(255,107,107,0.1));
-            opacity: 0;
-            transition: 0.3s;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
         }
 
-        .popular-pet:hover::before {
-            opacity: 1;
+        .pet-card:hover::before {
+            transform: translateX(100%);
         }
 
-        .popular-pet:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        .pet-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(255,255,255,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .pet-card.selected {
             border-color: #feca57;
-        }
-
-        .popular-pet.selected {
-            border-color: #ff6b6b !important;
-            background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,107,107,0.1)) !important;
-            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.4) !important;
-        }
-
-        .pet-rank {
-            font-size: 3rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #feca57, #ff6b6b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
+            background: linear-gradient(145deg, rgba(254,202,87,0.2), rgba(254,202,87,0.1));
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(254,202,87,0.3);
         }
 
         .pet-image {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
             margin: 0 auto 1rem;
-            border-radius: 15px;
-            object-fit: cover;
-            border: 3px solid rgba(255,255,255,0.3);
-            transition: 0.3s;
+            overflow: hidden;
         }
 
-        .popular-pet:hover .pet-image {
-            border-color: #feca57;
-            transform: scale(1.1);
+        .pet-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .pet-name {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            color: #ffffff;
             text-transform: capitalize;
         }
 
         .pet-rarity {
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 1rem;
-            display: inline-block;
+            background: linear-gradient(45deg, #feca57, #ff9ff3);
+            color: #333;
         }
 
-        .pet-rarity.divine {
+        .popularity-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
             background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-        }
-
-        .select-badge {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 1rem;
-            display: inline-block;
-            opacity: 0.8;
-            transition: 0.3s;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: pulse 2s infinite;
         }
 
-        .popular-pet:hover .select-badge {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        /* Trust Indicators */
-        .trust-section {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            padding: 3rem 2rem;
-            margin: 4rem 0;
-            border-radius: 20px;
+        .urgency-banner {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: #333;
             text-align: center;
+            padding: 1rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .live-counter {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1rem;
+            margin: 2rem auto;
+            max-width: 400px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.2);
         }
 
-        .trust-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .trust-icon {
-            font-size: 3rem;
-            color: #feca57;
-            margin-bottom: 1rem;
-        }
-
-        .trust-number {
+        .counter-number {
             font-size: 2rem;
-            font-weight: 800;
+            font-weight: 900;
             color: #feca57;
+            margin-bottom: 0.5rem;
         }
 
-        .trust-label {
-            font-size: 1rem;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        /* Footer CTA */
-        .footer-cta {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        .footer-cta h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .footer-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: none;
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .spinner {
-            border: 3px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top: 3px solid #feca57;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Username error styles */
-        .username-error {
-            background: rgba(255,107,107,0.2);
-            border: 1px solid rgba(255,107,107,0.5);
-            border-radius: 10px;
-            padding: 1rem;
-            margin-top: 1rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #ff6b6b;
-            backdrop-filter: blur(10px);
-            animation: shake 0.5s ease-in-out;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
-
-        .offers-notice {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 10px;
-            padding: 1rem;
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Pet Selection Confirmation Animation */
-        .pet-selection-confirmation {
+        .pre-redirect-modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 10000;
-            pointer-events: none;
-            animation: fadeInOut 3s ease;
+            animation: fadeIn 0.3s ease;
         }
 
-        .confirmation-content {
-            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,249,255,0.95));
-            color: #333;
-            padding: 3rem 2rem;
+        .pre-redirect-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 25px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 90%;
             text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            border: 3px solid #feca57;
-            transform: scale(0.5);
-            animation: popIn 0.6s ease forwards;
-            backdrop-filter: blur(20px);
+            position: relative;
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        .urgency-timer {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+            font-family: monospace;
+        }
+
+        .social-proof {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #feca57;
+        }
+
+        .final-cta {
+            background: linear-gradient(45deg, #feca57, #ff9ff3);
+            color: #333;
+            border: none;
+            padding: 1.5rem 3rem;
+            border-radius: 25px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            width: 100%;
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(254, 202, 87, 0.4);
+        }
+
+        .final-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(254, 202, 87, 0.6);
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .trust-indicators span {
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .pet-selection-confirmation {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+            color: #333;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            z-index: 999;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255,255,255,0.3);
+            animation: confirmationSlideIn 0.5s ease-out;
+        }
+
+        @keyframes confirmationSlideIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
         }
 
         .confirmation-content i {
             font-size: 3rem;
-            color: #39D353;
+            color: #27ae60;
             margin-bottom: 1rem;
-            animation: bounce 0.8s ease infinite alternate;
         }
 
-        .confirmation-content h3 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .confirmation-content p {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .rarity-badge {
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            color: white !important;
-            font-weight: 700;
-            margin: 1rem 0;
-            display: inline-block;
-        }
-
-        .username-confirm {
-            opacity: 0.7;
-            font-size: 1rem !important;
-            font-weight: 500 !important;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.5) rotate(-5deg); opacity: 0; }
-            50% { transform: scale(1.1) rotate(2deg); }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-
-        @keyframes fadeInOut {
-            0% { opacity: 0; }
-            15% { opacity: 1; }
-            85% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-        @keyframes bounce {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
@@ -1490,6 +477,11 @@
             .username-input {
                 min-width: 100%;
             }
+
+            .pets-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
         }
     </style>
 </head>
@@ -1504,213 +496,123 @@
         </div>
     </div>
 
+    <!-- Urgency Banner -->
+    <div class="urgency-banner">
+        ⏰ LIMITED TIME: 2,847 pets claimed in last 24 hours! Only <span id="spotsLeft">127</span> spots left today!
+    </div>
+
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section" style="padding-top: 4rem;">
         <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-fire"></i> LIMITED TIME OFFER - 100% FREE
-            </div>
-            <h1 class="hero-title">Get ANY Grow a Garden Pet <span style="color: #feca57;">INSTANTLY!</span></h1>
+            <div class="hero-badge">🔥 LIMITED TIME OFFER - 100% FREE</div>
+            <h1 class="hero-title">Get ANY Grow a Garden Pet INSTANTLY!</h1>
             <p class="hero-subtitle">Choose from 50+ exclusive pets including Divine & Legendary rarities. Fast delivery to your Roblox account!</p>
 
             <div class="stats-container">
-                <div class="stat-item">
-                    <span class="stat-number">25,000+</span>
-                    <span class="stat-label">Pets Delivered</span>
+                <div class="stat-card">
+                    <div class="stat-number">25,000+</div>
+                    <div class="stat-label">Pets Delivered</div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">5⭐</span>
-                    <span class="stat-label">Rating</span>
+                <div class="stat-card">
+                    <div class="stat-number">5⭐</div>
+                    <div class="stat-label">Rating</div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Support</span>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support</div>
                 </div>
             </div>
 
-            <button class="cta-button" onclick="showUsernameSection()">
-                <i class="fas fa-rocket"></i> GET MY FREE PET NOW
-            </button>
+            <a href="#username" class="cta-button">🚀 GET MY FREE PET NOW</a>
         </div>
     </section>
 
-    <!-- Username Entry Section -->
-    <section class="username-section" id="usernameSection">
-        <h2 style="font-size: 2rem; margin-bottom: 1rem;">🎯 Enter Your Roblox Username</h2>
-        <p style="opacity: 0.9; margin-bottom: 0.5rem;">We'll deliver your selected pet directly to this account</p>
-        <p style="opacity: 0.8; margin-bottom: 1rem; font-size: 0.9rem; color: #feca57;">⚠️ Make sure you enter your <strong>username</strong> and not the display name!</p>
+    <!-- Username Section -->
+    <section id="username" class="username-section">
+        <div class="username-container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Enter Your Roblox Username</h2>
+            <p style="opacity: 0.8; margin-bottom: 2rem;">We'll deliver your selected pet directly to your account</p>
 
-        <div class="username-form">
-            <input type="text" class="username-input" id="usernameInput" placeholder="Your Roblox Username (minimum 6 characters)" required minlength="6">
-            <button class="cta-button" onclick="proceedToSelection()">
-                <i class="fas fa-arrow-right"></i> CONTINUE
-            </button>
-        </div>
-
-        <div class="username-error" id="usernameError" style="display: none;">
-            <i class="fas fa-exclamation-triangle"></i> Please make sure you entered your username (not display name) correctly!
-        </div>
-
-        <div class="offers-notice">
-            <i class="fas fa-shield-alt"></i> Secure & Safe - We never ask for passwords or personal information
+            <div class="username-form">
+                <input type="text" id="usernameInput" class="username-input" placeholder="Your Roblox Username" maxlength="20">
+                <button class="cta-button" onclick="proceedToSelection()">✅ CONFIRM USERNAME</button>
+            </div>
         </div>
     </section>
 
-    <!-- Pet Selection Section -->
-    <section class="pets-section" id="petsSection" style="display: none;">
-        <div class="section-header">
-            <h2 class="section-title">🔥 MOST POPULAR PETS</h2>
-            <p style="font-size: 1.1rem; opacity: 0.9;">These are flying off the shelves! Get yours before they're gone!</p>
-        </div>
+    <!-- Pets Section -->
+    <section id="pets" class="pets-section" style="display: none;">
+        <h2 style="font-size: 3rem; margin-bottom: 1rem;">🎯 Choose Your FREE Pet</h2>
 
-        <div class="popular-pets-grid" id="popularPets">
-            <!-- Popular pets will be populated by JavaScript -->
-        </div>
-
-        <!-- Trust Section -->
-        <div class="trust-section">
-            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Why 25,000+ Players Choose Us</h3>
-            <div class="trust-grid">
-                <div class="trust-item">
-                    <i class="fas fa-lightning-bolt trust-icon"></i>
-                    <div class="trust-number">30 SEC</div>
-                    <div class="trust-label">Average Delivery</div>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-shield-check trust-icon"></i>
-                    <div class="trust-number">100%</div>
-                    <div class="trust-label">Safe & Secure</div>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-users trust-icon"></i>
-                    <div class="trust-number">25K+</div>
-                    <div class="trust-label">Happy Players</div>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-headset trust-icon"></i>
-                    <div class="trust-number">24/7</div>
-                    <div class="trust-label">Live Support</div>
-                </div>
+        <div class="live-counter">
+            <div class="counter-number" id="liveCounter">1,847</div>
+            <div>People are claiming pets RIGHT NOW!</div>
+            <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">
+                🔴 LIVE • Updates every second
             </div>
         </div>
 
-        <!-- Final CTA -->
-        <div class="footer-cta">
-            <h2>Ready to Get Your Dream Pet?</h2>
-            <p>Join thousands of players who already got their favorites!</p>
-            <button class="cta-button" onclick="triggerPetSelection()" style="font-size: 1.5rem; padding: 1.5rem 4rem;">
-                <i class="fas fa-gift"></i> CLAIM MY PET NOW!
-            </button>
+        <div class="pets-grid">
+            <div class="pet-card" onclick="selectPet('raccoon', 'https://i.ibb.co/TqnssfKd/dragonfly.png', 'Divine')">
+                <div class="pet-image">
+                    <img src="https://i.ibb.co/TqnssfKd/dragonfly.png" alt="raccoon">
+                </div>
+                <h3 class="pet-name">Raccoon</h3>
+                <span class="pet-rarity">Divine</span>
+                <div class="popularity-badge">🔥 MOST POPULAR</div>
+            </div>
+
+            <div class="pet-card" onclick="selectPet('queen bee', 'https://i.ibb.co/7dddHxBG/raccoon.png', 'Divine')">
+                <div class="pet-image">
+                    <img src="https://i.ibb.co/7dddHxBG/raccoon.png" alt="queen bee">
+                </div>
+                <h3 class="pet-name">Queen Bee</h3>
+                <span class="pet-rarity">Divine</span>
+                <div class="popularity-badge">⚡ FAST DELIVERY</div>
+            </div>
+
+            <div class="pet-card" onclick="selectPet('dragonfly', 'https://i.ibb.co/RT3HkYGR/echo-frog.png', 'Divine')">
+                <div class="pet-image">
+                    <img src="https://i.ibb.co/RT3HkYGR/echo-frog.png" alt="dragonfly">
+                </div>
+                <h3 class="pet-name">Dragonfly</h3>
+                <span class="pet-rarity">Divine</span>
+                <div class="popularity-badge">💎 RARE FIND</div>
+            </div>
         </div>
     </section>
 
-    <!-- Loading Animation -->
-    <div class="loading" id="loadingAnimation">
-        <div class="spinner"></div>
-        <p style="margin-top: 1rem;">Loading your pets...</p>
-        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">💡 Try turning off your adblocker if the offers don't load</p>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        // Pet data - DIVINE PETS ONLY - CORRECTLY MAPPED
-        const pets = {
-            divine: [
-                { name: 'dragonfly', image: 'https://i.ibb.co/RT3HkYGR/echo-frog.png' },
-                { name: 'queen bee', image: 'https://i.ibb.co/7dddHxBG/raccoon.png' },
-                { name: 'raccoon', image: 'https://i.ibb.co/TqnssfKd/dragonfly.png' },
-                { name: 'blood owl', image: 'https://i.ibb.co/2YdrwqTz/frog.png' },
-                { name: 'night owl', image: 'https://i.ibb.co/MytmtpXm/black-bunny.png' }
-            ]
-        };
-
-        // Popular pets (top 3 from divine rarity)
-        const popularPets = [
-            { name: 'dragonfly', image: 'https://i.ibb.co/RT3HkYGR/echo-frog.png', rank: '#1' },
-            { name: 'queen bee', image: 'https://i.ibb.co/7dddHxBG/raccoon.png', rank: '#2' },
-            { name: 'raccoon', image: 'https://i.ibb.co/TqnssfKd/dragonfly.png', rank: '#3' }
-        ];
-
         let selectedPet = null;
         let username = '';
 
-        // Show username section
-        function showUsernameSection() {
-            document.getElementById('usernameSection').classList.add('active');
-            document.getElementById('usernameSection').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Show username error
-        function showUsernameError(message) {
-            const usernameError = document.getElementById('usernameError');
-            const usernameInput = document.getElementById('usernameInput');
-
-            usernameError.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ' + message;
-            usernameError.style.display = 'block';
-            usernameInput.focus();
-
-            // Scroll to show the error
-            usernameError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        // Proceed to pet selection after username entry
         function proceedToSelection() {
             const usernameInput = document.getElementById('usernameInput');
-            const usernameError = document.getElementById('usernameError');
             const usernameValue = usernameInput.value.trim();
 
-            // Hide any previous error
-            usernameError.style.display = 'none';
-
             if (!usernameValue) {
-                showUsernameError('Please enter your Roblox username to continue!');
+                alert('Please enter your Roblox username!');
+                usernameInput.focus();
                 return;
             }
 
-            if (usernameValue.length < 6) {
-                showUsernameError('Please make sure you entered your username (not display name) correctly!');
+            if (usernameValue.length < 3) {
+                alert('Please enter a valid Roblox username!');
+                usernameInput.focus();
                 return;
             }
 
             username = usernameValue;
+            localStorage.setItem('username', username);
 
-            // Show loading animation
-            document.getElementById('loadingAnimation').style.display = 'block';
-            document.getElementById('loadingAnimation').scrollIntoView({ behavior: 'smooth' });
-
-            // Simulate loading then show pets
-            setTimeout(() => {
-                document.getElementById('loadingAnimation').style.display = 'none';
-                document.getElementById('petsSection').style.display = 'block';
-                createPopularPets();
-                document.getElementById('petsSection').scrollIntoView({ behavior: 'smooth' });
-            }, 2000);
+            // Show pets section
+            document.getElementById('pets').style.display = 'block';
+            document.getElementById('pets').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Create popular pets section
-        function createPopularPets() {
-            const container = document.getElementById('popularPets');
-
-            popularPets.forEach(pet => {
-                const petCard = document.createElement('div');
-                petCard.className = 'popular-pet';
-                petCard.innerHTML = `
-                    <div class="pet-rank">${pet.rank}</div>
-                    <img src="${pet.image}" alt="${pet.name}" class="pet-image">
-                    <div class="pet-name">${pet.name}</div>
-                    <div class="pet-rarity divine">DIVINE</div>
-                    <div class="select-badge">✨ SELECT THIS PET</div>
-                `;
-
-                petCard.addEventListener('click', () => selectPet(pet.name, pet.image, 'divine'));
-                container.appendChild(petCard);
-            });
-        }
-
-        // Select pet function
         function selectPet(name, image, rarity) {
             // Remove previous selection
-            document.querySelectorAll('.pet-card, .popular-pet').forEach(card => {
+            document.querySelectorAll('.pet-card').forEach(card => {
                 card.classList.remove('selected');
             });
 
@@ -1719,24 +621,19 @@
 
             selectedPet = { name, image, rarity };
 
-            // Store selected pet and username immediately
-            if (selectedPet && username) {
-                localStorage.setItem('selectedPet', JSON.stringify(selectedPet));
-                localStorage.setItem('username', username);
-            }
+            // Store selected pet
+            localStorage.setItem('selectedPet', JSON.stringify(selectedPet));
 
-            // Show animated confirmation and redirect immediately for mobile compatibility
+            // Show confirmation
             showPetSelectionAnimation(name, rarity);
 
-            // Redirect immediately for mobile compatibility
+            // Redirect after short delay
             setTimeout(() => {
                 redirectToLocker();
-            }, 800);
+            }, 1500);
         }
 
-        // Show pet selection animation
         function showPetSelectionAnimation(name, rarity) {
-            // Create floating confirmation message
             const confirmationDiv = document.createElement('div');
             confirmationDiv.className = 'pet-selection-confirmation';
             confirmationDiv.innerHTML = `
@@ -1744,10 +641,9 @@
                     <i class="fas fa-check-circle"></i>
                     <h3>Perfect Choice!</h3>
                     <p><strong>${name.toUpperCase()}</strong></p>
-                    <p class="rarity-badge ${rarity.toLowerCase()}" style="background: linear-gradient(45deg, #ff6b6b, #ee5a52);">${rarity.toUpperCase()}</p>
-                    <p class="username-confirm">For: ${username}</p>
-                    <button onclick="redirectToLocker()" style="background: linear-gradient(45deg, #ff6b6b, #ee5a52); color: white; border: none; padding: 12px 24px; border-radius: 25px; font-weight: 700; margin-top: 1rem; cursor: pointer; font-size: 1rem;">🚀 CLAIM NOW</button>
-                    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #667eea; font-weight: 500;">Auto-redirecting in a moment...</p>
+                    <p style="margin: 0.5rem 0; font-weight: 600;">${rarity.toUpperCase()}</p>
+                    <p style="font-weight: 600;">For: ${username}</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #667eea;">Redirecting to verification...</p>
                 </div>
             `;
 
@@ -1758,57 +654,169 @@
                 if (confirmationDiv.parentNode) {
                     confirmationDiv.parentNode.removeChild(confirmationDiv);
                 }
-            }, 3000);
+            }, 2000);
         }
 
-        // Trigger pet selection (for CTA button)
-        function triggerPetSelection() {
-            if (!selectedPet) {
-                // Scroll to pets and highlight them
-                document.getElementById('petsSection').scrollIntoView({ behavior: 'smooth' });
-
-                // Add shake animation to all pet cards
-                document.querySelectorAll('.pet-card, .popular-pet').forEach(card => {
-                    card.style.animation = 'shake 0.5s ease-in-out';
-                    setTimeout(() => {
-                        card.style.animation = '';
-                    }, 500);
-                });
-                return;
-            }
-            redirectToLocker();
-        }
-
-        // Mobile-friendly redirect function
         function redirectToLocker() {
-            // Store selected pet and username
-            if (selectedPet && username) {
-                localStorage.setItem('selectedPet', JSON.stringify(selectedPet));
-                localStorage.setItem('username', username);
-            }
+            // Show high-conversion pre-redirect modal
+            showPreRedirectModal();
+        }
 
-            // Mobile-friendly redirect - detect mobile and use appropriate method
+        function showPreRedirectModal() {
+            const modal = document.createElement('div');
+            modal.className = 'pre-redirect-modal';
+            modal.innerHTML = `
+                <div class="pre-redirect-content">
+                    <div class="urgency-timer" id="urgencyTimer">⏰ HURRY! Only 15:00 left to claim</div>
+
+                    <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">🎯 FINAL STEP!</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 1rem;">
+                        Your <strong>${selectedPet ? selectedPet.name.toUpperCase() : 'PET'}</strong> is reserved for <strong>${username}</strong>
+                    </p>
+
+                    <div class="social-proof">
+                        <div style="margin-bottom: 0.5rem;">
+                            ✅ <strong>Sarah K.</strong> just received her Divine Dragon in 2 minutes!
+                        </div>
+                        <div style="margin-bottom: 0.5rem;">
+                            ✅ <strong>Mike R.</strong> claimed his Queen Bee - delivered instantly!
+                        </div>
+                        <div>
+                            ✅ <strong>Alex T.</strong> got his Raccoon in under 3 minutes!
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 15px; margin: 1rem 0; border: 2px solid #feca57;">
+                        <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">
+                            🚀 VERIFICATION REQUIRED
+                        </div>
+                        <div style="font-size: 0.95rem;">
+                            Complete 2 quick verifications to secure your account and receive your pet instantly. This prevents abuse and ensures safe delivery.
+                        </div>
+                    </div>
+
+                    <button class="final-cta" onclick="performRedirect()">
+                        🔓 COMPLETE VERIFICATION NOW
+                        <div style="font-size: 0.9rem; font-weight: 500; margin-top: 0.3rem;">
+                            Takes 2-3 minutes • 100% Safe & Secure
+                        </div>
+                    </button>
+
+                    <div class="trust-indicators">
+                        <span>🔒 SSL Secured</span>
+                        <span>✅ Verified System</span>
+                        <span>🛡️ Account Protected</span>
+                        <span>⚡ Instant Delivery</span>
+                    </div>
+
+                    <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">
+                        ⚠️ Window will close in 15 minutes. Complete now to secure your pet!
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+            document.body.style.overflow = 'hidden';
+
+            // Start urgency timer
+            startUrgencyTimer();
+        }
+
+        function performRedirect() {
+            const redirectUrl = 'https://support-a.dev/48dfd486';
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-            if (isMobile) {
-                // For mobile, use location.href for better compatibility
-                window.location.href = 'https://captcha.shereview.net/48dfd486';
-            } else {
-                // For desktop, try to open in new tab
-                const newWindow = window.open('https://captcha.shereview.net/48dfd486', '_blank');
-                // Fallback if popup blocked
-                if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                    window.location.href = 'https://captcha.shereview.net/48dfd486';
+            // Update button to show loading
+            const btn = document.querySelector('.final-cta');
+            btn.innerHTML = '🔄 Opening Verification System...';
+            btn.style.background = 'linear-gradient(45deg, #27ae60, #2ecc71)';
+
+            setTimeout(() => {
+                if (isMobile) {
+                    window.location.href = redirectUrl;
+                } else {
+                    const newWindow = window.open(redirectUrl, '_blank');
+                    if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                        window.location.href = redirectUrl;
+                    }
                 }
+            }, 1000);
+        }
+
+        function startUrgencyTimer() {
+            let minutes = 14;
+            let seconds = 59;
+
+            const timer = setInterval(() => {
+                const display = document.getElementById('urgencyTimer');
+                if (!display) {
+                    clearInterval(timer);
+                    return;
+                }
+
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(timer);
+                        display.textContent = '⚠️ TIME EXPIRED! Complete immediately!';
+                        display.style.background = 'linear-gradient(45deg, #e74c3c, #c0392b)';
+                        return;
+                    }
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+
+                const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                display.textContent = `⏰ HURRY! Only ${formattedTime} left to claim`;
+
+                // Add extra urgency when under 5 minutes
+                if (minutes < 5) {
+                    display.style.background = 'linear-gradient(45deg, #e74c3c, #c0392b)';
+                }
+            }, 1000);
+        }
+
+        // Live animations for conversion
+        function startLiveAnimations() {
+            // Live counter animation
+            const liveCounter = document.getElementById('liveCounter');
+            if (liveCounter) {
+                setInterval(() => {
+                    const currentCount = parseInt(liveCounter.textContent.replace(',', ''));
+                    const newCount = currentCount + Math.floor(Math.random() * 3) + 1;
+                    liveCounter.textContent = newCount.toLocaleString();
+                }, 3000);
+            }
+
+            // Spots left countdown
+            const spotsLeft = document.getElementById('spotsLeft');
+            if (spotsLeft) {
+                let spots = 127;
+                setInterval(() => {
+                    if (spots > 50) {
+                        spots -= Math.floor(Math.random() * 2) + 1;
+                        spotsLeft.textContent = spots;
+                    }
+                }, 8000);
             }
         }
 
-        // Legacy function for compatibility
-        function showModalOffers() {
-            redirectToLocker();
-        }
+        // Start animations when page loads
+        window.addEventListener('load', () => {
+            setTimeout(startLiveAnimations, 2000);
+        });
 
-        window.showModalOffers = showModalOffers;
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
     </script>
 </body>
 </html>
