@@ -434,7 +434,7 @@
     <div class="main-container">
         <div class="grass-header">
             <h1 class="title">Claim Rewards</h1>
-            <p class="subtitle">Choose any Pet Reward:</p>
+            <p class="subtitle">Choose any Reward:</p>
         </div>
 
         <div class="content">
@@ -449,21 +449,21 @@
         <div class="modal-content">
             <div class="close-btn" onclick="closeModal()">&times;</div>
             <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle">Amazing Pet Awaits!</h2>
+                <h2 class="modal-title" id="modalTitle">Amazing Reward Awaits!</h2>
             </div>
             <div class="modal-body">
                 <img id="modalPetImage" src="" alt="" class="modal-pet-image">
                 <h3 id="modalPetName" class="excitement-text"></h3>
 
                 <div id="step1" class="step">
-                    <p class="excitement-text">🎉 You're about to unlock an INCREDIBLE pet!</p>
+                    <p class="excitement-text">🎉 You're about to unlock an INCREDIBLE reward!</p>
                     <p class="excitement-text">This rare <span id="petNameSpan"></span> will be yours in just a few seconds!</p>
-                    <button class="big-button" onclick="nextStep()">GET MY PET NOW!</button>
+                    <button class="big-button" onclick="nextStep()">GET MY REWARD NOW!</button>
                     <button class="big-button cancel" onclick="closeModal()">Maybe Later</button>
                 </div>
 
                 <div id="step2" class="step" style="display: none;">
-                    <p class="excitement-text">⚡ Almost there! Your pet is waiting...</p>
+                    <p class="excitement-text">⚡ Almost there! Your reward is waiting...</p>
                     <p class="excitement-text">Complete one quick task to claim your <span id="petNameSpan2"></span>!</p>
                     <div class="countdown" id="countdown">3</div>
                     <p style="font-size: 1.1rem;">Redirecting to claim your reward...</p>
@@ -474,7 +474,7 @@
 
     <script>
 
-        const pets = [
+        const rewards = [
             {
                 id: 2,
                 name: 'Disco Bee',
@@ -495,9 +495,9 @@
             },
             {
                 id: 5,
-                name: 'Cherry Blossom',
+                name: 'Candy Blossom',
                 image: 'https://ext.same-assets.com/1312039806/1088847273.png',
-                description: 'Beautiful spring spirit that brings luck!'
+                description: 'Sweet magical item that brings good fortune!'
             }
         ];
 
@@ -509,7 +509,7 @@
             const grid = document.getElementById('petsGrid');
             grid.innerHTML = '';
 
-            pets.forEach(pet => {
+            rewards.forEach(pet => {
                 const card = document.createElement('div');
                 card.className = 'pet-card';
                 card.onclick = () => openModal(pet);
