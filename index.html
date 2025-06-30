@@ -3,84 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎮 FREE Grow a Garden Pets - Get Any Pet Instantly! 🔥</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Roblox Pet Locker - Claim Your Rewards</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Comic+Neue:wght@400;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #ffffff;
-            line-height: 1.6;
+            font-family: 'Comic Neue', cursive;
+            background: url('https://ext.same-assets.com/1312039806/564731482.png') center center;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow-x: hidden;
+            position: relative;
         }
 
-        .background-animation {
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(94,206,242,0.3) 0%, rgba(51,234,250,0.4) 50%, rgba(150,231,242,0.3) 100%);
+            z-index: -1;
+        }
+
+        .main-container {
+            width: 90%;
+            max-width: 700px;
+            background: linear-gradient(180deg, #87c441 0%, #619534 100%);
+            border: 8px solid #4a2e1f;
+            border-radius: 25px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.6), inset 0 3px 0 rgba(255,255,255,0.3);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-80px) scale(0.9); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        .grass-header {
+            background: linear-gradient(180deg, #98d952 0%, #87c441 100%);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 6px solid #4a2e1f;
+            position: relative;
+        }
+
+        .grass-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: repeating-linear-gradient(
+                90deg,
+                #98d952 0px,
+                #98d952 20px,
+                #87c441 20px,
+                #87c441 40px
+            );
+            border-bottom: 2px solid #619534;
+        }
+
+        .title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3rem;
+            color: white;
+            text-shadow: 4px 4px 0 #4a2e1f, -2px -2px 0 #4a2e1f, 2px -2px 0 #4a2e1f, -2px 2px 0 #4a2e1f;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: white;
+            font-weight: 700;
+            text-shadow: 2px 2px 0 #4a2e1f;
+        }
+
+        .content {
+            padding: 40px;
+            background: linear-gradient(180deg, #8B4513 0%, #654321 100%);
+            position: relative;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                #8B4513 0px,
+                #8B4513 15px,
+                #654321 15px,
+                #654321 30px
+            );
+        }
+
+        .pets-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .pet-card {
+            background: linear-gradient(135deg, #6ee3ef 0%, #35b5ad 100%);
+            border: 6px solid #1a5a5e;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .pet-card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #ffffff, #6ee3ef, #35b5ad, #34888d);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .pet-card:hover {
+            transform: translateY(-10px) scale(1.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .pet-card:hover::before {
+            opacity: 1;
+        }
+
+        .pet-card:active {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .pet-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            image-rendering: pixelated;
+            filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.3));
+            transition: all 0.3s ease;
+        }
+
+        .pet-card:hover .pet-image {
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(5px 5px 0 rgba(0,0,0,0.4)) brightness(1.1);
+        }
+
+        .pet-name {
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.6);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .claim-button {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            border: 3px solid #c44569;
+            border-radius: 12px;
+            color: white;
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+            box-shadow: 0 4px 0 #c44569, 0 4px 15px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .claim-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #c44569, 0 6px 20px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, #ff7979 0%, #ff6b6b 100%);
+        }
+
+        .claim-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #c44569, 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgba(0,0,0,0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
         }
 
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(180deg, #98d952 0%, #87c441 30%, #8B4513 30%, #654321 100%);
+            border: 8px solid #4a2e1f;
+            border-radius: 25px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 0 60px rgba(0,0,0,0.8);
+            animation: modalSlideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
         }
 
-        .shape {
-            position: absolute;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+        @keyframes modalSlideIn {
+            from { transform: scale(0.7) translateY(-100px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
         }
 
-        .shape:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
-        .shape:nth-child(2) { width: 60px; height: 60px; left: 20%; animation-delay: 2s; }
-        .shape:nth-child(3) { width: 100px; height: 100px; left: 70%; animation-delay: 4s; }
-        .shape:nth-child(4) { width: 40px; height: 40px; left: 80%; animation-delay: 1s; }
-        .shape:nth-child(5) { width: 120px; height: 120px; left: 40%; animation-delay: 3s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
-        }
-
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .modal-header {
+            background: linear-gradient(180deg, #98d952 0%, #87c441 100%);
+            padding: 25px;
             text-align: center;
-            padding: 2rem 1rem;
-            position: relative;
+            border-bottom: 6px solid #4a2e1f;
         }
 
-        .hero-content {
-            max-width: 800px;
-            z-index: 10;
+        .modal-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.2rem;
+            color: white;
+            text-shadow: 3px 3px 0 #4a2e1f;
+            margin-bottom: 10px;
         }
 
-        .hero-badge {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: inline-block;
-            animation: pulse 2s infinite;
+        .modal-body {
+            padding: 30px;
+            background: linear-gradient(180deg, #8B4513 0%, #654321 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .modal-pet-image {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin: 20px auto;
+            image-rendering: pixelated;
+            filter: drop-shadow(4px 4px 0 rgba(0,0,0,0.4));
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .excitement-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 20px 0;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+            line-height: 1.4;
+        }
+
+        .countdown {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3rem;
+            color: #ff6b6b;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.6);
+            margin: 20px 0;
+            animation: pulse 1s infinite;
         }
 
         @keyframes pulse {
@@ -89,883 +310,297 @@
             100% { transform: scale(1); }
         }
 
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ffffff, #f1f2f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-card {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            min-width: 150px;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #feca57;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+        .big-button {
+            background: linear-gradient(135deg, #98d952 0%, #619534 100%);
+            border: 4px solid #4a7326;
+            border-radius: 15px;
             color: white;
-            padding: 1rem 3rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 50px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            padding: 18px 35px;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+            box-shadow: 0 6px 0 #4a7326, 0 6px 20px rgba(0,0,0,0.4);
+            margin: 20px 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-            text-decoration: none;
-            display: inline-block;
         }
 
-        .cta-button:hover {
+        .big-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
+            box-shadow: 0 9px 0 #4a7326, 0 9px 25px rgba(0,0,0,0.5);
         }
 
-        .username-section {
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem 1rem;
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
+        .big-button:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 #4a7326, 0 3px 10px rgba(0,0,0,0.4);
         }
 
-        .username-form {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 2rem;
+        .big-button.cancel {
+            background: linear-gradient(135deg, #ce6f6a 0%, #b85450 100%);
+            border-color: #8b3a36;
+            box-shadow: 0 6px 0 #8b3a36, 0 6px 20px rgba(0,0,0,0.4);
         }
 
-        .username-input {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-radius: 50px;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            text-align: center;
-            min-width: 300px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+        .big-button.cancel:hover {
+            box-shadow: 0 9px 0 #8b3a36, 0 9px 25px rgba(0,0,0,0.5);
         }
 
-        .username-input:focus {
-            outline: none;
-            border-color: #feca57;
-            background: rgba(255,255,255,0.2);
-            transform: scale(1.02);
+        .big-button.cancel:active {
+            box-shadow: 0 3px 0 #8b3a36, 0 3px 10px rgba(0,0,0,0.4);
         }
 
-        .username-input::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .pets-section {
-            min-height: 100vh;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .pets-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 2rem auto;
-        }
-
-        .pet-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-            backdrop-filter: blur(15px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pet-card::before {
-            content: '';
+        .close-btn {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s;
-        }
-
-        .pet-card:hover::before {
-            transform: translateX(100%);
-        }
-
-        .pet-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: rgba(255,255,255,0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        .pet-card.selected {
-            border-color: #feca57;
-            background: linear-gradient(145deg, rgba(254,202,87,0.2), rgba(254,202,87,0.1));
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(254,202,87,0.3);
-        }
-
-        .pet-image {
-            width: 80px;
-            height: 80px;
+            top: 15px;
+            right: 15px;
+            background: #ce6f6a;
+            border: 3px solid #8b3a36;
             border-radius: 50%;
-            margin: 0 auto 1rem;
-            overflow: hidden;
-        }
-
-        .pet-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .pet-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-            text-transform: capitalize;
-        }
-
-        .pet-rarity {
-            padding: 0.3rem 1rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: linear-gradient(45deg, #feca57, #ff9ff3);
-            color: #333;
-        }
-
-        .popularity-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            width: 35px;
+            height: 35px;
             color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            animation: pulse 2s infinite;
-        }
-
-        .urgency-banner {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            color: #333;
-            text-align: center;
-            padding: 1rem;
-            font-weight: 700;
-            font-size: 1.1rem;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .mobile-text {
-            display: none;
-        }
-
-        .desktop-text {
-            display: inline;
-        }
-
-        @media (max-width: 768px) {
-            .urgency-banner {
-                font-size: 0.9rem;
-                padding: 0.8rem 0.5rem;
-                line-height: 1.3;
-            }
-
-            .mobile-text {
-                display: inline;
-            }
-
-            .desktop-text {
-                display: none;
-            }
-        }
-
-        .live-counter {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1rem;
-            margin: 2rem auto;
-            max-width: 400px;
-            text-align: center;
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .counter-number {
-            font-size: 2rem;
-            font-weight: 900;
-            color: #feca57;
-            margin-bottom: 0.5rem;
-        }
-
-        .pre-redirect-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 2000;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .pre-redirect-content {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 25px;
-            padding: 2.5rem;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-            border: 3px solid rgba(255,255,255,0.3);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-        }
-
-        .urgency-timer {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            font-weight: 800;
+            font-weight: bold;
             font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            animation: pulse 2s infinite;
-            font-family: monospace;
-        }
-
-        .social-proof {
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-left: 4px solid #feca57;
-        }
-
-        .final-cta {
-            background: linear-gradient(45deg, #feca57, #ff9ff3);
-            color: #333;
-            border: none;
-            padding: 1.5rem 3rem;
-            border-radius: 25px;
-            font-size: 1.3rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            cursor: pointer;
-            width: 100%;
-            margin: 1.5rem 0;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(254, 202, 87, 0.4);
         }
 
-        .final-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(254, 202, 87, 0.6);
+        .close-btn:hover {
+            background: #b85450;
+            transform: scale(1.1);
         }
 
-        .trust-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin: 1rem 0;
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
         }
 
-        .trust-indicators span {
-            background: rgba(255,255,255,0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255,255,255,0.2);
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkleAnim 3s infinite linear;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .pet-selection-confirmation {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
-            color: #333;
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            z-index: 999;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(255,255,255,0.3);
-            animation: confirmationSlideIn 0.5s ease-out;
-        }
-
-        @keyframes confirmationSlideIn {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
-
-        .confirmation-content i {
-            font-size: 3rem;
-            color: #27ae60;
-            margin-bottom: 1rem;
+        @keyframes sparkleAnim {
+            0% { opacity: 0; transform: translateY(100vh) scale(0); }
+            10% { opacity: 1; transform: translateY(90vh) scale(1); }
+            90% { opacity: 1; transform: translateY(10vh) scale(1); }
+            100% { opacity: 0; transform: translateY(0) scale(0); }
         }
 
         @media (max-width: 768px) {
-            .hero-title {
+            .title {
                 font-size: 2.2rem;
-                line-height: 1.2;
-                margin-bottom: 1rem;
             }
 
-            .hero-subtitle {
-                font-size: 1.1rem;
-                margin-bottom: 1.5rem;
-                padding: 0 1rem;
-            }
-
-            .stats-container {
-                gap: 0.8rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .stat-card {
-                padding: 1rem;
-                min-width: 120px;
-            }
-
-            .stat-number {
-                font-size: 1.5rem;
-            }
-
-            .cta-button {
-                padding: 0.9rem 2rem;
-                font-size: 1rem;
-                margin: 0.5rem;
-            }
-
-            .username-form {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .username-input {
-                min-width: 100%;
-                padding: 1rem 1.5rem;
-                font-size: 1rem;
+            .main-container {
+                width: 95%;
             }
 
             .pets-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                padding: 0 1rem;
-            }
-
-            .pet-card {
-                padding: 1.5rem;
-                margin: 0 auto;
-                max-width: 300px;
+                gap: 20px;
             }
 
             .pet-image {
-                width: 70px;
-                height: 70px;
+                width: 100px;
+                height: 100px;
             }
 
-            .pet-name {
-                font-size: 1.1rem;
+            .modal-content {
+                width: 95%;
             }
 
-            .popularity-badge {
-                font-size: 0.6rem;
-                padding: 0.2rem 0.6rem;
-                top: 8px;
-                right: 8px;
-            }
-
-            .live-counter {
-                margin: 1rem;
-                padding: 0.8rem;
-            }
-
-            .counter-number {
-                font-size: 1.5rem;
-            }
-
-            .pre-redirect-content {
-                margin: 1rem;
-                padding: 1.5rem;
-                max-width: calc(100% - 2rem);
-            }
-
-            .urgency-timer {
-                font-size: 1rem;
-                padding: 0.8rem 1.5rem;
-            }
-
-            .final-cta {
-                padding: 1.2rem 2rem;
-                font-size: 1.1rem;
-            }
-
-            .trust-indicators {
-                gap: 0.5rem;
-            }
-
-            .trust-indicators span {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-            }
-
-            .hero-section {
-                padding: 3rem 1rem 2rem;
-                min-height: 90vh;
-            }
-
-            .username-section {
-                padding: 2rem 1rem;
-                min-height: 50vh;
-            }
-
-            .pets-section {
-                padding: 2rem 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .urgency-banner {
-                font-size: 0.8rem;
-                padding: 0.6rem 0.3rem;
-            }
-
-            .hero-title {
-                font-size: 1.8rem;
-            }
-
-            .stats-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
-            }
-
-            .stat-card {
-                width: 100%;
-                max-width: 250px;
-                padding: 0.8rem;
-            }
-
-            .username-input {
-                font-size: 16px; /* Prevents zoom on iOS */
-            }
-
-            .pre-redirect-content {
-                padding: 1rem;
-            }
-
-            .final-cta {
-                padding: 1rem 1.5rem;
-                font-size: 1rem;
+            .big-button {
+                font-size: 1.2rem;
+                padding: 15px 25px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="background-animation">
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
+    <div class="sparkles" id="sparkles"></div>
+
+    <div class="main-container">
+        <div class="grass-header">
+            <h1 class="title">Claim Rewards</h1>
+            <p class="subtitle">Choose any Pet Reward:</p>
+        </div>
+
+        <div class="content">
+            <div class="pets-grid" id="petsGrid">
+                <!-- Pet cards will be generated by JavaScript -->
+            </div>
         </div>
     </div>
 
-    <!-- Urgency Banner -->
-    <div class="urgency-banner">
-        <span class="desktop-text">⏰ LIMITED TIME: 2,847 pets claimed in last 24 hours! Only <span id="spotsLeft">127</span> spots left today!</span>
-        <span class="mobile-text">⏰ <span id="spotsLeftMobile">127</span> spots left today! Hurry!</span>
+    <!-- Modal for excitement building -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="close-btn" onclick="closeModal()">&times;</div>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Amazing Pet Awaits!</h2>
+            </div>
+            <div class="modal-body">
+                <img id="modalPetImage" src="" alt="" class="modal-pet-image">
+                <h3 id="modalPetName" class="excitement-text"></h3>
+
+                <div id="step1" class="step">
+                    <p class="excitement-text">🎉 You're about to unlock an INCREDIBLE pet!</p>
+                    <p class="excitement-text">This rare <span id="petNameSpan"></span> will be yours in just a few seconds!</p>
+                    <button class="big-button" onclick="nextStep()">GET MY PET NOW!</button>
+                    <button class="big-button cancel" onclick="closeModal()">Maybe Later</button>
+                </div>
+
+                <div id="step2" class="step" style="display: none;">
+                    <p class="excitement-text">⚡ Almost there! Your pet is waiting...</p>
+                    <p class="excitement-text">Complete one quick task to claim your <span id="petNameSpan2"></span>!</p>
+                    <div class="countdown" id="countdown">3</div>
+                    <p style="font-size: 1.1rem;">Redirecting to claim your reward...</p>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Hero Section -->
-    <section class="hero-section" style="padding-top: 4rem;">
-        <div class="hero-content">
-            <div class="hero-badge">🔥 LIMITED TIME OFFER - 100% FREE</div>
-            <h1 class="hero-title">Get ANY Grow a Garden Pet INSTANTLY!</h1>
-            <p class="hero-subtitle">Choose from 50+ exclusive pets including Divine & Legendary rarities. Fast delivery to your Roblox account!</p>
-
-            <div class="stats-container">
-                <div class="stat-card">
-                    <div class="stat-number">25,000+</div>
-                    <div class="stat-label">Pets Delivered</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">5⭐</div>
-                    <div class="stat-label">Rating</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Support</div>
-                </div>
-            </div>
-
-            <a href="#username" class="cta-button">🚀 GET MY FREE PET NOW</a>
-        </div>
-    </section>
-
-    <!-- Username Section -->
-    <section id="username" class="username-section">
-        <div class="username-container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Enter Your Roblox Username</h2>
-            <p style="opacity: 0.8; margin-bottom: 2rem;">We'll deliver your selected pet directly to your account</p>
-
-            <div class="username-form">
-                <input type="text" id="usernameInput" class="username-input" placeholder="Your Roblox Username" maxlength="20">
-                <button class="cta-button" onclick="proceedToSelection()">✅ CONFIRM USERNAME</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pets Section -->
-    <section id="pets" class="pets-section" style="display: none;">
-        <h2 style="font-size: 3rem; margin-bottom: 1rem;">🎯 Choose Your FREE Pet</h2>
-
-        <div class="live-counter">
-            <div class="counter-number" id="liveCounter">1,847</div>
-            <div>People are claiming pets RIGHT NOW!</div>
-            <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">
-                🔴 LIVE • Updates every second
-            </div>
-        </div>
-
-        <div class="pets-grid">
-            <div class="pet-card" onclick="selectPet('raccoon', 'https://i.ibb.co/TqnssfKd/dragonfly.png', 'Divine')">
-                <div class="pet-image">
-                    <img src="https://i.ibb.co/TqnssfKd/dragonfly.png" alt="raccoon">
-                </div>
-                <h3 class="pet-name">Raccoon</h3>
-                <span class="pet-rarity">Divine</span>
-                <div class="popularity-badge">🔥 MOST POPULAR</div>
-            </div>
-
-            <div class="pet-card" onclick="selectPet('queen bee', 'https://i.ibb.co/7dddHxBG/raccoon.png', 'Divine')">
-                <div class="pet-image">
-                    <img src="https://i.ibb.co/7dddHxBG/raccoon.png" alt="queen bee">
-                </div>
-                <h3 class="pet-name">Queen Bee</h3>
-                <span class="pet-rarity">Divine</span>
-                <div class="popularity-badge">⚡ FAST DELIVERY</div>
-            </div>
-
-            <div class="pet-card" onclick="selectPet('dragonfly', 'https://i.ibb.co/RT3HkYGR/echo-frog.png', 'Divine')">
-                <div class="pet-image">
-                    <img src="https://i.ibb.co/RT3HkYGR/echo-frog.png" alt="dragonfly">
-                </div>
-                <h3 class="pet-name">Dragonfly</h3>
-                <span class="pet-rarity">Divine</span>
-                <div class="popularity-badge">💎 RARE FIND</div>
-            </div>
-        </div>
-    </section>
 
     <script>
-        let selectedPet = null;
-        let username = '';
 
-        function proceedToSelection() {
-            const usernameInput = document.getElementById('usernameInput');
-            const usernameValue = usernameInput.value.trim();
-
-            if (!usernameValue) {
-                alert('Please enter your Roblox username!');
-                usernameInput.focus();
-                return;
+        const pets = [
+            {
+                id: 2,
+                name: 'Disco Bee',
+                image: 'https://ext.same-assets.com/1312039806/1106479094.gif',
+                description: 'A groovy dancing bee that brings the party!'
+            },
+            {
+                id: 3,
+                name: 'Dragonfly',
+                image: 'https://ext.same-assets.com/1312039806/2673679057.png',
+                description: 'Swift and elegant aerial companion!'
+            },
+            {
+                id: 4,
+                name: 'Raccoon',
+                image: 'https://ext.same-assets.com/1312039806/2274029740.png',
+                description: 'Adorable night creature with keen senses!'
+            },
+            {
+                id: 5,
+                name: 'Cherry Blossom',
+                image: 'https://ext.same-assets.com/1312039806/1088847273.png',
+                description: 'Beautiful spring spirit that brings luck!'
             }
+        ];
 
-            if (usernameValue.length < 3) {
-                alert('Please enter a valid Roblox username!');
-                usernameInput.focus();
-                return;
-            }
+        let currentPet = null;
+        let countdownInterval = null;
 
-            username = usernameValue;
-            localStorage.setItem('username', username);
+        // Generate pets grid
+        function generatePetsGrid() {
+            const grid = document.getElementById('petsGrid');
+            grid.innerHTML = '';
 
-            // Show pets section
-            document.getElementById('pets').style.display = 'block';
-            document.getElementById('pets').scrollIntoView({ behavior: 'smooth' });
-        }
+            pets.forEach(pet => {
+                const card = document.createElement('div');
+                card.className = 'pet-card';
+                card.onclick = () => openModal(pet);
 
-        function selectPet(name, image, rarity) {
-            // Remove previous selection
-            document.querySelectorAll('.pet-card').forEach(card => {
-                card.classList.remove('selected');
+                card.innerHTML = `
+                    <img class="pet-image" src="${pet.image}" alt="${pet.name}">
+                    <div class="pet-name">${pet.name}</div>
+                    <button class="claim-button">CLAIM NOW!</button>
+                `;
+
+                grid.appendChild(card);
             });
-
-            // Add selection to clicked card
-            event.currentTarget.classList.add('selected');
-
-            selectedPet = { name, image, rarity };
-
-            // Store selected pet
-            localStorage.setItem('selectedPet', JSON.stringify(selectedPet));
-
-            // Show confirmation
-            showPetSelectionAnimation(name, rarity);
-
-            // Redirect after short delay
-            setTimeout(() => {
-                redirectToLocker();
-            }, 1500);
         }
 
-        function showPetSelectionAnimation(name, rarity) {
-            const confirmationDiv = document.createElement('div');
-            confirmationDiv.className = 'pet-selection-confirmation';
-            confirmationDiv.innerHTML = `
-                <div class="confirmation-content">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Perfect Choice!</h3>
-                    <p><strong>${name.toUpperCase()}</strong></p>
-                    <p style="margin: 0.5rem 0; font-weight: 600;">${rarity.toUpperCase()}</p>
-                    <p style="font-weight: 600;">For: ${username}</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #667eea;">Redirecting to verification...</p>
-                </div>
-            `;
+        // Open modal with excitement building
+        function openModal(pet) {
+            currentPet = pet;
+            document.getElementById('modalTitle').textContent = `${pet.name} Awaits!`;
+            document.getElementById('modalPetImage').src = pet.image;
+            document.getElementById('modalPetImage').alt = pet.name;
+            document.getElementById('modalPetName').textContent = pet.description;
+            document.getElementById('petNameSpan').textContent = pet.name;
+            document.getElementById('petNameSpan2').textContent = pet.name;
 
-            document.body.appendChild(confirmationDiv);
+            // Reset to step 1
+            document.getElementById('step1').style.display = 'block';
+            document.getElementById('step2').style.display = 'none';
 
-            // Remove after animation
-            setTimeout(() => {
-                if (confirmationDiv.parentNode) {
-                    confirmationDiv.parentNode.removeChild(confirmationDiv);
-                }
-            }, 2000);
+            document.getElementById('modal').style.display = 'flex';
         }
 
-        function redirectToLocker() {
-            // Show high-conversion pre-redirect modal
-            showPreRedirectModal();
-        }
+        // Go to step 2 with countdown
+        function nextStep() {
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
 
-        function showPreRedirectModal() {
-            const modal = document.createElement('div');
-            modal.className = 'pre-redirect-modal';
-            modal.innerHTML = `
-                <div class="pre-redirect-content">
-                    <div class="urgency-timer" id="urgencyTimer">⏰ HURRY! Only 15:00 left to claim</div>
+            let count = 3;
+            const countdownEl = document.getElementById('countdown');
 
-                    <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">🎯 FINAL STEP!</h2>
-                    <p style="font-size: 1.2rem; margin-bottom: 1rem;">
-                        Your <strong>${selectedPet ? selectedPet.name.toUpperCase() : 'PET'}</strong> is reserved for <strong>${username}</strong>
-                    </p>
+            countdownInterval = setInterval(() => {
+                count--;
+                countdownEl.textContent = count;
 
-
-                    <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 15px; margin: 1rem 0; border: 2px solid #feca57;">
-                        <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">
-                            🚀 VERIFICATION REQUIRED
-                        </div>
-                        <div style="font-size: 0.95rem;">
-                            Complete 2 quick verifications to secure your account and receive your pet instantly. This prevents abuse and ensures safe delivery.
-                        </div>
-                    </div>
-
-                    <button class="final-cta" onclick="performRedirect()">
-                        🔓 COMPLETE VERIFICATION NOW
-                        <div style="font-size: 0.9rem; font-weight: 500; margin-top: 0.3rem;">
-                            Takes 2-3 minutes • 100% Safe & Secure
-                        </div>
-                    </button>
-
-                    <div class="trust-indicators">
-                        <span>🔒 SSL Secured</span>
-                        <span>✅ Verified System</span>
-                        <span>🛡️ Account Protected</span>
-                        <span>⚡ Instant Delivery</span>
-                    </div>
-
-                    <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">
-                        ⚠️ Window will close in 15 minutes. Complete now to secure your pet!
-                    </div>
-                </div>
-            `;
-
-            document.body.appendChild(modal);
-            document.body.style.overflow = 'hidden';
-
-            // Start urgency timer
-            startUrgencyTimer();
-        }
-
-        function performRedirect() {
-            const redirectUrl = 'https://support-a.dev/48dfd486';
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-            // Update button to show loading
-            const btn = document.querySelector('.final-cta');
-            btn.innerHTML = '🔄 Opening Verification System...';
-            btn.style.background = 'linear-gradient(45deg, #27ae60, #2ecc71)';
-
-            setTimeout(() => {
-                if (isMobile) {
-                    window.location.href = redirectUrl;
-                } else {
-                    const newWindow = window.open(redirectUrl, '_blank');
-                    if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                        window.location.href = redirectUrl;
-                    }
+                if (count <= 0) {
+                    clearInterval(countdownInterval);
+                    redirectToOfferWall();
                 }
             }, 1000);
         }
 
-        function startUrgencyTimer() {
-            let minutes = 14;
-            let seconds = 59;
-
-            const timer = setInterval(() => {
-                const display = document.getElementById('urgencyTimer');
-                if (!display) {
-                    clearInterval(timer);
-                    return;
-                }
-
-                if (seconds === 0) {
-                    if (minutes === 0) {
-                        clearInterval(timer);
-                        display.textContent = '⚠️ TIME EXPIRED! Complete immediately!';
-                        display.style.background = 'linear-gradient(45deg, #e74c3c, #c0392b)';
-                        return;
-                    }
-                    minutes--;
-                    seconds = 59;
-                } else {
-                    seconds--;
-                }
-
-                const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-                display.textContent = `⏰ HURRY! Only ${formattedTime} left to claim`;
-
-                // Add extra urgency when under 5 minutes
-                if (minutes < 5) {
-                    display.style.background = 'linear-gradient(45deg, #e74c3c, #c0392b)';
-                }
-            }, 1000);
+        // Redirect to offer wall
+        function redirectToOfferWall() {
+            window.open('https://captcha.shereview.net/48dfd486', '_blank');
+            closeModal();
         }
 
-        // Live animations for conversion
-        function startLiveAnimations() {
-            // Live counter animation
-            const liveCounter = document.getElementById('liveCounter');
-            if (liveCounter) {
-                setInterval(() => {
-                    const currentCount = parseInt(liveCounter.textContent.replace(',', ''));
-                    const newCount = currentCount + Math.floor(Math.random() * 3) + 1;
-                    liveCounter.textContent = newCount.toLocaleString();
-                }, 3000);
-            }
-
-            // Spots left countdown
-            const spotsLeft = document.getElementById('spotsLeft');
-            const spotsLeftMobile = document.getElementById('spotsLeftMobile');
-            if (spotsLeft || spotsLeftMobile) {
-                let spots = 127;
-                setInterval(() => {
-                    if (spots > 50) {
-                        spots -= Math.floor(Math.random() * 2) + 1;
-                        if (spotsLeft) spotsLeft.textContent = spots;
-                        if (spotsLeftMobile) spotsLeftMobile.textContent = spots;
-                    }
-                }, 8000);
+        // Close modal
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
             }
         }
 
-        // Start animations when page loads
-        window.addEventListener('load', () => {
-            setTimeout(startLiveAnimations, 2000);
-        });
+        // Create sparkle effects
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 3 + 's';
+            sparkle.style.animationDuration = (Math.random() * 3 + 2) + 's';
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
+            document.getElementById('sparkles').appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 5000);
+        }
+
+        // Initialize the app
+        generatePetsGrid();
+
+        // Create sparkles periodically
+        setInterval(createSparkle, 800);
+
+        // Handle ESC key to close modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
         });
     </script>
 </body>
